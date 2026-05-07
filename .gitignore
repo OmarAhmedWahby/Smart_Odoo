@@ -1,8 +1,5 @@
 
 
-# Databicks
-00_conifg.ipynb
-
 # Environments
 .env
 .envrc
@@ -12,4 +9,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+
+
+# Databicks
+**/00_config.ipynb
 
