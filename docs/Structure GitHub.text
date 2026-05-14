@@ -1,0 +1,56 @@
+smart_odoo/
+│
+├── README.md
+├── LICENSE
+
+│
+├── docs/
+│   ├── architecture-diagram.png
+│   ├── data-model.png
+│   └── project-roadmap.md
+│
+├── infrastructure/
+│   ├── docker/
+│   │	├── docker-compose.yml
+│   │   └── .env.example
+│   ├── airflow/
+│   └── monitoring/	
+│   	
+├── data_engineering/
+│   ├── bronze/
+│   │   └── sql/
+│   ├── silver/
+│   │   └── transformations/
+│   ├── gold/
+│   │   └── star_schema/
+│   ├── airflow_dags/
+│   └── utils/
+│
+├── data_warehouse/
+│   ├── fact_tables/
+│   ├── dimension_tables/
+│   └── views/
+│
+├── analytics/
+│   ├── kpi_definitions/
+│   ├── notebooks/
+│   └── reports/
+│
+├── machine_learning/
+│   ├── data_preparation/
+│   ├── models/
+│   ├── training/
+│   ├── evaluation/
+│   └── saved_models/
+│
+├── backend/
+│   ├── api/
+│   ├── services/
+│   └── authentication/
+│
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   └── dashboard/
+│
+└── tests/
