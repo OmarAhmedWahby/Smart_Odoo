@@ -1,0 +1,22 @@
+resources:
+
+  jobs:
+
+    master_job:
+
+      name: master_job
+
+      tasks:
+
+        - task_key: bronze_layer
+
+          run_job_task:
+            job_id: ${resources.jobs.bronze_job.id}
+
+        - task_key: silver_layer
+
+          depends_on:
+            - task_key: bronze_layer
+
+          run_job_task:
+            job_id: ${resources.jobs.silver_job.id}

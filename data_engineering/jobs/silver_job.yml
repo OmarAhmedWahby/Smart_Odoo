@@ -1,0 +1,22 @@
+resources:
+
+  jobs:
+
+    bronze_job:
+
+      name: bronze_job
+
+      tasks:
+
+        - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ./notebooks/bronze/00_InIt_db
+            
+        - task_key: Bronze_layer
+
+          notebook_task:
+            notebook_path: ./notebooks/bronze/01_PartnerUser.py
+
+          notebook_task:
+            notebook_path: ./notebooks/bronze/02_Product.py
