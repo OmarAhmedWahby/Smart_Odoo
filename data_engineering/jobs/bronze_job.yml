@@ -22,7 +22,7 @@ resources:
           job_cluster_key: bronze_cluster
 
           notebook_task:
-            notebook_path: ./notebooks/bronze/00_InIt_db
+            notebook_path: ./notebooks/bronze/00_InIt_db.ipynb
             
         - task_key: 01_PartnerUser
             
@@ -32,11 +32,11 @@ resources:
           job_cluster_key: bronze_cluster
 
           notebook_task:
-            notebook_path: ./notebooks/bronze/01_PartnerUser
+            notebook_path: ./notebooks/bronze/01_PartnerUser.ipynb
         
         - task_key: 02_Product
 
           job_cluster_key: bronze_cluster
 
           notebook_task:  
-           notebook_path: ./notebooks/bronze/02_Product
+           notebook_path: ./notebooks/bronze/02_Product.ipynb

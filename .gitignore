@@ -2,3 +2,6 @@
 
 # Environments
 .env
+
+.databricks/
+.vscode/
