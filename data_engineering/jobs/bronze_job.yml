@@ -6,37 +6,22 @@ resources:
 
       name: bronze_job
 
-      job_clusters:
-
-        - job_cluster_key: bronze_cluster
-
-          new_cluster:
-            spark_version: 15.4.x-scala2.12
-            node_type_id: Standard_DS3_v2
-            num_workers: 1
-
       tasks:
 
         - task_key: Init_db
 
-          job_cluster_key: bronze_cluster
-
           notebook_task:
-            notebook_path: ./notebooks/bronze/00_InIt_db.ipynb
+            notebook_path: ../notebooks/bronze_layer/00_InIt_db.ipynb
             
         - task_key: 01_PartnerUser
             
           depends_on:
             - task_key: Init_db
 
-          job_cluster_key: bronze_cluster
-
           notebook_task:
-            notebook_path: ./notebooks/bronze/01_PartnerUser.ipynb
+            notebook_path: ../notebooks/bronze_layer/01_PartnerUser.ipynb
         
         - task_key: 02_Product
 
-          job_cluster_key: bronze_cluster
-
           notebook_task:  
-           notebook_path: ./notebooks/bronze/02_Product.ipynb
+            notebook_path: ../notebooks/bronze_layer/02_Product.ipynb
