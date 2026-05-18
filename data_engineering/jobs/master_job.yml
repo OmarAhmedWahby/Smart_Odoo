@@ -13,10 +13,23 @@ resources:
           run_job_task:
             job_id: ${resources.jobs.bronze_job.id}
 
+        - task_key: extract_data
+
+          run_job_task:
+            job_id: ${resources.jobs.extractdata_job.id}
+
         - task_key: silver_layer
 
           depends_on:
-            - task_key: bronze_layer
+            - task_key: extract_data
 
           run_job_task:
             job_id: ${resources.jobs.silver_job.id}
+
+        - task_key: gold_layer
+
+          depends_on:
+            - task_key: silver_layer
+
+          run_job_task:
+            job_id: ${resources.jobs.gold_job.id}

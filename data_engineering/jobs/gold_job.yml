@@ -2,16 +2,16 @@ resources:
 
   jobs:
 
-    silver_job:
+    gold_job:
 
-      name: silver_job
+      name: gold_job
 
       tasks:
 
         - task_key: PartnerUser
             
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/01_PartnerUser.ipynb
+            notebook_path: ../notebooks/gold_layer/01_PartnerUser.ipynb
         
         - task_key: Product
           
@@ -19,7 +19,7 @@ resources:
             - task_key: PartnerUser
 
           notebook_task:  
-            notebook_path: ../notebooks/silver_layer/02_Product.ipynb
+            notebook_path: ../notebooks/gold_layer/02_Product.ipynb
 
         - task_key: Sales
             
@@ -27,7 +27,7 @@ resources:
             - task_key: PartnerUser
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/03_Sale.ipynb
+            notebook_path: ../notebooks/gold_layer/03_Sale.ipynb
 
         - task_key: Purchase
             
@@ -35,7 +35,7 @@ resources:
             - task_key: Sales
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/04_Purchase.ipynb
+            notebook_path: ../notebooks/gold_layer/04_Purchase.ipynb
 
         - task_key: Stocks
             
@@ -43,7 +43,7 @@ resources:
             - task_key: Sales
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/05_Stocks.ipynb
+            notebook_path: ../notebooks/gold_layer/05_Stocks.ipynb
 
         - task_key: Crm
             
@@ -51,12 +51,12 @@ resources:
             - task_key: Sales
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/06_Crm.ipynb
+            notebook_path: ../notebooks/gold_layer/06_Crm.ipynb
 
         - task_key: Hr
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/07_Hr.ipynb
+            notebook_path: ../notebooks/gold_layer/07_Hr.ipynb
 
         - task_key: Invoice
             
@@ -64,4 +64,12 @@ resources:
             - task_key: Sales
 
           notebook_task:
-            notebook_path: ../notebooks/silver_layer/08_invoice.ipynb
+            notebook_path: ../notebooks/gold_layer/08_invoice.ipynb
+
+        - task_key: Date
+            
+          depends_on:
+            - task_key: Sales
+
+          notebook_task:
+            notebook_path: ../notebooks/gold_layer/99_Date.ipynb

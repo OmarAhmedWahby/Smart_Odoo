@@ -1,0 +1,14 @@
+resources:
+
+  jobs:
+
+    extractdata_job:
+
+      name: extractdata_job
+
+      tasks:
+
+        - task_key: extractdata_task
+            
+          notebook_task:
+            notebook_path: ../notebooks/odoo_ingestion/04_pipeline.ipynb

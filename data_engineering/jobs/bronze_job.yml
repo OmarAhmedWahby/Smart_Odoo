@@ -13,7 +13,7 @@ resources:
           notebook_task:
             notebook_path: ../notebooks/bronze_layer/00_InIt_db.ipynb
             
-        - task_key: 01_PartnerUser
+        - task_key: PartnerUser
             
           depends_on:
             - task_key: Init_db
@@ -21,7 +21,58 @@ resources:
           notebook_task:
             notebook_path: ../notebooks/bronze_layer/01_PartnerUser.ipynb
         
-        - task_key: 02_Product
+        - task_key: Product
+          
+          depends_on:
+            - task_key: Init_db
 
           notebook_task:  
             notebook_path: ../notebooks/bronze_layer/02_Product.ipynb
+
+        - task_key: Sales
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/03_Sale.ipynb
+
+        - task_key: Purchase
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/04_Purchase.ipynb
+
+        - task_key: Stocks
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/05_Stocks.ipynb
+
+        - task_key: Crm
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/06_Crm.ipynb
+
+        - task_key: Hr
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/07_Hr.ipynb
+
+        - task_key: Invoice
+            
+          depends_on:
+            - task_key: Init_db
+
+          notebook_task:
+            notebook_path: ../notebooks/bronze_layer/08_invoice.ipynb
