@@ -15,6 +15,9 @@ resources:
 
         - task_key: extract_data
 
+          depends_on:
+            - task_key: bronze_layer
+
           run_job_task:
             job_id: ${resources.jobs.extractdata_job.id}
 
