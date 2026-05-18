@@ -51,7 +51,7 @@ resources:
             - task_key: Init_db
 
           notebook_task:
-            notebook_path: ../notebooks/bronze_layer/05_Stocks.ipynb
+            notebook_path: ../notebooks/bronze_layer/05_Stock.ipynb
 
         - task_key: Crm
             

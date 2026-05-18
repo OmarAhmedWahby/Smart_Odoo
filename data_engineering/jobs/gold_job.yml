@@ -43,7 +43,7 @@ resources:
             - task_key: Sales
 
           notebook_task:
-            notebook_path: ../notebooks/gold_layer/05_Stocks.ipynb
+            notebook_path: ../notebooks/gold_layer/05_Stock.ipynb
 
         - task_key: Crm
             
