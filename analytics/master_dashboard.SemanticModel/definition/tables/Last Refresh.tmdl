@@ -1,0 +1,31 @@
+table 'Last Refresh'
+	lineageTag: 6743560e-bd0c-4f0c-9315-15ac1890bb91
+
+	measure 'Last Refresh' =
+			
+			MAX('Last Refresh'[LastRefresh])
+		lineageTag: fd1bc720-7cb0-41e4-af3e-d0ab47648661
+
+	column LastRefresh
+		dataType: string
+		lineageTag: 6be1ecaa-302f-419d-a1be-9c354c0baf83
+		summarizeBy: none
+		sourceColumn: LastRefresh
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Last Refresh' = m
+		mode: import
+		source =
+				let
+				    Source = #table(
+				        {"LastRefresh"},
+				        {{DateTime.LocalNow()}}
+				    )
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

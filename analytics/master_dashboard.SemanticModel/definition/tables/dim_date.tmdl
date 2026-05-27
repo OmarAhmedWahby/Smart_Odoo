@@ -1,0 +1,183 @@
+table dim_date
+	lineageTag: de24e350-da38-48f1-979b-e0ae88d1e500
+
+	column full_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: edc1a6ac-6934-4790-9524-c47980ffaebe
+		summarizeBy: none
+		sourceColumn: full_date
+
+		variation Variation
+			isDefault
+			relationship: ed6e55d6-8965-444c-b50d-6a0805604d5f
+			defaultHierarchy: LocalDateTable_25b34f2a-1661-4c8c-bf51-473ccb14b3b0.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 05b3cb58-1509-4354-a506-a979e7b2656a
+		summarizeBy: sum
+		sourceColumn: year_number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 587b7b0d-dfae-4859-b460-7f34a4295151
+		summarizeBy: sum
+		sourceColumn: quarter_number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b7c9b9d-b172-4820-813a-cea1ae85ea5d
+		summarizeBy: sum
+		sourceColumn: month_number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: d84686f3-7f12-4f6f-9332-681905e8049a
+		summarizeBy: none
+		sourceColumn: month_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_short
+		dataType: string
+		lineageTag: e29046e4-d0b3-4d17-a983-b164a3931f35
+		summarizeBy: none
+		sourceColumn: month_short
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: b2e4a20e-81e2-4ed6-9232-e90537497fb8
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: 462ebca5-f9ac-41eb-9159-41eec81cbf82
+		summarizeBy: none
+		sourceColumn: day_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_short
+		dataType: string
+		lineageTag: b185fdc7-f8e8-45d9-9821-a90c10a1e9b1
+		summarizeBy: none
+		sourceColumn: day_short
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_month
+		dataType: int64
+		formatString: 0
+		lineageTag: a47b238e-f853-48cb-a1fd-816f29b6a960
+		summarizeBy: sum
+		sourceColumn: day_of_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_of_year
+		dataType: int64
+		formatString: 0
+		lineageTag: d6f7d76b-6201-4c43-8347-50ce7c8d9790
+		summarizeBy: sum
+		sourceColumn: week_of_year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4556a814-1616-4a73-9c78-78dd99fc9e63
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 72ba1296-ddef-41d5-b6f2-d361357611f1
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 16416857-d5f0-4f2a-b2c2-6a4e32570363
+			defaultHierarchy: LocalDateTable_06482cf2-7ad8-4cbe-b437-1619344e66b6.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fc207b4a-9784-4467-b0ac-1822cff5ac96
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: d5ae2d3a-3c22-48db-b21d-c3e8a8340ac6
+			defaultHierarchy: LocalDateTable_52839776-70b6-43de-a10e-7049188a4501.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_date_Table = gold_Schema{[Name="dim_date",Kind="Table"]}[Data]
+				in
+				    dim_date_Table
+
+	annotation PBI_ResultType = Table
+

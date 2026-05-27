@@ -1,0 +1,301 @@
+table fact_purchase_order
+	lineageTag: 780a0657-cad5-434e-bc51-541c45c4bda3
+
+	column purchase_order_line_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 255e732a-4b75-4833-b1d3-77b41dbd52dd
+		summarizeBy: sum
+		sourceColumn: purchase_order_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_order_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a1675b0b-11ea-4176-b04e-d541b3f27af1
+		summarizeBy: sum
+		sourceColumn: purchase_order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 27bc9adb-6dfd-4dde-9969-2de9161f527f
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3123546e-261f-4596-b438-df6991e5ed19
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column picking_type_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d93fe9a1-6a8d-4e9d-a56c-88a39260998a
+		summarizeBy: sum
+		sourceColumn: picking_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_user_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b960b42d-f71e-4220-a147-cf4269ecda3b
+		summarizeBy: sum
+		sourceColumn: purchase_user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 89970913-174a-494f-9009-9de1e0af1ea0
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_uom_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b35ade8b-2b68-421c-895d-fce33d8db2ee
+		summarizeBy: sum
+		sourceColumn: product_uom_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_status
+		dataType: string
+		lineageTag: 94f38817-5f96-4066-87a5-1bdc1b6cb9e5
+		summarizeBy: none
+		sourceColumn: purchase_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_status
+		dataType: string
+		lineageTag: 42edaa85-969e-42af-b745-12b18a52792f
+		summarizeBy: none
+		sourceColumn: invoice_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_untaxed
+		dataType: double
+		lineageTag: 580805a8-c16c-420a-a23b-7c57c9abbfbc
+		summarizeBy: sum
+		sourceColumn: amount_untaxed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_tax
+		dataType: double
+		lineageTag: 9d580760-c30d-4fd6-b908-2b753ab061f7
+		summarizeBy: sum
+		sourceColumn: amount_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_total
+		dataType: double
+		lineageTag: 14ebaca3-29fb-4d6c-858e-dce58e2550e7
+		summarizeBy: sum
+		sourceColumn: amount_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_qty
+		dataType: double
+		lineageTag: b4727eb6-6768-41f5-a9cb-e9bd0f113b2b
+		summarizeBy: sum
+		sourceColumn: product_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_uom_qty
+		dataType: double
+		lineageTag: da015639-eee4-46ba-a799-f5c0af9cdc0c
+		summarizeBy: sum
+		sourceColumn: product_uom_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_unit
+		dataType: double
+		lineageTag: 267347e7-5108-4ce4-be45-c9438245b770
+		summarizeBy: sum
+		sourceColumn: price_unit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_subtotal
+		dataType: double
+		lineageTag: 0b8c20aa-0b3a-4bdf-bc53-a8895648191f
+		summarizeBy: sum
+		sourceColumn: price_subtotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_total
+		dataType: double
+		lineageTag: 651a983b-60ea-4ed5-93f3-9fa40fac4b98
+		summarizeBy: sum
+		sourceColumn: price_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qty_invoiced
+		dataType: double
+		lineageTag: b0b98786-ebf4-4426-a092-6e21429834d3
+		summarizeBy: sum
+		sourceColumn: qty_invoiced
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qty_received
+		dataType: double
+		lineageTag: 2ed81e78-a213-48ca-8ac7-67afa2f6857b
+		summarizeBy: sum
+		sourceColumn: qty_received
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qty_to_invoice
+		dataType: double
+		lineageTag: 447e2ee3-7ff7-4afb-b997-72883adc924b
+		summarizeBy: sum
+		sourceColumn: qty_to_invoice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount
+		dataType: double
+		lineageTag: b9b57900-477c-4e06-b0be-e41ddb012d1c
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_purchase
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 78915a8a-a5f6-48ec-8487-8df89fcd0597
+		summarizeBy: none
+		sourceColumn: date_purchase
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_approve
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ef93a7c4-3718-421b-8705-5ec75379bfbf
+		summarizeBy: none
+		sourceColumn: date_approve
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_planned
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 25383eb9-5f5b-49ba-bbc0-a98d29ce7f86
+		summarizeBy: none
+		sourceColumn: date_planned
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 18490ad5-6706-4664-a0d4-85683af2d2ca
+		summarizeBy: none
+		sourceColumn: order_created_at
+
+		variation Variation
+			isDefault
+			relationship: 69cdb468-63ae-491b-b0ec-2731a883a6a2
+			defaultHierarchy: LocalDateTable_6dcc90f7-a90a-471c-83be-ea6fa7a0959e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e01f9c5-d0b5-4dd1-9120-0e297450cd58
+		summarizeBy: none
+		sourceColumn: order_updated_at
+
+		variation Variation
+			isDefault
+			relationship: 37338326-0397-4d26-a03b-cd96f60ceccb
+			defaultHierarchy: LocalDateTable_4fb605cf-494e-4dd0-8efb-22e3cb4faed6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6eee93ed-75af-408b-8700-ece2213c5a89
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 0db81283-5c09-4536-a830-61aec8679b29
+			defaultHierarchy: LocalDateTable_bc6326a8-f5b8-40fc-b814-5fbde2add9c8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_purchase_order = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_purchase_order_Table = gold_Schema{[Name="fact_purchase_order",Kind="Table"]}[Data]
+				in
+				    fact_purchase_order_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

@@ -1,0 +1,201 @@
+table fact_sales
+	lineageTag: 2a0ce623-88a9-4285-9a00-c0bf856ef793
+
+	column sale_order_line_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f1af91e-7215-4a65-a090-c69458e8aad0
+		summarizeBy: sum
+		sourceColumn: sale_order_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b301e2df-4012-43f2-a7f6-74eb5dcd6ae9
+		summarizeBy: sum
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e5d5963c-e05e-4b12-b93c-0221dad19e5b
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: dc93b9b6-4ab2-4dbf-8073-54112dcf8510
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_state
+		dataType: string
+		lineageTag: 693346f6-fe22-42a3-b70a-05cf5fe321d8
+		summarizeBy: none
+		sourceColumn: order_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_status
+		dataType: string
+		lineageTag: 14dba09b-71f0-451b-8229-cef5cd82d290
+		summarizeBy: none
+		sourceColumn: invoice_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 06d76ac0-2969-46f3-8267-59f2f388eff7
+		summarizeBy: none
+		sourceColumn: order_date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column product_qty
+		dataType: double
+		lineageTag: 2f3be287-bebd-470c-a019-5c23150b03aa
+		summarizeBy: sum
+		sourceColumn: product_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_unit
+		dataType: double
+		lineageTag: cec5fd79-f9e7-423e-a446-069e51d3c9a8
+		summarizeBy: sum
+		sourceColumn: price_unit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount
+		dataType: double
+		lineageTag: bed51527-b5b3-48ad-8fee-2c27ca263c99
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_subtotal
+		dataType: double
+		lineageTag: 4888c84c-6ec5-45b6-b19b-681c47e5276d
+		summarizeBy: sum
+		sourceColumn: price_subtotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_total
+		dataType: double
+		lineageTag: 6e843e55-fd7f-4c27-b589-7dfa030b50d5
+		summarizeBy: sum
+		sourceColumn: price_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_tax
+		dataType: double
+		lineageTag: 5b2ee562-407b-4dcf-b40d-a5f51b6d39e0
+		summarizeBy: sum
+		sourceColumn: price_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_revenue
+		dataType: double
+		lineageTag: afec2990-3a76-4888-b496-25170a2ac4f8
+		summarizeBy: sum
+		sourceColumn: net_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_revenue
+		dataType: double
+		lineageTag: 28d55a92-06a4-4349-9c5e-1d5bfab292be
+		summarizeBy: sum
+		sourceColumn: gross_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d5bc59d-bcb7-4abd-a5c2-dfc7a33d4045
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 19d93fd3-c974-4248-849f-bc5871c5a690
+			defaultHierarchy: LocalDateTable_04e7b291-7b68-42d5-ad43-aff28c746bda.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d20cdd0-2714-45b2-8b99-0f00d2535d3e
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 52321fb8-ce2f-4db0-992c-f0bdf98238e3
+			defaultHierarchy: LocalDateTable_2cfc8071-8f86-4256-9691-824e4c426e08.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 33534962-97b5-4dc2-a250-ea1bcd68f57e
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 58e4c7e5-179d-4b28-be22-4b1cb9eaaf7e
+			defaultHierarchy: LocalDateTable_366781c6-c305-44ee-800a-f96249d20f9d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_sales_Table = gold_Schema{[Name="fact_sales",Kind="Table"]}[Data]
+				in
+				    fact_sales_Table
+

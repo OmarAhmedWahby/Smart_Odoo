@@ -1,0 +1,234 @@
+table dim_product
+	lineageTag: 12d3efd0-3175-4c94-bce7-5e565aa61a41
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c1aa78d-cad6-4f16-b9c5-3cd042599213
+		summarizeBy: none
+		sourceColumn: product_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column categ_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e0cf96f6-6ec2-48ac-8963-77164e27446c
+		summarizeBy: sum
+		sourceColumn: categ_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sku
+		dataType: string
+		lineageTag: 04d1f940-dfa0-462d-9769-a0073229e57b
+		summarizeBy: none
+		sourceColumn: product_sku
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 6b739ed0-cdd4-4341-822c-5e783ff87ef3
+		summarizeBy: none
+		sourceColumn: product_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_type
+		dataType: string
+		lineageTag: f1829465-4664-430c-9f04-55acb1c91ba5
+		summarizeBy: none
+		sourceColumn: product_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_status
+		dataType: string
+		lineageTag: db7a432f-1732-4b76-81bb-87ffcb674668
+		summarizeBy: none
+		sourceColumn: product_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_list_price
+		dataType: double
+		lineageTag: 4af0c521-919a-4d6a-9ce1-f9e5048839c1
+		summarizeBy: sum
+		sourceColumn: product_list_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_cost
+		dataType: double
+		lineageTag: 02a8ae70-e579-43f3-830c-2ec0b4d30d98
+		summarizeBy: sum
+		sourceColumn: product_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_gross_margin_estimated
+		dataType: double
+		lineageTag: 5b399bb8-3345-4137-9f2f-a1571de7403e
+		summarizeBy: sum
+		sourceColumn: product_gross_margin_estimated
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column weight
+		dataType: double
+		lineageTag: 1d9292b9-efbd-485c-82d6-ed92431b336b
+		summarizeBy: sum
+		sourceColumn: weight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column volume
+		dataType: double
+		lineageTag: ddd21a97-cdad-4cbf-838c-2afdc7b5ba58
+		summarizeBy: sum
+		sourceColumn: volume
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sale_ok
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 02183ec1-1c1f-4a89-85d5-9ac0f1499314
+		summarizeBy: none
+		sourceColumn: sale_ok
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_ok
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e8db2d4c-8016-4a42-907f-30023672518b
+		summarizeBy: none
+		sourceColumn: purchase_ok
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column categ_name
+		dataType: string
+		lineageTag: 5130e03d-7acb-4e83-8197-599f9b85a160
+		summarizeBy: none
+		sourceColumn: categ_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_full_name
+		dataType: string
+		lineageTag: 32eef456-2c55-4fa2-b7fa-98820927a88f
+		summarizeBy: none
+		sourceColumn: category_full_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d37eb008-7219-4dae-a431-524cf8e1af54
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 647507bd-1c5c-487e-adda-77fee29f8e41
+			defaultHierarchy: LocalDateTable_8d01520a-aa0d-4721-ab3f-2c219a902360.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column updated_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 08001c15-48ec-4fd0-aa5d-5c8fd8bc90d2
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 37d7fd54-e588-40df-a098-b1980a8f39d8
+			defaultHierarchy: LocalDateTable_4ffb365e-8367-4077-862e-0351ead0b6d9.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3d84a5cb-39db-4c5d-bc6f-16726083932a
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 027a4fe7-0632-4a10-b4fe-b7865e2249c1
+			defaultHierarchy: LocalDateTable_5006f01c-0034-4745-8abd-eaa97934440b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_product_Table = gold_Schema{[Name="dim_product",Kind="Table"]}[Data]
+				in
+				    dim_product_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

@@ -1,0 +1,49 @@
+table 'Sales KPIs'
+	lineageTag: 187b583e-4a8f-41b6-a878-0f5553c11673
+
+	column 'Sales KPIs'
+		lineageTag: a26dc1cf-0d89-4573-b1d3-895e06ae8fe5
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Sales KPIs Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Sales KPIs Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales KPIs Fields'
+		isHidden
+		lineageTag: 54b4db99-624c-42d1-a9a9-91e7d87c2679
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Sales KPIs Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales KPIs Order'
+		isHidden
+		formatString: 0
+		lineageTag: 5973f855-8b7e-4633-b7ad-3403d10acc93
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales KPIs' = calculated
+		mode: import
+		source =
+				{
+				    ("Net Revenue", NAMEOF('01_SalesMeasures'[Realized Revenue]), 0),
+				    ("Completed Orders", NAMEOF('01_SalesMeasures'[Completed Orders]), 1),
+				    ("Total Quantity Sold", NAMEOF('01_SalesMeasures'[Total Quantity Sold]), 2)
+				}
+
+	annotation PBI_Id = e4b99dcf38f04f42a41379a197269f22
+

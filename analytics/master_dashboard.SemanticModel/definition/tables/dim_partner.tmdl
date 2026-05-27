@@ -1,0 +1,227 @@
+table dim_partner
+	lineageTag: 341a7b12-4128-4152-b330-1a86848b38e5
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 53ef8fca-25b2-47a7-88e4-5471426acd2a
+		summarizeBy: none
+		sourceColumn: partner_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d05deb90-e691-443e-963a-441ab83474a6
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cb07f3a5-6ccc-4046-a23a-2b5fd09640d1
+		summarizeBy: sum
+		sourceColumn: parent_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column commercial_partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ab3f3bc0-cce1-4b58-949d-532d13b9a893
+		summarizeBy: sum
+		sourceColumn: commercial_partner_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c133ac3-1fa2-4755-b6a8-694a6a08bda0
+		summarizeBy: sum
+		sourceColumn: country_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6920d694-a191-4345-9062-b6590f6101b7
+		summarizeBy: sum
+		sourceColumn: state_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c7ceb6a1-eb9d-47df-94ea-7d6cd2118294
+		summarizeBy: sum
+		sourceColumn: industry_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_name
+		dataType: string
+		lineageTag: 5b08fbf8-a497-439a-bb75-7bdd6786341a
+		summarizeBy: none
+		sourceColumn: partner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_type
+		dataType: string
+		lineageTag: 4d6b561d-bb39-4168-b832-adc4b43fb32e
+		summarizeBy: none
+		sourceColumn: partner_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_company
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a3dce3fc-2947-4e74-a642-7b395f6be478
+		summarizeBy: none
+		sourceColumn: is_company
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6beeeb35-285f-4a58-ab9e-d9fa4f363f3c
+		summarizeBy: none
+		sourceColumn: active
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: ac9536c4-b5bd-4cb2-b757-0df6d3a9c162
+		summarizeBy: sum
+		sourceColumn: customer_rank
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 44d10d9c-6e9e-45c4-9064-225ded86f6ca
+		summarizeBy: sum
+		sourceColumn: supplier_rank
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 7c6b396f-a3e6-4682-aeb4-b8fd4289d3ef
+		summarizeBy: none
+		sourceColumn: email
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: 5610c341-4e64-444d-93b4-ea740bf6625d
+		summarizeBy: none
+		sourceColumn: phone
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 14b2e10e-a678-432a-9be2-21e214429661
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 4fe65c72-70e0-402c-9dd9-7275f5f23af8
+			defaultHierarchy: LocalDateTable_a33ca2e9-d4cc-41a0-917a-eb5e269d0627.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f091cc6c-6ebe-4753-8e8f-054a762926b9
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: c02d33e5-9b60-43e9-8532-142722164cf2
+			defaultHierarchy: LocalDateTable_c72f583b-2b2e-43db-bf3c-81981f85d182.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 86905e3b-34dd-4a7d-a212-a12597f0d504
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 81126e6d-096f-4e4e-83fe-0de71f447b22
+			defaultHierarchy: LocalDateTable_31cf2cca-5ec6-47bf-af4b-70883fcb8950.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_partner = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_partner_Table = gold_Schema{[Name="dim_partner",Kind="Table"]}[Data]
+				in
+				    dim_partner_Table
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

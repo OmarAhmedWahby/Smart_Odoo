@@ -1,0 +1,287 @@
+table 02_PurchaseMeasures
+	lineageTag: aaa15316-ac02-40ea-9500-75b4e78095ae
+
+	/// Total PO discount
+	measure 'PO Discount' = SUM(fact_purchase_order[discount])
+		formatString: $#,##0.00
+		lineageTag: 41a57f7f-8b6e-49af-b7b8-0fe04334178e
+
+	/// Quantity received
+	measure 'Qty Received' = SUM(fact_purchase_order[qty_received])
+		formatString: #,##0.00
+		lineageTag: fdd876b8-9b07-4bb4-a901-c96b4c3d2fa7
+
+	/// Quantity invoiced
+	measure 'Qty Invoiced' = SUM(fact_purchase_order[qty_invoiced])
+		formatString: #,##0.00
+		lineageTag: 70f8ed43-3ee4-4f51-8e56-0b16bb1e3bec
+
+	/// Unique products purchased
+	measure 'Unique Products' = DISTINCTCOUNT(fact_purchase_order[product_id])
+		formatString: #,##0
+		lineageTag: 4a81d2c5-46b5-4290-8d61-b154bd2f35b5
+
+	/// Average unit price
+	measure 'Avg Unit Price' = AVERAGE(fact_purchase_order[price_unit])
+		formatString: $#,##0.00
+		lineageTag: 0dfc2954-f4f5-426d-804c-3220a86d65f0
+
+	/// Average PO value
+	measure 'Avg PO Value' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM(fact_purchase_order[amount_total]),
+			        fact_purchase_order[purchase_status] = "done"
+			    ),
+			    CALCULATE(
+			        DISTINCTCOUNT(fact_purchase_order[purchase_order_id]),
+			        fact_purchase_order[purchase_status] = "done"
+			    )
+			)
+		formatString: " #,##0 "" EGP"""
+		lineageTag: 62ec69a2-6ec2-44b6-8918-a142630341e8
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	/// YTD purchase amount
+	measure 'YTD Amount' = TOTALYTD(SUM(fact_purchase_order[amount_total]), dim_date[full_date])
+		formatString: $#,##0.00
+		lineageTag: 3f609190-329b-427d-b4ef-6c7ea92b6c27
+
+	/// MTD purchase amount
+	measure 'MTD Amount' = TOTALMTD(SUM(fact_purchase_order[amount_total]), dim_date[full_date])
+		formatString: $#,##0.00
+		displayFolder: Total Amount
+		lineageTag: 053f675a-f2bc-4733-b3a9-9541d8a83238
+
+	/// QTD purchase amount
+	measure 'QTD Amount' = TOTALQTD(SUM(fact_purchase_order[amount_total]), dim_date[full_date])
+		formatString: $#,##0.00
+		displayFolder: Total Amount
+		lineageTag: 12234132-d68b-424b-b5ba-6acdb077bae3
+
+	/// Previous month PO amount
+	measure 'Prior Month Amount' = CALCULATE(SUM(fact_purchase_order[amount_total]), DATEADD(dim_date[full_date], -1, MONTH))
+		formatString: $#,##0.00
+		displayFolder: Total Amount
+		lineageTag: e8a3c591-a4be-41bb-b32c-db02bfb728ed
+
+	/// Pending POs (draft/to approve)
+	measure 'Pending PO Count' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[purchase_status] = "draft")
+		formatString: #,##0
+		lineageTag: a282560c-37e3-4ded-9fac-9c6ba67e9018
+
+	/// Approved POs
+	measure 'Approved PO Count' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[purchase_status] = "purchase")
+		formatString: #,##0
+		lineageTag: a0793049-fe72-4364-be50-24ac4bdeb7c9
+
+	/// Completed POs
+	measure 'Completed Purchase Orders' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[purchase_status] = "done")
+		formatString: #,##0
+		lineageTag: c4285886-dc15-4fb0-862a-c60c04cda97b
+
+	/// Open invoices
+	measure 'Open Invoices' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[invoice_status] = "Open")
+		formatString: #,##0
+		lineageTag: bb72fcfe-4697-4dcd-af21-65f97e0f1d81
+
+	/// Paid invoices
+	measure 'Paid Invoices' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[invoice_status] = "Done")
+		formatString: #,##0
+		lineageTag: deb8291f-e14e-45e6-9128-4610d96eb819
+
+	/// Month-over-month PO growth %
+	measure 'MoM PO Spend Growth %' = DIVIDE(([Total Spend PO] - [Previous Month PO Amount]), [Previous Month PO Amount])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Total Amount
+		lineageTag: 248289c5-919c-4a35-980f-59ea14b1d53a
+
+	/// Average qty per order
+	measure 'Avg Supplier Value' =
+			
+			AVERAGEX(
+			    VALUES(fact_purchase_order[supplier_id]),
+			    [Total Spend PO]
+			)
+		formatString: " #,##0.0 "" EGP"""
+		lineageTag: fa9eab7b-841c-48b4-b994-8604669ccaa6
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	/// PO fulfillment rate
+	measure 'Fulfillment Rate' = DIVIDE(SUM(fact_purchase_order[qty_received]), SUM(fact_purchase_order[product_qty]))
+		formatString: 0.00%
+		lineageTag: 5d9b300a-9eab-418f-80b9-3de456e9dabf
+
+	/// Total purchase order amount
+	measure 'Potential PO Amount' = SUM(fact_purchase_order[amount_total])
+		formatString: " #,##0 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: e5e62f1f-9351-4a4f-8764-7fa9d953374e
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	/// Total quantity ordered
+	measure 'Total PO Qty' = SUM(fact_purchase_order[product_qty])
+		formatString: #,##0.00
+		lineageTag: dace0535-09da-4f8c-9df0-b741efa9fb0b
+
+	/// Count of purchase orders
+	measure 'Total PO Count' = DISTINCTCOUNT(fact_purchase_order[purchase_order_id])
+		formatString: #,##0
+		lineageTag: d06599d7-1333-4a21-b6e4-443196e2d0d9
+
+	/// Number of suppliers
+	measure 'Supplier Count' = DISTINCTCOUNT(fact_purchase_order[supplier_id])
+		formatString: #,##0
+		lineageTag: d25d0aba-6485-4d48-ab13-5075fed20b9d
+
+	/// Total amount before tax
+	measure 'Amount Untaxed' = SUM(fact_purchase_order[amount_untaxed])
+		formatString: " #,##0 "" EGP"""
+		lineageTag: e95ae9cc-e2c3-4100-bffe-edac806e267c
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	/// Total tax amount
+	measure 'Amount Tax' = SUM(fact_purchase_order[amount_tax])
+		formatString: " #,##0 "" EGP"""
+		lineageTag: 543ca57d-c4d1-4bcb-a17b-de3e55907386
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Total Spend PO' = CALCULATE(SUM(fact_purchase_order[amount_total]), fact_purchase_order[purchase_status] = "done")
+		formatString: " #,##0.00 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: 71e2a92b-c26a-4669-83bc-f842d8a6fc40
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Confirmed PO Amount' = CALCULATE(SUM(fact_purchase_order[amount_total]),fact_purchase_order[purchase_status] in {"purchase","done"})
+		formatString: " #,##0 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: ab0b729f-021f-4b0d-b6e9-4663f0c06691
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Total Quantity Purchased' = CALCULATE(SUM(fact_purchase_order[product_qty]),fact_purchase_order[purchase_status] = "done")
+		lineageTag: 4fe221f2-fa5c-475f-b5d9-7ed0a591b1e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cancelled PO Amount' = CALCULATE(SUM(fact_purchase_order[amount_total]), fact_purchase_order[purchase_status] = "cancel")
+		formatString: " #,##0 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: abce255f-ba8d-44a9-bb26-232b491c52f1
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Pending PO Amount' = CALCULATE(SUM(fact_purchase_order[amount_total]), fact_purchase_order[purchase_status] = "draft")
+		formatString: " #,##0 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: 39e5c62e-d74b-4d39-af04-9199ff9a0a94
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Opportunity PO Amount' = CALCULATE(SUM(fact_purchase_order[amount_total]), fact_purchase_order[purchase_status] = "sent")
+		formatString: " #,##0 "" EGP"""
+		displayFolder: Total Amount
+		lineageTag: 7b329206-5be6-48f8-bc10-d8e826d68044
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Cancelled PO' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[purchase_status] = "cancel")
+		formatString: 0
+		lineageTag: d7301390-4c74-4632-99ef-030b4536782b
+
+	measure 'Cancelled Rate %' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        DISTINCTCOUNT(fact_purchase_order[purchase_order_id]),
+			        fact_purchase_order[purchase_status] = "cancel"
+			    ),
+			    CALCULATE(
+			        DISTINCTCOUNT(fact_purchase_order[purchase_order_id]),
+			        fact_purchase_order[purchase_status] IN {
+			            "done",
+			            "purchase",
+			            "cancel"
+			        }
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ba22c62e-5f7b-42d6-9abc-f4fbd4fd535d
+
+	measure 'Previous Month PO Amount' = CALCULATE([Total Spend PO], DATEADD(dim_date[full_date], -1, MONTH))
+		displayFolder: Total Amount
+		lineageTag: 469bac54-ce94-4872-ac86-098727690b3e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Product Price' =
+			
+			AVERAGEX(
+			    VALUES(fact_purchase_order[product_id]),
+			    CALCULATE(AVERAGE(fact_purchase_order[price_unit]))
+			)
+		lineageTag: 3a32fb8f-f7dd-4df3-b418-f8fb2189d51a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Approved Spend PO' =
+			
+			CALCULATE(
+			    [Total Spend PO],
+			    USERELATIONSHIP(
+			        dim_date[full_date],
+			        fact_purchase_order[date_approve]
+			    )
+			)
+		lineageTag: 28deff10-bad9-4484-9ab4-aa5e3cf273c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Planned Spend PO' =
+			
+			CALCULATE(
+			    [Total Spend PO],
+			    USERELATIONSHIP(
+			        dim_date[full_date],
+			        fact_purchase_order[date_planned]
+			    )
+			)
+		lineageTag: 45e3695e-d0fa-4176-bbaf-f02e2d024197
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Approval Lead Time PO' =
+			
+			AVERAGEX(
+			    fact_purchase_order,
+			    DATEDIFF(
+			        fact_purchase_order[date_purchase],
+			        fact_purchase_order[date_approve],
+			        DAY
+			    )
+			)
+		lineageTag: 2ef2330c-50ce-456c-ba96-bc89779086e9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 02_PurchaseMeasures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

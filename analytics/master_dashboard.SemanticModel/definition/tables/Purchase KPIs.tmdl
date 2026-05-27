@@ -1,0 +1,49 @@
+table 'Purchase KPIs'
+	lineageTag: c90d1bc0-566f-4683-8392-125fefca4280
+
+	column 'Purchase KPIs'
+		lineageTag: 870deaf2-97c0-4081-9e22-76ac530d5d1d
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: cd5bc567-e0fc-4ae2-8e7e-ebb86178de94
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: f0f260ac-7a16-4b78-a6dc-be22b29a868e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchase KPIs' = calculated
+		mode: import
+		source =
+				{
+				    ("Total Spend PO", NAMEOF('02_PurchaseMeasures'[Total Spend PO]), 0),
+				    ("Completed Purchase Orders", NAMEOF('02_PurchaseMeasures'[Completed Purchase Orders]), 1),
+				    ("Total Quantity Purchased", NAMEOF('02_PurchaseMeasures'[Total Quantity Purchased]), 2)
+				}
+
+	annotation PBI_Id = aa646040ad8d4d07b794e6c995e61b5d
+
