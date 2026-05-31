@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b13fa56ba876de185a02",
+  "displayName": "Sales Pipeline",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "68397f471b7c7e91a389",
+    "type": "Default",
+    "parameters": []
+  }
+}

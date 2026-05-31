@@ -1,0 +1,73 @@
+table dim_lead
+	lineageTag: 9b3b56f2-af56-47ad-8682-e8fd6e8e8f4c
+
+	column lead_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a16d63de-fd29-44d0-beb2-cd47a83380a2
+		summarizeBy: none
+		sourceColumn: lead_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_name
+		dataType: string
+		lineageTag: b76beb74-430c-47c2-85b3-9a7eeee8d6ba
+		summarizeBy: none
+		sourceColumn: lead_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb449758-12bd-4be4-b7f0-1b23059f528b
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: dac0dd61-83f3-4110-8476-9e5a83d16115
+			defaultHierarchy: LocalDateTable_5535bd40-dc8a-4305-9ffa-2b64e88ed734.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8e0a43f6-e48e-470a-8b82-a8daff31ccb8
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: b273037b-c70f-4729-a454-66dd668530f1
+			defaultHierarchy: LocalDateTable_02060f45-4cbf-42db-a4ff-2420dbdb50ca.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ec3dc97d-05f0-4bf0-8019-02846ed3077f
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 46228792-e470-44c9-bc09-5805dc70d705
+			defaultHierarchy: LocalDateTable_7ff4d466-38e9-46c5-9e14-87702ad8c89a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_lead = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_lead_Table = gold_Schema{[Name="dim_lead",Kind="Table"]}[Data]
+				in
+				    dim_lead_Table
+

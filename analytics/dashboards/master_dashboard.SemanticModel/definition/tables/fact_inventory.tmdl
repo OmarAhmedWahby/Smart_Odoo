@@ -1,0 +1,373 @@
+table fact_inventory
+	lineageTag: 97fa3d1e-3aeb-4c36-8064-1e2e248713b3
+
+	column stock_quant_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 331a9eb7-a08a-4310-a792-ef351ac4c385
+		summarizeBy: sum
+		sourceColumn: stock_quant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 586ac840-8e3c-4c98-9dbd-d55e3f0af36f
+		summarizeBy: sum
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 8706222b-05ed-466d-afd3-8831707a4b80
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b22beb76-0e34-4b01-bc63-eb054fdd65c2
+		summarizeBy: sum
+		sourceColumn: warehouse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_name
+		dataType: string
+		lineageTag: 4b9425e7-d3a4-4fab-ab3a-e9adaca560b1
+		summarizeBy: none
+		sourceColumn: warehouse_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 54ccee47-67b1-4183-bd17-0ed5551b317c
+		summarizeBy: none
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_name
+		dataType: string
+		lineageTag: c6b6798d-5e29-484d-a0be-d6575f728bca
+		summarizeBy: none
+		sourceColumn: location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_type
+		dataType: string
+		lineageTag: 585d1980-9954-4aab-be34-b881aa5d2e1a
+		summarizeBy: none
+		sourceColumn: location_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a115c9cb-b85a-47f9-8c07-27a8fa6b6bc2
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: c08b6feb-be0c-40ff-acec-02792cc3a28b
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column reserved_quantity
+		dataType: double
+		lineageTag: 093a39a6-27fd-48df-9bc6-0d124cf1ff9d
+		summarizeBy: sum
+		sourceColumn: reserved_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column available_quantity
+		dataType: double
+		lineageTag: b55c8148-a596-4726-a1fb-2b3cf22dba25
+		summarizeBy: sum
+		sourceColumn: available_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit_cost
+		dataType: double
+		lineageTag: f6f70a40-de0b-4809-bbd7-b05b320c16d5
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_min_qty
+		dataType: double
+		lineageTag: 08ab5847-a79c-477a-8c90-73a7f99417d8
+		summarizeBy: sum
+		sourceColumn: product_min_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_max_qty
+		dataType: double
+		lineageTag: 987734f8-53dc-4a9c-9f00-c6e90f201aae
+		summarizeBy: sum
+		sourceColumn: product_max_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_low_stock
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 17ea2a50-fbe2-4711-90ae-a2f2d7438e1a
+		summarizeBy: none
+		sourceColumn: is_low_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8e9be853-41f6-4c1b-8c54-24abb8304076
+		summarizeBy: none
+		sourceColumn: inventory_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cd88d195-d13f-40e4-8d7a-0bde8bea72c5
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 0f18d283-f68a-45f5-af37-c1db96b8c512
+			defaultHierarchy: LocalDateTable_41e3c7f8-1ca2-401c-acce-c84c76a179f9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column lot_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 09656f4c-b968-47d3-80ec-871964050774
+		summarizeBy: sum
+		sourceColumn: lot_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity_on_hand
+		dataType: double
+		lineageTag: 1c5cb083-361b-4e0f-a4e6-d645a8d58a66
+		summarizeBy: sum
+		sourceColumn: quantity_on_hand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column inventory_diff_quantity
+		dataType: double
+		lineageTag: 027d279d-a3b9-4fd7-b3cb-3496cd08e93c
+		summarizeBy: sum
+		sourceColumn: inventory_diff_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column inventory_quantity_set
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3e2465a0-12db-48ce-963d-fddff768772b
+		summarizeBy: none
+		sourceColumn: inventory_quantity_set
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_status
+		dataType: string
+		lineageTag: 6607aedb-895d-4eab-8e33-d993cbe5ba51
+		summarizeBy: none
+		sourceColumn: inventory_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_out_of_stock
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 63e28627-7b0c-493a-b102-2f079a20a7e4
+		summarizeBy: none
+		sourceColumn: is_out_of_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column in_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c5cc8f27-0f3a-487d-99f4-88e20f47a3be
+		summarizeBy: none
+		sourceColumn: in_date
+
+		variation Variation
+			isDefault
+			relationship: 421ce869-78cd-4656-bc8c-f0cf54efc2d4
+			defaultHierarchy: LocalDateTable_2caa7383-5975-479e-b1de-e5783c7aff99.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column accounting_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ae30c6fc-092b-40cb-89cc-95b5484fc166
+		summarizeBy: none
+		sourceColumn: accounting_date
+
+		variation Variation
+			isDefault
+			relationship: fe800da1-ae88-4b93-80eb-f4f61e11e92f
+			defaultHierarchy: LocalDateTable_82222399-b53a-48c6-a67e-0285cef79cb5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b80fb6d5-4d4b-41d7-a04b-843bee9f57e2
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: b0b97db9-6439-41e0-b154-9016f7715713
+			defaultHierarchy: LocalDateTable_6beeb28f-4e1d-4845-8355-d0a741905919.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d2e24d8f-4bd2-4ccb-9320-c3171848f419
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: fab53720-7933-4db5-937b-6f8b73b52bd4
+			defaultHierarchy: LocalDateTable_dca835d3-e614-4fb3-82a5-40aa1966339b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_value
+		dataType: double
+		lineageTag: 876c07f4-f723-407c-8566-4a2d5e48b37e
+		summarizeBy: sum
+		sourceColumn: stock_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column categ_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 89aa9333-a791-4dd5-8fec-dd8f43d08345
+		summarizeBy: sum
+		sourceColumn: categ_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column categ_name
+		dataType: string
+		lineageTag: 8c2e469b-26b2-4a5f-8079-e55ea2beb2ec
+		summarizeBy: none
+		sourceColumn: categ_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_type
+		dataType: string
+		lineageTag: eeb8ff55-efda-47bb-999e-b28bcb0ba0d5
+		summarizeBy: none
+		sourceColumn: product_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column available_pct
+		dataType: double
+		lineageTag: d839cf1a-7276-473e-9933-446bf166af8c
+		summarizeBy: sum
+		sourceColumn: available_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qty_to_reorder
+		dataType: double
+		lineageTag: a977c358-a6c5-46be-983e-c460eb09eb9b
+		summarizeBy: sum
+		sourceColumn: qty_to_reorder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column category
+		dataType: string
+		lineageTag: e20a5402-0a44-4f84-841a-7cb97b35d65d
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_age_days
+		dataType: double
+		lineageTag: d7cfb0ea-c956-47c9-bf29-f06457fcbce9
+		summarizeBy: sum
+		sourceColumn: inventory_age_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column inventory_movement_status
+		dataType: string
+		lineageTag: 7b54af88-54bd-4ad7-9473-386b94c2664e
+		summarizeBy: none
+		sourceColumn: inventory_movement_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_inventory = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_inventory_Table = gold_Schema{[Name="fact_inventory",Kind="Table"]}[Data]
+				in
+				    fact_inventory_Table
+

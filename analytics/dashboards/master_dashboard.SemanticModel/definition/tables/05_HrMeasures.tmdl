@@ -1,0 +1,157 @@
+table 05_HrMeasures
+	lineageTag: 959136da-8970-445f-9a37-17d6c0f77e79
+
+	measure 'Visa Expiring Soon' = COUNTROWS(FILTER(dim_employee, dim_employee[visa_expire] <= TODAY() && NOT(ISBLANK(dim_employee[visa_expire]))))
+		formatString: #,##0
+		displayFolder: Compliance
+		lineageTag: e02d298f-a40d-40dc-8cdd-91ceece9452e
+
+	measure 'Work Permit Expiring' = COUNTROWS(FILTER(dim_employee, dim_employee[work_permit_expiration_date] <= TODAY() && NOT(ISBLANK(dim_employee[work_permit_expiration_date]))))
+		formatString: #,##0
+		displayFolder: Compliance
+		lineageTag: 2be53748-29e2-4cbb-b347-2361afefd9ae
+
+	measure 'Employees 30-45' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[birthday]) >= 30 && YEAR(TODAY()) - YEAR(dim_employee[birthday]) < 45))
+		formatString: #,##0
+		displayFolder: Demographics
+		lineageTag: 4f35f714-58ff-4e31-b192-1f49f4f3db71
+
+	measure 'Employees 45+' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[birthday]) >= 45))
+		formatString: #,##0
+		displayFolder: Demographics
+		lineageTag: ddeafa5c-52fc-4917-a0e5-4128758bfef8
+
+	measure 'Employees Under 30' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[birthday]) < 30))
+		formatString: #,##0
+		displayFolder: Demographics
+		lineageTag: ddfb8b63-54d0-4874-89a1-1ccf8430d9ae
+
+	measure 'Certification Rate %' = IF([Active Employees] = 0, 0, [Certified Employees] / [Active Employees])
+		formatString: 0.0%
+		displayFolder: Development
+		lineageTag: 876199d6-ab07-440e-98ca-6960ba0c814f
+
+	measure 'Certified Employees' = COUNTROWS(FILTER(dim_employee, NOT(ISBLANK(dim_employee[certificate]))))
+		formatString: #,##0
+		displayFolder: Development
+		lineageTag: 540fa9e8-99f3-4721-8772-dfadd741331f
+
+	measure 'Coaching Participation %' = IF([Active Employees] = 0, 0, [Employees with Coach] / [Active Employees])
+		formatString: 0.0%
+		displayFolder: Development
+		lineageTag: 496093c8-d179-48bf-b845-f727654bc8cd
+
+	measure 'Employees with Coach' = COUNTROWS(FILTER(dim_employee, NOT(ISBLANK(dim_employee[coach_id]))))
+		formatString: #,##0
+		displayFolder: Development
+		lineageTag: 0c25588b-f2c0-40a7-8934-366473eec7b5
+
+	measure 'Unique Study Fields' = DISTINCTCOUNT(dim_employee[study_field])
+		formatString: #,##0
+		displayFolder: Development
+		lineageTag: 4ad4d210-d2d9-4b46-9501-27c1b62de0ca
+
+	measure 'Unique Schools' = DISTINCTCOUNT(dim_employee[study_school])
+		formatString: #,##0
+		displayFolder: Development
+		lineageTag: c762dd99-e645-4162-873b-2f0eec446594
+
+	measure 'Total Employees' = COUNTA(dim_employee[employee_id])
+		formatString: #,##0
+		lineageTag: 91f3f16a-2b84-4eea-8854-b749a11b640e
+
+	measure 'Tenure 5+ Years' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[created_at]) >= 5))
+		formatString: #,##0
+		displayFolder: Tenure
+		lineageTag: 5baf5fb0-13ac-440f-af79-504802e71cac
+
+	measure 'Tenure 3-5 Years' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[created_at]) >= 3 && YEAR(TODAY()) - YEAR(dim_employee[created_at]) < 5))
+		formatString: #,##0
+		displayFolder: Tenure
+		lineageTag: 8c2359c3-9b9e-4091-b6e0-6b16c8eb95c1
+
+	measure 'Tenure 1-3 Years' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[created_at]) >= 1 && YEAR(TODAY()) - YEAR(dim_employee[created_at]) < 3))
+		formatString: #,##0
+		displayFolder: Tenure
+		lineageTag: a5fb1824-ab98-4d59-9fc8-f5aa16cc9b4b
+
+	measure 'Tenure < 1 Year' = COUNTROWS(FILTER(dim_employee, YEAR(TODAY()) - YEAR(dim_employee[created_at]) < 1))
+		formatString: #,##0
+		displayFolder: Tenure
+		lineageTag: 57afbb09-0e89-4910-9a2f-a6178f03f27d
+
+	measure 'Average Tenure (Years)' =
+			
+			AVERAGEX(
+			    FILTER(
+			        dim_employee,
+			        dim_employee[is_active] = TRUE()
+			    ),
+			    DATEDIFF(
+			        dim_employee[created_at],
+			        TODAY(),
+			        DAY
+			    ) / 365.25
+			)
+		displayFolder: Tenure
+		lineageTag: e01fd805-ba5f-4cf8-8ddf-5e92c95e00b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Managers' = DISTINCTCOUNT(dim_employee[manager_id])
+		formatString: #,##0
+		displayFolder: Organization
+		lineageTag: 7b5e407c-adb0-423e-93cf-c0d328b7a429
+
+	measure 'Employees per Manager' = IF([Total Managers] = 0, 0, [Active Employees] / [Total Managers])
+		formatString: 0.0
+		displayFolder: Organization
+		lineageTag: 7894bc32-4cee-4130-a45c-abe130b71a8e
+
+	measure 'Employees per Company' = IF([Companies Count] = 0, 0, [Active Employees] / [Companies Count])
+		formatString: 0.0
+		displayFolder: Organization
+		lineageTag: ebf6798a-72a1-429a-951b-c8183c2cef10
+
+	measure 'Companies Count' = DISTINCTCOUNT(dim_employee[company_id])
+		formatString: #,##0
+		displayFolder: Organization
+		lineageTag: 2dedada6-7d21-4f79-8976-282b9396cfc4
+
+	measure 'New Hires (Last 90 Days)' = COUNTROWS(FILTER(dim_employee, dim_employee[created_at] >= TODAY() - 90 && dim_employee[is_active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Headcount
+		lineageTag: d3d08211-d9ef-4749-bfdb-c51de1b5aa5b
+
+	measure 'New Hires (Last 6 Months)' = COUNTROWS(FILTER(dim_employee, dim_employee[created_at] >= TODAY() - 180 && dim_employee[is_active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Headcount
+		lineageTag: 9aeeb497-7182-4fc2-a705-fa1a6649c8ce
+
+	measure 'Inactive Employees' = COUNTROWS(FILTER(dim_employee, dim_employee[is_active] = FALSE()))
+		formatString: #,##0
+		displayFolder: Headcount
+		lineageTag: f0e0aa1e-b08a-4ff5-b685-b965c52cd192
+
+	measure 'Hiring Rate %' = IF([Active Employees] = 0, 0, [New Hires (Last 90 Days)] / [Active Employees])
+		formatString: 0.00%
+		displayFolder: Headcount
+		lineageTag: 8776471d-6059-4e81-acb4-cac855ddb8cc
+
+	measure 'Active Employees' = COUNTROWS(FILTER(dim_employee, dim_employee[is_active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Headcount
+		lineageTag: 69123eac-be1e-4e67-a27c-512b4eb47f19
+
+	partition 05_HrMeasures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

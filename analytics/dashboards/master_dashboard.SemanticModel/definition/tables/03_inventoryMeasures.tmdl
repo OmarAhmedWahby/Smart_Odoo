@@ -1,0 +1,290 @@
+table 03_inventoryMeasures
+	lineageTag: cd44b6ed-3cd9-47b1-8565-5475e93d21b5
+
+	measure 'Traget Stock Health' = 80
+		formatString: 0
+		displayFolder: Warehouse
+		lineageTag: b0be4148-48e3-4316-97ab-207cea2728a0
+
+	measure 'Commitment Rate %' =
+			
+			DIVIDE(
+			    [Total Reserved Qty],
+			    [Total On Hand]
+			)
+		displayFolder: Analysis
+		lineageTag: 4e962524-2a02-420b-b3db-1a48dde45b65
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Total quantity of inventory in stock
+	measure 'Total On Hand' = SUM(fact_inventory[quantity_on_hand])
+		formatString: #,##0
+		displayFolder: Quantity
+		lineageTag: 6c36e9cc-43f1-460b-b9a8-d5732d6cccf3
+
+	/// Total quantity available for sale
+	measure 'Total Available Qty' = SUM(fact_inventory[available_quantity])
+		formatString: #,##0
+		displayFolder: Quantity
+		lineageTag: b4734eee-fa0e-4c19-b4d3-56464bb7ac83
+
+	/// Total reserved quantity
+	measure 'Total Reserved Qty' = SUM(fact_inventory[reserved_quantity])
+		formatString: #,##0
+		displayFolder: Quantity
+		lineageTag: 972a0e42-0bab-473c-a865-14b52f4af3d3
+
+	/// Total value of inventory at unit cost
+	measure 'Total Inventory Value' = SUM(fact_inventory[stock_value])
+		formatString: #,##0 "EGP"
+		displayFolder: Stock Value
+		lineageTag: ee346e97-e881-4fb5-99f0-a02b1f00dade
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	/// Average cost per unit
+	measure 'Average Unit Cost' = AVERAGE(fact_inventory[unit_cost])
+		formatString: #,##0 "EGP"
+		displayFolder: Stock Value
+		lineageTag: de888b15-23a1-4bcd-b738-3b9d000e4594
+
+	/// Stock value grouped by warehouse
+	measure 'Inventory Value by Warehouse' = SUMX(VALUES(dim_warehouse[warehouse_name]), CALCULATE(SUM(fact_inventory[stock_value])))
+		formatString: #,##0 "EGP"
+		displayFolder: Stock Value
+		lineageTag: 54c246f8-c7eb-4e47-9fef-ac92720f6ce5
+
+	/// Count of items with low stock
+	measure 'Low Stock Items' = COUNTROWS(FILTER(fact_inventory, fact_inventory[is_low_stock] = TRUE()))
+		formatString: #,##0
+		displayFolder: Health & Status
+		lineageTag: a70ba868-1ab6-40af-80df-cfbcf747550b
+
+	/// Count of items with zero or negative available quantity
+	measure 'Out of Stock Items' = COUNTROWS(FILTER(fact_inventory, fact_inventory[available_quantity] <= 0))
+		formatString: #,##0
+		displayFolder: Health & Status
+		lineageTag: 97686228-06cc-4fbd-b372-c43f608b16ef
+
+	/// Percentage of items in healthy stock status
+	measure 'Stock Health %' = IF([Low Stock Items] + [Out of Stock Items] = 0, 1, 1 - (([Low Stock Items] + [Out of Stock Items]) / COUNTA(fact_inventory[product_id])))
+		formatString: 0.0%
+		displayFolder: Health & Status
+		lineageTag: 64e20d26-426a-4463-8308-2e3c0edf89ec
+
+	/// Total inbound inventory quantity
+	measure 'Total Inbound Movement' = SUMX(FILTER(fact_inventory_movement, fact_inventory_movement[is_in] = TRUE()), fact_inventory_movement[moved_qty])
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: dcc4479a-e1ba-4aea-8e69-0f5939aba432
+
+	/// Total outbound inventory quantity
+	measure 'Total Outbound Movement' = SUMX(FILTER(fact_inventory_movement, fact_inventory_movement[is_out] = TRUE()), fact_inventory_movement[moved_qty])
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: a00a39cf-714d-455c-bcb3-f3c041749e69
+
+	/// Total internal transfer quantity
+	measure 'Total Internal Transfers' = SUMX(FILTER(fact_inventory_movement, fact_inventory_movement[is_internal] = TRUE()), fact_inventory_movement[moved_qty])
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: cd7bff55-2b22-4a1a-8bf4-5d7d6d1e5d7d
+
+	/// Total value of all inventory movements
+	measure 'Total Movement Value' = SUM(fact_inventory_movement[move_value])
+		formatString: #,##0 "EGP"
+		displayFolder: Movement
+		lineageTag: 0eaf6d1a-7101-4015-ab69-ed4a447722dd
+
+	/// Count of pending stock movements
+	measure 'Pending Moves' = COUNTROWS(FILTER(fact_inventory_movement, fact_inventory_movement[move_state] = "draft" || fact_inventory_movement[move_state] = "waiting"))
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: d679cfc0-e53c-4eb4-af99-eb178dea8019
+
+	/// Count of completed movements
+	measure 'Completed Moves' = COUNTROWS(FILTER(fact_inventory_movement, fact_inventory_movement[move_state] = "done"))
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: b475a4e5-79a0-4bf2-bd86-dee2a0a9c5c9
+
+	/// Percentage of movements completed
+	measure 'Movement Fulfillment Rate' = IF(COUNTA(fact_inventory_movement[move_state]) = 0, 0, [Completed Moves] / COUNTA(fact_inventory_movement[move_state]))
+		formatString: 0.0%
+		displayFolder: Movement
+		lineageTag: 6000c3cd-0a6d-479c-8ada-b1ccb17bfc58
+
+	/// Count of active warehouse locations
+	measure 'Active Warehouses' = COUNTROWS(FILTER(dim_warehouse, dim_warehouse[is_active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Warehouse
+		lineageTag: 1efe91c4-39f4-4dda-9c5f-f63cbce547c3
+
+	/// Count of active inventory locations
+	measure 'Active Locations' = COUNTROWS(FILTER(dim_inventory_location, dim_inventory_location[is_active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Warehouse
+		lineageTag: 059a349a-ad6e-41a2-9aa0-69dce20b6887
+
+	/// Number of unique products in inventory
+	measure 'Products Tracked' = DISTINCTCOUNT(fact_inventory[product_id])
+		formatString: #,##0
+		displayFolder: Warehouse
+		lineageTag: 1a20f136-cb7b-40b2-a8ef-52e27925005b
+
+	/// Average inventory quantity per location
+	measure 'Average Qty Per Location' = IF([Active Locations] = 0, 0, [Total On Hand] / [Active Locations])
+		formatString: #,##0.0
+		displayFolder: Warehouse
+		lineageTag: 0ac7948a-658e-40c3-828b-878c62abdb03
+
+	/// Items with no recent movements
+	measure 'Slow Moving Items' = COUNTROWS(FILTER(fact_inventory, fact_inventory[available_quantity] > 0 && CALCULATE(COUNTA(fact_inventory_movement[moved_qty]), FILTER(fact_inventory_movement, fact_inventory_movement[product_id] = fact_inventory[product_id])) = 0))
+		formatString: #,##0
+		displayFolder: Analysis
+		lineageTag: 71f630bc-ea9a-40e4-85da-ddc4b4c186c3
+
+	/// Ratio of outbound to on-hand inventory
+	measure 'Inventory Turnover Ratio' = DIVIDE([Total Outbound Movement], [Total On Hand], 0)
+		formatString: 0.00x
+		displayFolder: Analysis
+		lineageTag: d6e979bd-4434-45fe-bc80-d78c4c154d22
+
+	/// Percentage of inventory available vs reserved
+	measure 'WH Utilization %' = DIVIDE([Total Available Qty], [Total On Hand], 0)
+		formatString: 0.0%
+		displayFolder: Analysis
+		lineageTag: 59d41412-fdb5-47dd-b12c-5db7b6827a13
+
+	/// Average items per active location
+	measure 'Warehouse Capacity Usage' = IF([Active Locations] = 0, 0, SUMX(VALUES(dim_warehouse[warehouse_name]), CALCULATE(SUM(fact_inventory[quantity_on_hand]))) / [Active Locations])
+		formatString: #,##0
+		displayFolder: Warehouse
+		lineageTag: 6b3945ba-87de-4132-b900-89ff16b071ba
+
+	measure 'Highest Stock Warehouse' =
+			
+			VAR _Warehouse =
+			    TOPN(
+			        1,
+			        VALUES(fact_inventory[warehouse_name]),
+			        [Total On Hand],
+			        DESC
+			    )
+			RETURN
+			    CONCATENATEX(
+			        _Warehouse,
+			        fact_inventory[warehouse_name]
+			    )
+		displayFolder: Warehouse
+		lineageTag: f52f40f0-e816-4556-a89f-40df0c95221e
+
+	measure 'Highest Reserved Warehouse' =
+			
+			VAR _Warehouse =
+			    TOPN(
+			        1,
+			        VALUES(fact_inventory[warehouse_name]),
+			        [Total Reserved Qty],
+			        DESC
+			    )
+			RETURN
+			    CONCATENATEX(
+			        _Warehouse,
+			        fact_inventory[warehouse_name]
+			    )
+		displayFolder: Warehouse
+		lineageTag: 0723441d-bda9-4ca3-919a-cb97a594a317
+
+	measure 'Avg Inventory Age' =
+			
+			AVERAGE(fact_inventory[inventory_age_days])
+		displayFolder: Inventory Aging
+		lineageTag: ff2aaf4f-dbf4-49a7-957e-7868c1770c6b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Oldest Product Age' =
+			
+			MAX(fact_inventory[inventory_age_days])
+		displayFolder: Inventory Aging
+		lineageTag: 59c1226f-ce61-47f9-a40d-3f7fad020598
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dead Stock Qty' =
+			
+			CALCULATE(
+			    [Total On Hand],
+			    fact_inventory[inventory_movement_status] = "Dead Stock"
+			)
+		displayFolder: Inventory Aging
+		lineageTag: 082f3850-aa19-468a-b240-8694508b6acb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Slow Moving Products' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_inventory[product_id]),
+			    fact_inventory[inventory_movement_status] = "Slow Moving"
+			)
+		formatString: 0
+		displayFolder: Inventory Aging
+		lineageTag: f03ec2fc-0d15-4eb9-b003-5d90309662cf
+
+	measure 'Fast Moving Products' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_inventory[product_id]),
+			    fact_inventory[inventory_movement_status] = "Fast Moving"
+			)
+		formatString: 0
+		displayFolder: Inventory Aging
+		lineageTag: f1721639-8c24-4014-9746-76a87e327a7a
+
+	measure 'Dead Stock %' =
+			
+			DIVIDE(
+			    [Dead Stock Qty],
+			    [Total On Hand]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Inventory Aging
+		lineageTag: 6da68cad-26e6-4aec-839e-9000e1b93e28
+
+	measure 'Dead Stock Value' =
+			
+			CALCULATE(
+			    [Total Inventory Value],
+			    fact_inventory[inventory_movement_status] = "Dead Stock"
+			)
+		formatString: #,##0 "EGP"
+		displayFolder: Inventory Aging
+		lineageTag: a8d4c0f0-c4ef-4fe8-98e4-780ff1fccc16
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Normal Moving Products' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_inventory[product_id]),
+			    fact_inventory[inventory_movement_status] = "Normal Moving"
+			)
+		formatString: 0
+		displayFolder: Inventory Aging
+		lineageTag: db14fa4c-2c84-4eb1-9229-e124ca8d6172
+
+	partition 03_inventoryMeasures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

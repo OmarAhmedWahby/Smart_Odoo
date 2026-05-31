@@ -1,0 +1,63 @@
+table dim_stage
+	lineageTag: 8d68834f-77be-436b-91a4-153b28c0ee05
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8481398f-2e51-483a-8115-65df523045ef
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_name
+		dataType: string
+		lineageTag: 67823afb-5538-457e-b8eb-af68065dfdce
+		summarizeBy: none
+		sourceColumn: stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_won
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 65f5f795-f2ef-4f75-bd7e-d1dc41e363a3
+		summarizeBy: none
+		sourceColumn: is_won
+
+		annotation SummarizationSetBy = Automatic
+
+	column fold
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b9c3cc84-8d95-41a4-8f1c-711fa0040897
+		summarizeBy: none
+		sourceColumn: fold
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 80e29975-90d6-4c5d-8e3a-2e1f974ce494
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 78791976-1ca6-4ddd-bef4-e24b4e7314e0
+			defaultHierarchy: LocalDateTable_a9189211-871d-482a-8464-844876ae5b24.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_stage = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_stage_Table = gold_Schema{[Name="dim_stage",Kind="Table"]}[Data]
+				in
+				    dim_stage_Table
+

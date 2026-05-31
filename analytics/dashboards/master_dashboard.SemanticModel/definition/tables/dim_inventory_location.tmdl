@@ -1,0 +1,132 @@
+table dim_inventory_location
+	lineageTag: d86c2e84-edea-4655-9dd3-2cdedc75695d
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b3f2d949-e250-40d5-af40-f2cf23a875e7
+		summarizeBy: none
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b87b1c4-7938-4239-b8e3-98b4d2f7bef2
+		summarizeBy: sum
+		sourceColumn: warehouse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_name
+		dataType: string
+		lineageTag: 37e5bfd5-6adb-4e44-a3f8-96e937e792a4
+		summarizeBy: none
+		sourceColumn: location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_name
+		dataType: string
+		lineageTag: ab2c17c6-93fe-4f0f-be99-29ec14445c0d
+		summarizeBy: none
+		sourceColumn: warehouse_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_path
+		dataType: string
+		lineageTag: 9b83d736-8c4f-4d3d-84c4-81b952bb7a33
+		summarizeBy: none
+		sourceColumn: location_path
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_type
+		dataType: string
+		lineageTag: 645f629d-16d6-44a8-a85e-ea154698c4a3
+		summarizeBy: none
+		sourceColumn: location_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 70a944f4-e910-4b8b-9ffd-dadb3ce00a42
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 531f3218-f718-4b6c-9881-c3d08edfaa54
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 216b8104-c237-439a-9b43-0b88d4e7ee92
+			defaultHierarchy: LocalDateTable_5b433c7a-81a0-4277-b69f-c201033ee181.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e9af8525-00d9-4bc0-b036-cfe63dda593f
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: ca8f8925-5e83-473e-a8b8-205e005a1289
+			defaultHierarchy: LocalDateTable_bee8e198-64c6-4234-afcc-587eb27df3ff.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2bb4bcad-c0ba-4b57-b412-165d98d8a3e9
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 8b3500be-6df4-4a80-9f2f-2abac1613d9e
+			defaultHierarchy: LocalDateTable_e8dc965a-7109-4e1c-ae14-93c7835d9c5a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column barcode
+		dataType: string
+		lineageTag: 0a933920-63c0-40dc-958c-8ab2278d03ff
+		summarizeBy: none
+		sourceColumn: barcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column replenish_location
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ee06884b-58e9-4ff0-aba1-4d2750be3f05
+		summarizeBy: none
+		sourceColumn: replenish_location
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_inventory_location = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_inventory_location_Table = gold_Schema{[Name="dim_inventory_location",Kind="Table"]}[Data]
+				in
+				    dim_inventory_location_Table
+

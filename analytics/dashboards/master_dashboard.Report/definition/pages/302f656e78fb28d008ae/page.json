@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "302f656e78fb28d008ae",
+  "displayName": " Deal Analytics",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "f36f376f68815b16dd6a",
+    "type": "Default",
+    "parameters": []
+  }
+}

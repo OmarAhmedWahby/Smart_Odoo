@@ -1,0 +1,358 @@
+table fact_crm_pipeline
+	lineageTag: c249767d-282a-4f3b-bb1c-fc87ed0861a8
+
+	column lead_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 87522ab7-9310-4c5e-a8fd-e6d13cb3ac43
+		summarizeBy: none
+		sourceColumn: lead_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b08fa6eb-adbd-4f1f-ae6f-7a1a8d74ba62
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_name
+		dataType: string
+		lineageTag: 682fe16b-2e00-4981-90f4-4a8cf6402a27
+		summarizeBy: none
+		sourceColumn: stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f69fa601-65de-4196-821c-a9b1061c4262
+		summarizeBy: sum
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: a1d9cfdf-2a44-4aec-96be-53ee57548c84
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d9d9ea8-d148-4de2-9fc2-426b79935cb0
+		summarizeBy: sum
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: e73abd06-e975-4c2e-a083-dc02d8268497
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column lost_reason_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3844a710-0bf7-44ed-905d-66960bff6920
+		summarizeBy: none
+		sourceColumn: lost_reason_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column lost_reason_name
+		dataType: string
+		lineageTag: cb823d67-fdb0-4c55-ac60-4894ac8de614
+		summarizeBy: none
+		sourceColumn: lost_reason_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 094d0f28-35a4-49f0-be9a-362e7f97c335
+		summarizeBy: none
+		sourceColumn: partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_name
+		dataType: string
+		lineageTag: f9ee76ac-6980-4460-a260-f84da3ec8125
+		summarizeBy: none
+		sourceColumn: partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9594e674-7bc4-4b48-b897-b513f3eac857
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 5b5657cc-9d5e-4578-b9d5-29f84bf4954a
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_name
+		dataType: string
+		lineageTag: 33b192d4-7cc4-4a24-ac36-565d5728159f
+		summarizeBy: none
+		sourceColumn: lead_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: e45cd451-82cf-423f-b472-1f07eaa65d56
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 5c648e53-80b6-455e-b9fa-8323b3a7d026
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column won_status
+		dataType: string
+		lineageTag: 4657b067-ea91-4e9a-a438-b1104d728bf3
+		summarizeBy: none
+		sourceColumn: won_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_revenue
+		dataType: double
+		lineageTag: 5d01b8b3-d08a-46fa-b0ce-6fb96521284f
+		summarizeBy: sum
+		sourceColumn: expected_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prorated_revenue
+		dataType: double
+		lineageTag: 04641f7f-d928-45fc-9c8f-b86a967ff612
+		summarizeBy: sum
+		sourceColumn: prorated_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recurring_revenue_monthly
+		dataType: double
+		lineageTag: fa060980-412c-4527-9a51-fccedf74f61d
+		summarizeBy: sum
+		sourceColumn: recurring_revenue_monthly
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column probability
+		dataType: double
+		lineageTag: 2b177456-6dea-4ea3-ab00-512695c7e5b0
+		summarizeBy: sum
+		sourceColumn: probability
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column automated_probability
+		dataType: double
+		lineageTag: 1059da1f-1312-4757-8779-4efd13de852b
+		summarizeBy: sum
+		sourceColumn: automated_probability
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column day_open
+		dataType: double
+		lineageTag: 607e93c8-9fe0-46c9-af21-769e799fbefc
+		summarizeBy: sum
+		sourceColumn: day_open
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column day_close
+		dataType: double
+		lineageTag: b72c8fb7-d6a9-4211-881f-c096155f4b6d
+		summarizeBy: sum
+		sourceColumn: day_close
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_won
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 99f924a5-3e37-4ba1-9c5a-63be2e317155
+		summarizeBy: none
+		sourceColumn: is_won
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_lost
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3dac3c74-5c06-4e4c-9c5f-1b9531a0afe4
+		summarizeBy: none
+		sourceColumn: is_lost
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3419549c-80c8-42b3-9199-431b4d3452a7
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_deadline
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 01adc840-7d00-47a3-a560-78c8f207d7a8
+		summarizeBy: none
+		sourceColumn: date_deadline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_open
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 625d4243-761d-409a-8d8d-0723b86bca54
+		summarizeBy: none
+		sourceColumn: date_open
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_closed
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db04bcdc-5274-453a-ace5-b17b23e05428
+		summarizeBy: none
+		sourceColumn: date_closed
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_conversion
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1cf7e1aa-6882-46db-97dc-8edf317947d8
+		summarizeBy: none
+		sourceColumn: date_conversion
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_last_stage_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3214e72c-16f7-4ac2-bb89-f069a987b3e4
+		summarizeBy: none
+		sourceColumn: date_last_stage_update
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ae8a8e3-aedd-4af5-8342-d131750abc8a
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 961c46a8-5f5a-4012-8e45-7ccd25475885
+			defaultHierarchy: LocalDateTable_061c49f4-3c3f-4d46-bc7c-4bbb39db176f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 933ffb9f-9bdd-4f1a-baa2-ab28b35511a6
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 99f53ea9-7b48-4528-8e4f-d0ce31e00511
+			defaultHierarchy: LocalDateTable_7dd2424a-1606-4f02-a4c1-0d8379b35ae0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b25bb4d7-26b4-4775-ac80-25d11e94d29d
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: d491ab34-e9fb-4fb1-ac80-9009d5708f3c
+			defaultHierarchy: LocalDateTable_62891517-a2a5-4a69-8656-3dcaa46c178f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days Open Bucket' =
+			
+			SWITCH(
+			    TRUE(),
+			    fact_crm_pipeline[day_open] <= 7, "0-7 Days",
+			    fact_crm_pipeline[day_open] <= 14, "8-14 Days",
+			    fact_crm_pipeline[day_open] <= 30, "15-30 Days",
+			    fact_crm_pipeline[day_open] <= 60, "31-60 Days",
+			    "60+ Days"
+			)
+		lineageTag: 553d8371-e16d-4a91-9136-8581967def9d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_crm_pipeline = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_crm_pipeline_Table = gold_Schema{[Name="fact_crm_pipeline",Kind="Table"]}[Data]
+				in
+				    fact_crm_pipeline_Table
+

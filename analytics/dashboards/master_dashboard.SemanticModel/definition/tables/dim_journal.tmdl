@@ -1,0 +1,166 @@
+table dim_journal
+	lineageTag: 13353d0e-ca28-48f2-83ce-dd9dfbdf3045
+
+	column journal_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b2a41a8-f45a-4c9a-9123-af57d1d26d7a
+		summarizeBy: none
+		sourceColumn: journal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c7a49f69-9171-459e-8f1b-d8baa0fe62c0
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 79a34541-f75c-4925-9045-47ecdf0904e5
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_code
+		dataType: string
+		lineageTag: c2b098dc-428c-4da0-98ab-9514eb26933f
+		summarizeBy: none
+		sourceColumn: journal_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_name
+		dataType: string
+		lineageTag: 553441b9-ffa8-408e-a84c-247b6550c3ee
+		summarizeBy: none
+		sourceColumn: journal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_type
+		dataType: string
+		lineageTag: d9c47c63-4736-4799-9ad8-0f3e542bcd2d
+		summarizeBy: none
+		sourceColumn: journal_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column bank_statements_source
+		dataType: string
+		lineageTag: 91e14ec4-2f83-4257-be29-20bd18057384
+		summarizeBy: none
+		sourceColumn: bank_statements_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_reference_type
+		dataType: string
+		lineageTag: c7ee0d97-4876-4589-83d9-8f4225c0b8de
+		summarizeBy: none
+		sourceColumn: invoice_reference_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_reference_model
+		dataType: string
+		lineageTag: e4af8e6b-df3d-4623-8218-79033816149f
+		summarizeBy: none
+		sourceColumn: invoice_reference_model
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 126da03c-a60a-4fc7-84f6-0fe465c26a3c
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column show_on_dashboard
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1dc0103a-c573-4887-a699-eff6c4b6dd27
+		summarizeBy: none
+		sourceColumn: show_on_dashboard
+
+		annotation SummarizationSetBy = Automatic
+
+	column refund_sequence
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: de7f7ad0-8ad3-428e-8c57-55c0df5a7832
+		summarizeBy: none
+		sourceColumn: refund_sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sequence
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1948547d-c915-493b-9823-fbaff01a4162
+		summarizeBy: none
+		sourceColumn: payment_sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 12d39633-4324-48c9-a788-dee9e40c1759
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: b2a07c55-ddad-4335-a5e2-94216c0139a2
+			defaultHierarchy: LocalDateTable_61ad643e-a943-4cbf-9f83-7581009de134.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bd9e0645-9c11-4be3-a1c4-c74d1716f478
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: c8fe9a6c-1338-4600-a156-6a88417634d5
+			defaultHierarchy: LocalDateTable_fdb171f7-e178-426c-8439-28650e061723.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e40e3915-0b0c-4b4c-a93b-17f0c94798e6
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 205a1944-c8cf-4462-8d92-ef6900c79d4b
+			defaultHierarchy: LocalDateTable_a903af60-ba98-432a-9625-d06daa7289f3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_journal = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_journal_Table = gold_Schema{[Name="dim_journal",Kind="Table"]}[Data]
+				in
+				    dim_journal_Table
+

@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["fact_sales","dim_product","dim_partner","dim_date","01_SalesMeasures","fact_purchase_order","02_PurchaseMeasures","Last Refresh"]
+annotation PBI_QueryOrder = ["fact_sales","dim_product","dim_partner","dim_date","01_SalesMeasures","fact_purchase_order","02_PurchaseMeasures","Last Refresh","fact_inventory","fact_inventory_movement","dim_warehouse","dim_inventory_location","03_inventoryMeasures","fact_crm_pipeline","dim_campaign","dim_lead","dim_lost_reason","dim_stage","dim_team","04_CrmMeasures","dim_job","dim_employee","dim_department","fact_gl_transactions","fact_invoice","dim_journal","dim_account","05_HrMeasures","06_InvoiceMeasures"]
 
 annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
@@ -38,6 +38,74 @@ ref table 02_PurchaseMeasures
 ref table 'Sales KPIs'
 ref table 'Purchase KPIs'
 ref table 'Last Refresh'
+ref table fact_inventory
+ref table LocalDateTable_41e3c7f8-1ca2-401c-acce-c84c76a179f9
+ref table fact_inventory_movement
+ref table LocalDateTable_b1a10d0a-39e4-41a8-b5a8-0ccba5640ffc
+ref table LocalDateTable_942792bc-722a-499d-b267-7aa031b4396f
+ref table LocalDateTable_8daae6fa-bfe1-4101-a346-325c57f1210c
+ref table dim_warehouse
+ref table LocalDateTable_9f8cb56f-c434-4366-9e3a-04eeecf4f36e
+ref table LocalDateTable_0cb934a9-24c1-4a9d-af5f-ee28736a8c88
+ref table LocalDateTable_06027b1b-663d-4cf8-bad0-2febfffd69a9
+ref table dim_inventory_location
+ref table LocalDateTable_5b433c7a-81a0-4277-b69f-c201033ee181
+ref table LocalDateTable_bee8e198-64c6-4234-afcc-587eb27df3ff
+ref table LocalDateTable_e8dc965a-7109-4e1c-ae14-93c7835d9c5a
+ref table 03_inventoryMeasures
+ref table LocalDateTable_2caa7383-5975-479e-b1de-e5783c7aff99
+ref table LocalDateTable_82222399-b53a-48c6-a67e-0285cef79cb5
+ref table LocalDateTable_6beeb28f-4e1d-4845-8355-d0a741905919
+ref table LocalDateTable_dca835d3-e614-4fb3-82a5-40aa1966339b
+ref table fact_crm_pipeline
+ref table LocalDateTable_061c49f4-3c3f-4d46-bc7c-4bbb39db176f
+ref table LocalDateTable_7dd2424a-1606-4f02-a4c1-0d8379b35ae0
+ref table LocalDateTable_62891517-a2a5-4a69-8656-3dcaa46c178f
+ref table dim_campaign
+ref table LocalDateTable_13ff6d75-aa68-4998-81f8-f9aa70ff4a2f
+ref table dim_lead
+ref table LocalDateTable_5535bd40-dc8a-4305-9ffa-2b64e88ed734
+ref table LocalDateTable_02060f45-4cbf-42db-a4ff-2420dbdb50ca
+ref table LocalDateTable_7ff4d466-38e9-46c5-9e14-87702ad8c89a
+ref table dim_lost_reason
+ref table LocalDateTable_6a8dbb15-401c-4b89-bf96-0b670f46913f
+ref table dim_stage
+ref table LocalDateTable_a9189211-871d-482a-8464-844876ae5b24
+ref table dim_team
+ref table LocalDateTable_64d41dba-808d-459c-99f5-a6707f2bfccb
+ref table 04_CrmMeasures
+ref table dim_job
+ref table LocalDateTable_b5350e2f-4609-4c61-9b88-178a431ed4dc
+ref table LocalDateTable_af0dcdc5-36e6-4779-bc9c-8dca5b3c05b8
+ref table LocalDateTable_3bb835a7-36bf-46fd-aead-92a0c3613f79
+ref table dim_employee
+ref table LocalDateTable_c7ce021e-d9cc-4715-8b25-8559b8c25f1f
+ref table LocalDateTable_7c74d0fa-b57d-4203-adcd-15fc223fc964
+ref table LocalDateTable_e6aa5bca-6206-4535-86a3-08d0f829a902
+ref table LocalDateTable_48d5e93c-7046-4c07-8011-ee3e0df741a6
+ref table LocalDateTable_affa1762-d8ef-459c-a6b0-010b400bed1b
+ref table dim_department
+ref table LocalDateTable_50f6402a-bb85-4de3-ba0c-9c61e3e5b385
+ref table LocalDateTable_9310525f-fb89-4664-aa60-0e20ba8d4f54
+ref table LocalDateTable_d2d51093-358e-4656-b5d9-ab2c00ff2cc3
+ref table fact_gl_transactions
+ref table LocalDateTable_421608ad-9452-4cb2-a7c3-8cc7b055f053
+ref table LocalDateTable_ddcbc99f-88b2-4390-a780-5e1fe3be6cb4
+ref table LocalDateTable_bb93dbc6-c5ea-4e94-8989-346ef6fe42a1
+ref table fact_invoice
+ref table LocalDateTable_716bc6c8-55c8-4d06-b2cc-e22d654b2e95
+ref table LocalDateTable_d879b2f6-377d-4631-8db5-9eda51241f39
+ref table LocalDateTable_bff07f99-88ea-472e-aecf-71c5499ce8b7
+ref table dim_journal
+ref table LocalDateTable_61ad643e-a943-4cbf-9f83-7581009de134
+ref table LocalDateTable_fdb171f7-e178-426c-8439-28650e061723
+ref table LocalDateTable_a903af60-ba98-432a-9625-d06daa7289f3
+ref table dim_account
+ref table LocalDateTable_0c964393-c476-45a7-aa4c-83f9d79d05a3
+ref table LocalDateTable_ee66eece-5cb8-46b2-bb73-1323aa983448
+ref table LocalDateTable_7af6f41d-ec33-4b8d-b627-cec36a198562
+ref table 05_HrMeasures
+ref table 06_InvoiceMeasures
 
 ref cultureInfo en-US
 

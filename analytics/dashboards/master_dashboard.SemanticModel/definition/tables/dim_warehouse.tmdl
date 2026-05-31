@@ -1,0 +1,148 @@
+table dim_warehouse
+	lineageTag: 365d2f8e-b34a-463e-b9c5-10d44589ef09
+
+	column warehouse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7abc80f8-9517-4165-8180-7b62d53a12f6
+		summarizeBy: none
+		sourceColumn: warehouse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 74bbf740-84e1-4523-baed-b736d73be457
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: b1ccb3fd-e7db-4228-9402-11d88956dc74
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_name
+		dataType: string
+		lineageTag: 6e8b06b8-fa5b-4efd-b529-e51b121a4e43
+		summarizeBy: none
+		sourceColumn: warehouse_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_code
+		dataType: string
+		lineageTag: 19313418-f46e-410a-8f9b-803cb0afa669
+		summarizeBy: none
+		sourceColumn: warehouse_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column reception_steps
+		dataType: string
+		lineageTag: ad728e40-527e-46c9-9c55-f3106faccb72
+		summarizeBy: none
+		sourceColumn: reception_steps
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_steps
+		dataType: string
+		lineageTag: 25f2f952-cf53-4ac3-97ba-bf5bec668893
+		summarizeBy: none
+		sourceColumn: delivery_steps
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 637c604f-4c69-4dee-8f9c-9cab5bb42eec
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cf94baee-adca-4c91-ac52-e8b520bed1b5
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 6a6d4307-fa39-4645-a7ec-937c90df4be6
+			defaultHierarchy: LocalDateTable_9f8cb56f-c434-4366-9e3a-04eeecf4f36e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e71c4775-7f95-4f69-8b38-73309a56de8f
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: bedc0bab-ffd0-44b3-8dba-c934957d271f
+			defaultHierarchy: LocalDateTable_0cb934a9-24c1-4a9d-af5f-ee28736a8c88.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2562e95b-729c-4685-bf51-c80125e11469
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 26d4d49e-3479-4525-a9a5-52513f2f902b
+			defaultHierarchy: LocalDateTable_06027b1b-663d-4cf8-bad0-2febfffd69a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 5e85409b-b713-445f-94fd-4357d1580bcf
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a7f1dd75-8feb-4e39-8ac0-a65b8cbc7f8e
+		summarizeBy: sum
+		sourceColumn: partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_name
+		dataType: string
+		lineageTag: 4e9bb4e2-2f00-4ecb-b396-ba74b59c6790
+		summarizeBy: none
+		sourceColumn: partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_warehouse = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_warehouse_Table = gold_Schema{[Name="dim_warehouse",Kind="Table"]}[Data]
+				in
+				    dim_warehouse_Table
+

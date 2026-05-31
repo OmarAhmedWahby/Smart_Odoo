@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "d30440a06ff3556de8db",
+  "displayName": "HR Development ",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "b8a12f4a739fcedb3288",
+    "type": "Default",
+    "parameters": []
+  }
+}

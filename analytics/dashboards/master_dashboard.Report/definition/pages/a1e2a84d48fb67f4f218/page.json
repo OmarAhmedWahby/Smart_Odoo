@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "a1e2a84d48fb67f4f218",
+  "displayName": "Pipeline Velocity",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "9cfd4a3105d70fb3812e",
+    "type": "Default",
+    "parameters": []
+  }
+}

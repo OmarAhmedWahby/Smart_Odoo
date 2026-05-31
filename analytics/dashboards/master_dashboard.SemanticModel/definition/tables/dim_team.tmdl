@@ -1,0 +1,99 @@
+table dim_team
+	lineageTag: f9bbeed4-d692-4c7b-a09e-a6eeba17a4f5
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f422121-5d37-4d03-91e8-56b05d98b873
+		summarizeBy: sum
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: 83df42cd-b266-45d8-980e-b99360ffc10e
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d87996a-f02a-47c0-bb74-614d95184844
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 7f2a4cca-caef-4932-9082-c4431e7652d9
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoiced_target
+		dataType: double
+		lineageTag: 58e731ca-29f2-479b-96a7-1533b311ea1d
+		summarizeBy: sum
+		sourceColumn: invoiced_target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4877d58-00e9-4df3-9f7e-0d1fda33ef64
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	column use_leads
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3215fa5c-0720-4d89-bb13-ef43dfb4536f
+		summarizeBy: none
+		sourceColumn: use_leads
+
+		annotation SummarizationSetBy = Automatic
+
+	column use_opportunities
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 535e508b-ea17-4085-a82c-113ff61e7294
+		summarizeBy: none
+		sourceColumn: use_opportunities
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d90916c2-d3f8-4200-8c17-bc437bc3a6b0
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: bb9e9a68-c094-4296-a3a5-98d5d67fbdcc
+			defaultHierarchy: LocalDateTable_64d41dba-808d-459c-99f5-a6707f2bfccb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_team = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_team_Table = gold_Schema{[Name="dim_team",Kind="Table"]}[Data]
+				in
+				    dim_team_Table
+

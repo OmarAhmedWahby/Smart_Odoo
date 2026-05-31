@@ -1,0 +1,158 @@
+table dim_job
+	lineageTag: 19944cc3-ecd5-4fad-a325-552f3a8db0d5
+
+	column job_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d071e4e4-a101-4438-8cf5-15408462f0b6
+		summarizeBy: sum
+		sourceColumn: job_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column job_name
+		dataType: string
+		lineageTag: 01002d4f-36ff-4174-981b-e319ee547016
+		summarizeBy: none
+		sourceColumn: job_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 527bc76b-fcea-419e-8121-b7b90a88dd8f
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column requirements
+		dataType: string
+		lineageTag: 26d47cfc-a50b-4df9-bad8-229498f66acf
+		summarizeBy: none
+		sourceColumn: requirements
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c3083a23-786a-4cde-882f-2205e08f69b1
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: e4849f04-234b-4558-9f6c-a713d272a16f
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ff7494d1-6100-4297-b65f-f10df01846ac
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: cf4cdf42-c49c-41c8-b0bb-485a2cfef485
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_type_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 235988eb-00cb-459c-b8f6-c3f711b9512b
+		summarizeBy: sum
+		sourceColumn: contract_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract_type_name
+		dataType: string
+		lineageTag: 0700132f-373a-43b9-803e-f47d3e65429c
+		summarizeBy: none
+		sourceColumn: contract_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column no_of_recruitment
+		dataType: int64
+		formatString: 0
+		lineageTag: 63d0eca5-c8e9-4193-84d0-f281634aa010
+		summarizeBy: sum
+		sourceColumn: no_of_recruitment
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 67ec12df-a6e9-4e42-9de2-82f54a28a603
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6fd59bf8-fe46-407d-be58-b0251bc44ffe
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: f98d0c49-5e4e-4aca-ac68-ac80bb605f32
+			defaultHierarchy: LocalDateTable_b5350e2f-4609-4c61-9b88-178a431ed4dc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f45058ba-f6c4-4d9b-aa93-c1be81ee76b5
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: ea514804-1cf1-4c03-b509-df453f695272
+			defaultHierarchy: LocalDateTable_af0dcdc5-36e6-4779-bc9c-8dca5b3c05b8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2cfea264-11f1-46f2-92c4-de8a501b1fde
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 9960b306-2cc4-44f1-ac6d-67cff104a075
+			defaultHierarchy: LocalDateTable_3bb835a7-36bf-46fd-aead-92a0c3613f79.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_job = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_job_Table = gold_Schema{[Name="dim_job",Kind="Table"]}[Data]
+				in
+				    dim_job_Table
+

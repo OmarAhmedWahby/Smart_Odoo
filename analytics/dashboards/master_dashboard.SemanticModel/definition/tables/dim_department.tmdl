@@ -1,0 +1,149 @@
+table dim_department
+	lineageTag: 9c9a3257-ee40-4e4d-9777-90f22aac8399
+
+	column department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: de5c34cc-c315-44ba-ab27-4af955fedcbf
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 26254c09-a2f2-4d4f-bf10-764c3f5d41a1
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fbfcf19-002c-4c21-884c-7a18c8c94daf
+		summarizeBy: sum
+		sourceColumn: parent_department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_department_name
+		dataType: string
+		lineageTag: 11ec7288-1162-4b2b-9e6c-f434ca65bc27
+		summarizeBy: none
+		sourceColumn: parent_department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f9ee05b-bef2-4103-a469-c087e606de37
+		summarizeBy: sum
+		sourceColumn: manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_name
+		dataType: string
+		lineageTag: 5e178390-1094-40a1-a1b7-c376e04645d4
+		summarizeBy: none
+		sourceColumn: manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d3fff0cf-1f2d-45e9-bc27-9682363923cb
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 0ea237c8-ce0a-4ebd-ab10-7f1133dd7219
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_path
+		dataType: string
+		lineageTag: 22177fc0-513b-4e3c-9030-d22a7bb701f5
+		summarizeBy: none
+		sourceColumn: parent_path
+
+		annotation SummarizationSetBy = Automatic
+
+	column note
+		dataType: string
+		lineageTag: 60d3ad89-eab7-4ac3-b785-e7b588e0c60a
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8977b1c0-2e6f-41f0-ace8-2b9e2651eecf
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9fe7fbbe-9464-45d5-8491-fb68388e26bc
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: eef10a4b-a530-47a4-823b-16633fe7a734
+			defaultHierarchy: LocalDateTable_50f6402a-bb85-4de3-ba0c-9c61e3e5b385.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4565b2b0-7076-45d7-8e1a-0445f2a37a29
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 248450d8-85ed-4468-a11a-a585c68cf580
+			defaultHierarchy: LocalDateTable_9310525f-fb89-4664-aa60-0e20ba8d4f54.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ac0761a-7262-43d4-9b95-40a75c2eb787
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 72435fef-42ab-4022-8f6d-86e4a8195b99
+			defaultHierarchy: LocalDateTable_d2d51093-358e-4656-b5d9-ab2c00ff2cc3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_department = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_department_Table = gold_Schema{[Name="dim_department",Kind="Table"]}[Data]
+				in
+				    dim_department_Table
+

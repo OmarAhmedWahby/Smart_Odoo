@@ -1,0 +1,54 @@
+table dim_lost_reason
+	lineageTag: cf0b2ca6-e2d7-4ba2-9914-c7c51e3629b7
+
+	column lost_reason_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 41afd3be-28ac-41f0-aae9-400b1c17c088
+		summarizeBy: none
+		sourceColumn: lost_reason_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column lost_reason_name
+		dataType: string
+		lineageTag: d1f96b0d-4a53-4dc8-a8e3-fbfd37c5d5ea
+		summarizeBy: none
+		sourceColumn: lost_reason_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f030db9e-e2ac-4e40-872c-668ca6169858
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 13158312-90e3-497d-88f4-eecc3f77a239
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 81588c22-29db-47d2-8814-026fabe69002
+			defaultHierarchy: LocalDateTable_6a8dbb15-401c-4b89-bf96-0b670f46913f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_lost_reason = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_lost_reason_Table = gold_Schema{[Name="dim_lost_reason",Kind="Table"]}[Data]
+				in
+				    dim_lost_reason_Table
+

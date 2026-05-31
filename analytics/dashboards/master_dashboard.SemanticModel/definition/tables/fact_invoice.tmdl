@@ -1,0 +1,383 @@
+table fact_invoice
+	lineageTag: 2093b861-f4b7-43c1-a480-4072936e4a65
+
+	column move_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c80edc5-ac83-4b52-951a-6899509dcf91
+		summarizeBy: sum
+		sourceColumn: move_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 061fb3ef-67be-46db-ba04-e1adad613da6
+		summarizeBy: none
+		sourceColumn: partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_name
+		dataType: string
+		lineageTag: 461230d5-675b-464b-84e1-0eb7ca152ad2
+		summarizeBy: none
+		sourceColumn: partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5326e807-7828-462f-b7fb-78298d5d8ca8
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 696e4f00-3723-491f-9ef8-e1f5063b7bc2
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f99c093-10c2-40dc-a19f-8fdf7d3fc74b
+		summarizeBy: none
+		sourceColumn: journal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_name
+		dataType: string
+		lineageTag: cbe9c993-a43a-45ab-a182-4648f60e9a4a
+		summarizeBy: none
+		sourceColumn: journal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_user_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9309522d-a296-49bd-b164-afff84ee46a7
+		summarizeBy: sum
+		sourceColumn: invoice_user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_user_name
+		dataType: string
+		lineageTag: d9200444-a53c-47a8-b6c2-6a470361e54b
+		summarizeBy: none
+		sourceColumn: invoice_user_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f7ab780-fbae-4641-ad6b-f2135665501d
+		summarizeBy: sum
+		sourceColumn: currency_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_name
+		dataType: string
+		lineageTag: 2e5cace2-b0e3-4aa4-851d-053593b91ce3
+		summarizeBy: none
+		sourceColumn: currency_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column reversed_entry_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f7cb2ec4-47f2-472a-972a-23cc7ec62bff
+		summarizeBy: sum
+		sourceColumn: reversed_entry_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 5e04f581-51fa-4e5d-ba2b-0b225eb598d7
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ref
+		dataType: string
+		lineageTag: 8f9b3991-028f-4a41-a9b0-05cf1c0f17fd
+		summarizeBy: none
+		sourceColumn: ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_type
+		dataType: string
+		lineageTag: 4f95d039-0606-4352-8fd6-29bf5e5b4383
+		summarizeBy: none
+		sourceColumn: move_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 44e2c838-7d8f-4045-9ea8-482e32be85bc
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_state
+		dataType: string
+		lineageTag: c14d9b3a-d01f-41e6-a670-ceccf44a3951
+		summarizeBy: none
+		sourceColumn: payment_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_reference
+		dataType: string
+		lineageTag: b4cc8e1f-2b52-4a78-9594-33c263c0237d
+		summarizeBy: none
+		sourceColumn: payment_reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_origin
+		dataType: string
+		lineageTag: 401b33df-095e-4e0b-a20e-f509349238c3
+		summarizeBy: none
+		sourceColumn: invoice_origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column narration
+		dataType: string
+		lineageTag: a34945b7-e82c-4df9-99d9-0bd12ddd8a92
+		summarizeBy: none
+		sourceColumn: narration
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_currency_rate
+		dataType: double
+		lineageTag: 0f968517-3e1e-4282-bd43-390e7c355104
+		summarizeBy: sum
+		sourceColumn: invoice_currency_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_untaxed
+		dataType: double
+		lineageTag: 669f194f-4c6e-41ef-87b2-d52b8a866777
+		summarizeBy: sum
+		sourceColumn: amount_untaxed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_tax
+		dataType: double
+		lineageTag: 2c156cdc-cfd3-428a-af81-895ada8855c9
+		summarizeBy: sum
+		sourceColumn: amount_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_total
+		dataType: double
+		lineageTag: bf576d68-f58c-4e7b-a9fb-f38eb9b9b765
+		summarizeBy: sum
+		sourceColumn: amount_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_residual
+		dataType: double
+		lineageTag: 2a12369a-2d1d-4ff5-af55-01e9237db051
+		summarizeBy: sum
+		sourceColumn: amount_residual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_untaxed_signed
+		dataType: double
+		lineageTag: 4a86f06c-ad02-43d6-9600-349d9a17d340
+		summarizeBy: sum
+		sourceColumn: amount_untaxed_signed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_tax_signed
+		dataType: double
+		lineageTag: 4f74acbe-7c04-4b80-9a09-71d517712e23
+		summarizeBy: sum
+		sourceColumn: amount_tax_signed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_total_signed
+		dataType: double
+		lineageTag: 0523f13c-56f3-43e9-91cc-40703bf4e396
+		summarizeBy: sum
+		sourceColumn: amount_total_signed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_residual_signed
+		dataType: double
+		lineageTag: 171b8918-f4f0-411e-bc6c-8d7485c8bce6
+		summarizeBy: sum
+		sourceColumn: amount_residual_signed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column invoice_status
+		dataType: string
+		lineageTag: 2ed71dfa-2483-4ac0-bc70-09895a407163
+		summarizeBy: none
+		sourceColumn: invoice_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_move_sent
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 75c9b26a-3b70-4727-b01e-585b3320329b
+		summarizeBy: none
+		sourceColumn: is_move_sent
+
+		annotation SummarizationSetBy = Automatic
+
+	column posted_before
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c0b9df3e-3bba-4d0f-aa46-38cf1e4b6da5
+		summarizeBy: none
+		sourceColumn: posted_before
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 629d58bb-bbc6-4a4c-9ad9-d2677e64dd70
+		summarizeBy: none
+		sourceColumn: move_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column invoice_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0ba16aa5-7471-4d4a-a5bd-deb910f106c5
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column invoice_date_due
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a4199a46-8d59-4089-b912-54d20d4cdc21
+		summarizeBy: none
+		sourceColumn: invoice_date_due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column delivery_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c3bbf12f-0e3e-417d-b466-2c8967c3c05c
+		summarizeBy: none
+		sourceColumn: delivery_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d8a7ad25-948f-4363-b6ff-6ee0585daed3
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 33b92a1e-c8e3-4940-94dd-9ee667843606
+			defaultHierarchy: LocalDateTable_716bc6c8-55c8-4d06-b2cc-e22d654b2e95.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3f10b4d6-693c-4f9c-92ff-c22167b4368b
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: f64d2b3b-8796-435f-9347-89eb5438c250
+			defaultHierarchy: LocalDateTable_d879b2f6-377d-4631-8db5-9eda51241f39.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 884c538f-64db-4664-af71-5a35d8724181
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: f4be4b80-4639-490c-b9b3-57b0cf664781
+			defaultHierarchy: LocalDateTable_bff07f99-88ea-472e-aecf-71c5499ce8b7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_invoice = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_invoice_Table = gold_Schema{[Name="fact_invoice",Kind="Table"]}[Data]
+				in
+				    fact_invoice_Table
+

@@ -1,0 +1,295 @@
+table fact_inventory_movement
+	lineageTag: a4b46cc7-1f1b-4a4a-a0fd-ef0510c25d44
+
+	column stock_move_line_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e3e495d-546f-45f2-8292-957af34bf5e4
+		summarizeBy: sum
+		sourceColumn: stock_move_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ebfe9455-e8a9-40b7-9485-a676f993e244
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1abbb6f9-8626-4eed-bd82-bc93045e1198
+		summarizeBy: none
+		sourceColumn: warehouse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column lot_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d0ec6420-8d32-43c2-8669-c6a3a508898d
+		summarizeBy: sum
+		sourceColumn: lot_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column picking_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cad1888f-414c-4b3d-9ee1-186976d5dfca
+		summarizeBy: sum
+		sourceColumn: picking_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column from_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a2dd6a5d-efc1-43dc-b847-c72eabcfb39c
+		summarizeBy: sum
+		sourceColumn: from_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 99ed49a0-6961-415d-b8e0-799ccf87671a
+		summarizeBy: none
+		sourceColumn: to_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 07d8c292-8bd1-4ff8-9da8-3c3d42c86458
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column move_value
+		dataType: double
+		lineageTag: 3c829c8f-1ff8-488d-b7c5-940082aa743c
+		summarizeBy: sum
+		sourceColumn: move_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lot_name
+		dataType: string
+		lineageTag: 18c0e945-de19-485d-980d-7ab1f3acbae8
+		summarizeBy: none
+		sourceColumn: lot_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column picking_name
+		dataType: string
+		lineageTag: 300d54d6-02e3-4890-9b42-05add793dc33
+		summarizeBy: none
+		sourceColumn: picking_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_state
+		dataType: string
+		lineageTag: fd67b3f9-11ef-4701-8e17-2f3960e757cc
+		summarizeBy: none
+		sourceColumn: move_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column picking_state
+		dataType: string
+		lineageTag: 3a4fd0dd-7ae6-4337-b07b-70956bbed688
+		summarizeBy: none
+		sourceColumn: picking_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_in
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5bd08e6f-40e2-4263-b011-7e92cb6bc96f
+		summarizeBy: none
+		sourceColumn: is_in
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_out
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4b9235f1-e680-462e-aa44-547a73f25856
+		summarizeBy: none
+		sourceColumn: is_out
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_internal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8aefb5a6-e888-4a3b-bf70-c2fcc820f74b
+		summarizeBy: none
+		sourceColumn: is_internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column movement_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7fa2bd47-e96e-402a-a631-4826fc608a06
+		summarizeBy: none
+		sourceColumn: movement_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 39efa043-c47d-4243-b6a8-74e2424b6b03
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 13164b89-5757-4d5b-a38b-eb4487933851
+			defaultHierarchy: LocalDateTable_b1a10d0a-39e4-41a8-b5a8-0ccba5640ffc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70bb231e-cbe2-4e55-a53c-1d51a9425274
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 05510292-2ec3-40fb-bdfa-7893248da974
+			defaultHierarchy: LocalDateTable_942792bc-722a-499d-b267-7aa031b4396f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 145b3775-bd92-483e-ba65-fc05df6df40f
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 6686f077-a45e-4259-94e9-b04d515bede4
+			defaultHierarchy: LocalDateTable_8daae6fa-bfe1-4101-a346-325c57f1210c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 36c6d158-3967-4601-8249-c6801ef1e140
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column from_location_name
+		dataType: string
+		lineageTag: a0f69a6d-14f9-4e13-8a83-b6ad39945a8b
+		summarizeBy: none
+		sourceColumn: from_location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_location_name
+		dataType: string
+		lineageTag: b2c6e960-622a-489f-b373-1ada41110152
+		summarizeBy: none
+		sourceColumn: to_location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: eb1c7498-c5eb-47c2-840a-f15bf1e9ca70
+		summarizeBy: none
+		sourceColumn: partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_name
+		dataType: string
+		lineageTag: f89040ee-3caa-4412-9816-ebca2f3e0da3
+		summarizeBy: none
+		sourceColumn: partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordered_qty
+		dataType: double
+		lineageTag: f24d9b54-585e-449d-86d5-b8e95ecd0cd2
+		summarizeBy: sum
+		sourceColumn: ordered_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column moved_qty
+		dataType: double
+		lineageTag: 28bfbfd5-1054-47c8-bab8-1c260c74396d
+		summarizeBy: sum
+		sourceColumn: moved_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column origin
+		dataType: string
+		lineageTag: c217c108-14b1-4d5a-9fea-7e0ed570b664
+		summarizeBy: none
+		sourceColumn: origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column movement_type
+		dataType: string
+		lineageTag: fac52e03-e5a1-4412-b1f3-f58597111143
+		summarizeBy: none
+		sourceColumn: movement_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_return
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fa950e63-f403-4b1a-8385-4cc8206382cb
+		summarizeBy: none
+		sourceColumn: is_return
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_inventory_movement = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_inventory_movement_Table = gold_Schema{[Name="fact_inventory_movement",Kind="Table"]}[Data]
+				in
+				    fact_inventory_movement_Table
+

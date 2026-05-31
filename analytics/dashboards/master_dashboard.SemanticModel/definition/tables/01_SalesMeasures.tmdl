@@ -27,7 +27,7 @@ table 01_SalesMeasures
 
 	/// Average sales per order
 	measure 'Average Order Value' = DIVIDE([Realized Revenue], [Completed Orders])
-		formatString: " #,##0 "" EGP"""
+		formatString: #,##0 "EGP"
 		lineageTag: 7775b77d-841b-4f94-b6d7-4f4c50c6885a
 
 		changedProperty = IsHidden
@@ -51,14 +51,14 @@ table 01_SalesMeasures
 
 	/// Total discount amount
 	measure 'Total Discount' = SUM(fact_sales[discount])
-		formatString: $#,##0.00
+		formatString: #,##0 "EGP"
 		lineageTag: 1c1a15b3-bd31-4746-a509-fdaa3fc5ad06
 
 		changedProperty = IsHidden
 
 	/// Total tax amount
 	measure 'Total Tax' = SUM(fact_sales[price_tax])
-		formatString: $#,##0.00
+		formatString: #,##0 "EGP"
 		lineageTag: bae93043-9567-4b3d-a50c-8d5dd6f2291a
 
 		changedProperty = IsHidden
@@ -69,7 +69,7 @@ table 01_SalesMeasures
 			    SUM ( fact_sales[net_revenue] ),
 			    fact_sales[order_state] = "done"
 			)
-		formatString: " #,##0.00  "" EGP"""
+		formatString: #,##0 "EGP"
 		displayFolder: Revenue
 		lineageTag: 3b9f850c-4f5e-41c1-aa05-abcdb441497f
 
@@ -87,7 +87,7 @@ table 01_SalesMeasures
 
 	/// Average unit price
 	measure 'Average Unit Price' = SUM(fact_sales[price_unit]) / SUMX(DISTINCT(fact_sales[product_id]), DISTINCTCOUNT(fact_sales[product_id]))
-		formatString: #,##0.00 " EGP"
+		formatString: #,##0 "EGP"
 		displayFolder: Product
 		lineageTag: f867108f-d357-4148-9053-33ba3deaca4c
 
@@ -97,7 +97,7 @@ table 01_SalesMeasures
 
 	/// Month-to-date sales
 	measure 'MTD Sales' = TOTALMTD([Potential Revenue], dim_date[full_date])
-		formatString: $#,##0.00
+		formatString: #,##0 "EGP"
 		displayFolder: RFM
 		lineageTag: 2f957428-2dcd-449f-a2d5-c95fa00e4c43
 
@@ -105,7 +105,7 @@ table 01_SalesMeasures
 
 	/// Previous month sales
 	measure 'Previous Month Sales' = CALCULATE([Realized Revenue], DATEADD(dim_date[full_date], -1, MONTH))
-		formatString: $#,##0.00
+		formatString: #,##0 "EGP"
 		displayFolder: Revenue
 		lineageTag: 715bf64c-d7e4-482d-88fa-be8ac72607a0
 
@@ -121,7 +121,7 @@ table 01_SalesMeasures
 
 	/// Previous year sales
 	measure 'Previous Year Sales' = CALCULATE([Realized Revenue], DATEADD(dim_date[full_date], -1, YEAR))
-		formatString: $#,##0.00
+		formatString: #,##0 "EGP"
 		displayFolder: Revenue
 		lineageTag: 91307602-140c-4712-a3d1-32365bbeb7f3
 
@@ -129,7 +129,7 @@ table 01_SalesMeasures
 
 	/// Average order size
 	measure 'Average Order Size' = DIVIDE([Total Quantity], [Total Orders])
-		formatString: " #,##0 "" EGP"""
+		formatString: #,##0 "EGP"
 		lineageTag: 26c1670f-a35f-451f-9fea-16eebc0d3a22
 
 		changedProperty = IsHidden
@@ -166,7 +166,7 @@ table 01_SalesMeasures
 			    SUM ( fact_sales[price_total] ),
 			    fact_sales[order_state] = "cancel"
 			)
-		formatString: #,##0.00  " EGP"
+		formatString: #,##0 "EGP"
 		displayFolder: Revenue
 		lineageTag: 5d5bb965-70ab-4ada-93f9-7df34b704aeb
 
@@ -185,7 +185,7 @@ table 01_SalesMeasures
 			    SUM ( fact_sales[price_total] ),
 			    fact_sales[order_state] = "draft"
 			)
-		formatString: #,##0.00  " EGP"
+		formatString: #,##0 "EGP"
 		displayFolder: Revenue
 		lineageTag: c2c35643-54fe-4996-a901-2c0829c535fd
 
@@ -215,6 +215,7 @@ table 01_SalesMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Product Revenue' = CALCULATE(SUM(fact_sales[net_revenue]), fact_sales[order_state] = "done")
+		formatString: #,##0 "EGP"
 		displayFolder: Product
 		lineageTag: 778aec98-f040-4b24-aae9-c1e335c8f36c
 
@@ -236,7 +237,7 @@ table 01_SalesMeasures
 			    [Product Revenue],
 			    ALL(dim_product)
 			)
-		formatString: 0
+		formatString: #,##0 "EGP"
 		lineageTag: 03966c4e-f283-48fe-a6b2-3633aeaa6f30
 
 	measure 'Product Rank' =
@@ -262,6 +263,7 @@ table 01_SalesMeasures
 			        [Product Rank] <= CurrentRank
 			    )
 			)
+		formatString: #,##0 "EGP"
 		displayFolder: Product
 		lineageTag: f293886c-0497-4b60-b9f4-c7b995b7cce0
 
@@ -276,7 +278,7 @@ table 01_SalesMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average Customer Value' = DIVIDE( [Realized Revenue],DISTINCTCOUNT(fact_sales[customer_id]),0)
-		formatString: " #,##0 "" EGP"""
+		formatString: #,##0 "EGP"
 		lineageTag: 93ebf884-9145-4a87-beab-6341ec95f332
 
 		annotation PBI_FormatHint = {"isCustom":true}
@@ -308,6 +310,7 @@ table 01_SalesMeasures
 		lineageTag: b28b9005-d672-4443-9c06-f9ab0829da23
 
 	measure Monetary = SUM(fact_sales[net_revenue])
+		formatString: #,##0 "EGP"
 		displayFolder: RFM
 		lineageTag: 6932671b-8c07-45e6-9ff1-f08b634b5ad5
 
@@ -361,6 +364,7 @@ table 01_SalesMeasures
 			[Average Order Value] *
 			[Purchase Frequency] *
 			[Customer Lifespan]
+		formatString: #,##0 "EGP"
 		displayFolder: Customer
 		lineageTag: 94354605-f29d-4782-8b96-32f001e23e46
 
@@ -408,6 +412,11 @@ table 01_SalesMeasures
 
 	measure 'Total Quantity Sold' = CALCULATE(SUM(fact_sales[product_qty]),fact_sales[order_state] = "done")
 		lineageTag: 7ad66a3a-a4f1-46d0-8d04-90f000d2ceaa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Movement Qty' = SUM(fact_inventory_movement[moved_qty])
+		lineageTag: 8dca6296-13c7-43eb-9e7c-1612e5c37c36
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

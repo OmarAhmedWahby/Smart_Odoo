@@ -1,0 +1,259 @@
+table dim_employee
+	lineageTag: cf3474f6-4b68-4edc-b41e-89202bd79385
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dafeaee-ae96-4f93-951a-2e95425f2edb
+		summarizeBy: sum
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: 75d169b6-a659-4911-a22e-6a4bb276c07f
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_name
+		dataType: string
+		lineageTag: c4078f60-f535-44db-8ef1-2ca7de575dd4
+		summarizeBy: none
+		sourceColumn: legal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 030f38a8-ba21-4d17-a37d-4be31adb93b0
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: b1107213-f32d-44eb-a2cf-ad3a3ca8e1d1
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f851ea2-8278-493f-a8c2-455c3e80c525
+		summarizeBy: sum
+		sourceColumn: manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_name
+		dataType: string
+		lineageTag: 0b55047d-9aa4-4457-bc68-5c12c8eb47b6
+		summarizeBy: none
+		sourceColumn: manager_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column coach_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d427c534-7494-41f8-9e99-b1759e8215ff
+		summarizeBy: sum
+		sourceColumn: coach_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column coach_name
+		dataType: string
+		lineageTag: 9fffbe87-2ed0-4c7a-aa47-3e04153b4bf9
+		summarizeBy: none
+		sourceColumn: coach_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_email
+		dataType: string
+		lineageTag: 6ddf74be-9a15-4959-a0a2-9fccd6dbf80e
+		summarizeBy: none
+		sourceColumn: work_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_phone
+		dataType: string
+		lineageTag: 4dfe30d7-8cc6-4299-91ce-25f2fd52e574
+		summarizeBy: none
+		sourceColumn: work_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column mobile_phone
+		dataType: string
+		lineageTag: ef66681e-682e-4bad-bbd1-babce8c8baac
+		summarizeBy: none
+		sourceColumn: mobile_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column certificate
+		dataType: string
+		lineageTag: cdc7aac5-3ded-429f-8e45-dac3d05bb676
+		summarizeBy: none
+		sourceColumn: certificate
+
+		annotation SummarizationSetBy = Automatic
+
+	column study_field
+		dataType: string
+		lineageTag: 4b6fe671-47ad-4733-a473-ec0ab7a56c1f
+		summarizeBy: none
+		sourceColumn: study_field
+
+		annotation SummarizationSetBy = Automatic
+
+	column study_school
+		dataType: string
+		lineageTag: 2c4bfe69-fd82-4ee8-b84f-ce5ae8bef993
+		summarizeBy: none
+		sourceColumn: study_school
+
+		annotation SummarizationSetBy = Automatic
+
+	column birthday
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6e91fd4e-1d24-4ed3-b668-cd910cf629c7
+		summarizeBy: none
+		sourceColumn: birthday
+
+		variation Variation
+			isDefault
+			relationship: 5a677956-dd6b-4bb2-81ac-f6ac90d36ace
+			defaultHierarchy: LocalDateTable_c7ce021e-d9cc-4715-8b25-8559b8c25f1f.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column visa_expire
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2f4b4d86-b1b2-40a7-a5c6-2c3c54577dfe
+		summarizeBy: none
+		sourceColumn: visa_expire
+
+		variation Variation
+			isDefault
+			relationship: 50715d93-48ff-42d1-8ab3-0e71fdc90261
+			defaultHierarchy: LocalDateTable_7c74d0fa-b57d-4203-adcd-15fc223fc964.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_permit_expiration_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 427afbed-4b42-4da0-a719-76711e79b513
+		summarizeBy: none
+		sourceColumn: work_permit_expiration_date
+
+		variation Variation
+			isDefault
+			relationship: d8ba56b7-ab93-4ae1-af38-821d0bcdf98d
+			defaultHierarchy: LocalDateTable_e6aa5bca-6206-4535-86a3-08d0f829a902.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fb3b4fdf-3a7c-4ddc-a5e4-360331c64c9b
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67db0b13-1018-427f-8350-03f4d4903a20
+		summarizeBy: none
+		sourceColumn: created_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1b78b50e-2fd0-42f2-94fb-6eb4483a8215
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: e18c4e44-14a3-48ca-bb2e-56c9cd6d3512
+			defaultHierarchy: LocalDateTable_48d5e93c-7046-4c07-8011-ee3e0df741a6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 81979c97-8c03-42ba-91e7-5c6e51eaaf04
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 5acc0529-44e7-4b1a-8ddf-50c7b15332a3
+			defaultHierarchy: LocalDateTable_affa1762-d8ef-459c-a6b0-010b400bed1b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age =
+			
+			DATEDIFF(
+			    dim_employee[birthday],
+			    TODAY(),
+			    YEAR
+			)
+		formatString: 0
+		lineageTag: 3865a25d-1168-4a2a-b383-f98c76a2d277
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Bin' =
+			
+			SWITCH(
+			    TRUE(),
+			    dim_employee[Age] < 25, "Under 25",
+			    dim_employee[Age] <= 34, "25-34",
+			    dim_employee[Age] <= 44, "35-44",
+			    dim_employee[Age] <= 54, "45-54",
+			    dim_employee[Age] <= 64, "55-64",
+			    "65+"
+			)
+		lineageTag: 24738d44-b34f-4326-8e59-a44077bdc512
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_employee = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_employee_Table = gold_Schema{[Name="dim_employee",Kind="Table"]}[Data]
+				in
+				    dim_employee_Table
+

@@ -1,0 +1,232 @@
+table fact_gl_transactions
+	lineageTag: a3b534d8-37c1-4d68-a992-adf3ce6cfec4
+
+	column move_line_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c9c1018a-c756-43af-bf25-72cb1e7e9457
+		summarizeBy: sum
+		sourceColumn: move_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 76c4232a-20a2-4f95-8f12-03084474ebda
+		summarizeBy: none
+		sourceColumn: account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c38b677-0593-492d-9fdb-64b8334d99e9
+		summarizeBy: sum
+		sourceColumn: journal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e17736c8-2093-4a08-b504-e5d34fccb005
+		summarizeBy: none
+		sourceColumn: partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c545fc57-747c-4b48-a5df-6f8a2a05bb94
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 75512160-c0c3-45e5-b9e2-75946458d181
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: b31600d7-0034-41a2-9bab-16e4d918e70b
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_name
+		dataType: string
+		lineageTag: 96eea1df-f8f6-42ef-8530-759df8cbef6b
+		summarizeBy: none
+		sourceColumn: move_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_state
+		dataType: string
+		lineageTag: 50cbb419-b4cf-4934-97f5-9601eab66b7f
+		summarizeBy: none
+		sourceColumn: parent_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column ref
+		dataType: string
+		lineageTag: 48df41f0-353c-440a-a8b9-46b6ddffb3ca
+		summarizeBy: none
+		sourceColumn: ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column display_type
+		dataType: string
+		lineageTag: 3c0ece63-aec9-484f-b751-3ed3c6ccd64c
+		summarizeBy: none
+		sourceColumn: display_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column debit
+		dataType: double
+		lineageTag: 9a96896c-fbdc-4b0e-aec6-a46188d76f08
+		summarizeBy: sum
+		sourceColumn: debit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column credit
+		dataType: double
+		lineageTag: 9e9a8339-4116-4437-b732-9e26c30ed867
+		summarizeBy: sum
+		sourceColumn: credit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column balance
+		dataType: double
+		lineageTag: 1916bdf4-3f0c-499b-ab94-5dddcdc37558
+		summarizeBy: sum
+		sourceColumn: balance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_currency
+		dataType: double
+		lineageTag: 651c25a0-266e-4f9f-9c0b-d3d94e2c0c02
+		summarizeBy: sum
+		sourceColumn: amount_currency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_base_amount
+		dataType: double
+		lineageTag: a083b9ef-b6d0-4083-8dae-80cce801f913
+		summarizeBy: sum
+		sourceColumn: tax_base_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_residual
+		dataType: double
+		lineageTag: 53c6711a-75f5-484b-9228-182633b72d93
+		summarizeBy: sum
+		sourceColumn: amount_residual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column move_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 223ef231-1a2d-45c6-a103-62a297903394
+		summarizeBy: none
+		sourceColumn: move_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_maturity
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 814f8a64-8a95-49a6-a1aa-a47f5ba414fe
+		summarizeBy: none
+		sourceColumn: date_maturity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c9301f4-5e4d-438e-a5c0-7535cf0cf213
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 79b45bad-6bfc-4986-acb3-6835c1172a7d
+			defaultHierarchy: LocalDateTable_421608ad-9452-4cb2-a7c3-8cc7b055f053.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1a8d3db6-baca-414e-94a3-b951b32ac818
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: bd01df93-88b2-4c1d-a7cd-457cab4aa5fe
+			defaultHierarchy: LocalDateTable_ddcbc99f-88b2-4390-a780-5e1fe3be6cb4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d7801574-159f-4339-8dd3-1ae99f468b95
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: f89b62dc-2dc8-43f6-9bce-66e8b2964393
+			defaultHierarchy: LocalDateTable_bb93dbc6-c5ea-4e94-8989-346ef6fe42a1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_gl_transactions = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_gl_transactions_Table = gold_Schema{[Name="fact_gl_transactions",Kind="Table"]}[Data]
+				in
+				    fact_gl_transactions_Table
+

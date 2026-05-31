@@ -1,0 +1,141 @@
+table dim_account
+	lineageTag: e50a1068-b71e-4eb8-b5bb-138edcf23d21
+
+	column account_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 852f120c-b4dc-4eca-ad8b-928082281d4a
+		summarizeBy: none
+		sourceColumn: account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c4cb30b-ec05-4eba-b308-f81703a38c2d
+		summarizeBy: sum
+		sourceColumn: currency_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_name
+		dataType: string
+		lineageTag: e98bd058-b7d3-41fb-8b09-5a039bed9621
+		summarizeBy: none
+		sourceColumn: currency_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_code
+		dataType: string
+		lineageTag: c53fe17a-db1d-425e-b002-31fc5bab4df8
+		summarizeBy: none
+		sourceColumn: account_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_name
+		dataType: string
+		lineageTag: 8660e82d-2883-4e55-85ca-1b135f89b912
+		summarizeBy: none
+		sourceColumn: account_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_type
+		dataType: string
+		lineageTag: 203489ed-eeb9-4e60-b7b8-e778771b6557
+		summarizeBy: none
+		sourceColumn: account_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column note
+		dataType: string
+		lineageTag: a1ea670c-d2b7-4a47-9819-6ca538fe9f64
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4effa4e8-cece-4a04-98b3-12eed366e208
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_reconcilable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3a39a5e2-73f0-479d-ae8f-fd022d810d40
+		summarizeBy: none
+		sourceColumn: is_reconcilable
+
+		annotation SummarizationSetBy = Automatic
+
+	column non_trade
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f9fd2a9c-de4c-40ea-8b41-58b904073611
+		summarizeBy: none
+		sourceColumn: non_trade
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2aa3a35-aa7d-4157-917d-6fd1285bcd6c
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 0768e34d-d5e4-46ca-ae57-75ab0565070e
+			defaultHierarchy: LocalDateTable_0c964393-c476-45a7-aa4c-83f9d79d05a3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 112ef1bb-54c4-4bb0-9c08-fcfb298d9aa6
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 6d906528-a433-46d8-beb4-380124c35e99
+			defaultHierarchy: LocalDateTable_ee66eece-5cb8-46b2-bb73-1323aa983448.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cd5a38a7-ef30-4304-afda-8f3526a09381
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: 11eeb6b2-0c7c-48ef-834e-7f5c817f3d67
+			defaultHierarchy: LocalDateTable_7af6f41d-ec33-4b8d-b627-cec36a198562.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_account = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_account_Table = gold_Schema{[Name="dim_account",Kind="Table"]}[Data]
+				in
+				    dim_account_Table
+

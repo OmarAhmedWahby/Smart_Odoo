@@ -1,0 +1,513 @@
+table 06_InvoiceMeasures
+	lineageTag: d26f1cbe-bd2b-4cab-91ec-5b5537ac2181
+
+	measure 'Previous Month Invoice Amount' =
+			
+			CALCULATE(
+			    [Total Amount Signed],
+			    DATEADD(dim_date[full_date], -1, MONTH)
+			)
+		lineageTag: bde9e8f0-8c54-4be9-b272-f5f5a14e00d5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overdue Amount (30+ Days)' = CALCULATE(SUM(fact_invoice[amount_residual]), FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 30 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0 "EGP"
+		displayFolder: Aging
+		lineageTag: 35666053-2b20-4022-b33e-b8c9809e4aa1
+
+	measure 'Overdue Amount (60+ Days)' = CALCULATE(SUM(fact_invoice[amount_residual]), FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 60 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0 "EGP"
+		displayFolder: Aging
+		lineageTag: ea6dd29a-54b8-465e-b25d-cb98ce24e3cb
+
+	measure 'Overdue Amount (90+ Days)' = CALCULATE(SUM(fact_invoice[amount_residual]), FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 90 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0 "EGP"
+		displayFolder: Aging
+		lineageTag: 98662a88-906f-46bd-924a-8c8bc5e68d54
+
+	measure 'Overdue Invoices (30+ Days)' = COUNTROWS(FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 30 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0
+		displayFolder: Aging
+		lineageTag: 11996ede-a75a-44a7-9cea-01c4f2c6a55e
+
+	measure 'Overdue Invoices (60+ Days)' = COUNTROWS(FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 60 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0
+		displayFolder: Aging
+		lineageTag: dc82f469-7bc3-4b5f-8e7c-982e0f734ed2
+
+	measure 'Overdue Invoices (90+ Days)' = COUNTROWS(FILTER(fact_invoice, DATEDIFF(fact_invoice[invoice_date_due], TODAY(), DAY) > 90 && fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0
+		displayFolder: Aging
+		lineageTag: 39151b1a-0493-46e1-97f2-aa2ad7074820
+
+	measure 'Average Invoice Amount' = IF([Total Invoice Amount] = 0, 0, [Total Invoice Amount] / [Total Invoices])
+		formatString: #,##0 "EGP"
+		displayFolder: Average
+		lineageTag: a3a0ec48-99a7-4890-8f92-77168c036a8f
+
+	measure 'Average Outstanding Per Invoice' = IF([Total Invoices] = 0, 0, [Outstanding Amount] / [Unpaid Invoices Count])
+		formatString: #,##0 "EGP"
+		displayFolder: Average
+		lineageTag: 8258f626-00ce-4a5a-a1d2-4c92a2dd64c7
+
+	measure 'Avg Payment Term' =
+			
+			AVERAGEX(
+			    fact_invoice,
+			    DATEDIFF(
+			        fact_invoice[invoice_date],
+			        fact_invoice[invoice_date_due],
+			        DAY
+			    )
+			)
+		lineageTag: 60b1887e-d545-4076-81e2-c03eb31fbf71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Delivered Invoice Amount' =
+			
+			CALCULATE(
+			    SUM(fact_invoice[amount_total_signed]),
+			    USERELATIONSHIP(
+			        dim_date[full_date],
+			        fact_invoice[delivery_date]
+			    )
+			)
+		lineageTag: 144ef14f-05a9-4886-a474-aadc5e071251
+
+	measure DSO =
+			
+			CALCULATE(DIVIDE(
+			    [Outstanding Amount],
+			    [Total Amount Signed]
+			) * 365, fact_invoice[state] = "posted")
+		lineageTag: 2e48cc72-f984-49d6-aae1-297acc4f8d77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Due Invoice Amount' =
+			
+			CALCULATE(
+			    SUM(fact_invoice[amount_total_signed]),
+			    USERELATIONSHIP(
+			        dim_date[full_date],
+			        fact_invoice[invoice_date_due]
+			    )
+			)
+		lineageTag: ebcf386f-8285-4539-a2f1-e50a20508b28
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Collection Rate %' = IF([Total Invoice Amount] = 0, 0, [Paid Invoices Amount] / [Total Invoice Amount])
+		formatString: 0.0%
+		displayFolder: Collections
+		lineageTag: 2d0aa097-f5f1-49a1-baa6-63b89538d9cd
+
+	measure 'Outstanding Amount' = SUM(fact_invoice[amount_residual])
+		formatString: #,##0 "EGP"
+		displayFolder: Collections
+		lineageTag: 7325240c-78f6-4000-b5b0-cd5d3fc3ab2e
+
+	measure 'Outstanding Rate %' = IF([Total Invoice Amount] = 0, 0, [Outstanding Amount] / [Total Invoice Amount])
+		formatString: 0.0%
+		displayFolder: Collections
+		lineageTag: 3ea148f2-e149-477e-918a-4f334e9ef8b8
+
+	measure 'Paid Invoices Amount' = CALCULATE(SUM(fact_invoice[amount_total]), FILTER(fact_invoice, fact_invoice[payment_state] = "paid"))
+		formatString: #,##0 "EGP"
+		displayFolder: Collections
+		lineageTag: 8d546758-b21a-47ce-a948-c7ff95967743
+
+	measure 'Partially Paid Amount' = CALCULATE(SUM(fact_invoice[amount_total]), FILTER(fact_invoice, fact_invoice[payment_state] = "partial"))
+		formatString: #,##0 "EGP"
+		displayFolder: Collections
+		lineageTag: fd2c0f57-6ca1-4851-8c61-c421b927cf7c
+
+	measure 'Unpaid Invoices Amount' = CALCULATE(SUM(fact_invoice[amount_total]), FILTER(fact_invoice, fact_invoice[payment_state] = "not_paid"))
+		formatString: #,##0 "EGP"
+		displayFolder: Collections
+		lineageTag: c5f0f25e-67ef-4160-9135-e9d0cbbdf4e9
+
+	measure 'Untaxed Amount Signed' = SUM(fact_invoice[amount_untaxed_signed])
+		formatString: #,##0 "EGP"
+		displayFolder: Signed Amounts
+		lineageTag: 480af78a-772e-4b56-bf65-2d0db985373d
+
+	measure 'Total Amount Signed' = SUM(fact_invoice[amount_total_signed])
+		formatString: #,##0 "EGP"
+		displayFolder: Signed Amounts
+		lineageTag: 90241224-e20d-4b8d-b66a-950548ee89ac
+
+	measure 'Tax Amount Signed' = SUM(fact_invoice[amount_tax_signed])
+		formatString: #,##0 "EGP"
+		displayFolder: Signed Amounts
+		lineageTag: de5ee87d-657e-42f1-a2d5-4aefcef9705c
+
+	measure 'Residual Amount Signed' = SUM(fact_invoice[amount_residual_signed])
+		formatString: #,##0 "EGP"
+		displayFolder: Signed Amounts
+		lineageTag: 18db0090-1ccf-43b9-8970-c659c8c6050c
+
+	measure 'Total Untaxed Amount' = SUM(fact_invoice[amount_untaxed])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: d338ab61-9d5d-4f02-ab7e-d1fc943b5487
+
+	measure 'Total Tax Amount' = SUM(fact_invoice[amount_tax])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: d57ec760-c879-489a-b85a-ae827023c3f8
+
+	measure 'Revenue (Out Invoices)' = CALCULATE(SUM(fact_invoice[amount_total]), FILTER(fact_invoice, fact_invoice[move_type] = "out_invoice"))
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 991095ed-1cde-4717-9aaa-a03f42cff275
+
+	measure 'Costs (In Invoices)' = CALCULATE(SUM(fact_invoice[amount_total]), FILTER(fact_invoice, fact_invoice[move_type] = "in_invoice"))
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 863a32d6-caa8-4d59-9c7f-3042a0a004cf
+
+	/// Count of fully reconciled transactions (residual = 0)
+	measure 'Recon Fully Reconciled Transactions' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[amount_residual]=0))
+		formatString: #,##0
+		displayFolder: Reconciliation - Status
+		lineageTag: 3a1e8eb0-13a3-4b4d-8df8-7641c4405d4a
+
+	/// Count of accounts with no outstanding residuals (fully reconciled)
+	measure 'Recon Fully Reconciled Accounts' = CALCULATE(DISTINCTCOUNT(fact_gl_transactions[account_id]), FILTER(fact_gl_transactions, fact_gl_transactions[amount_residual]=0))
+		formatString: #,##0
+		displayFolder: Reconciliation - Status
+		lineageTag: 5960eced-3389-4808-8921-926e45e17cb8
+
+	/// Count of transactions requiring reconciliation (residual > 0)
+	measure 'Recon Transactions Requiring Reconciliation' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[amount_residual]<>0))
+		formatString: #,##0
+		displayFolder: Reconciliation - Outstanding
+		lineageTag: 1001ea2a-3ef5-4e04-95a7-368790a2b7d1
+
+	/// Total outstanding residual amount across all accounts
+	measure 'Recon Total Outstanding Residual' = SUM(fact_gl_transactions[amount_residual])
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Outstanding
+		lineageTag: c77f21a7-49d5-4c54-a130-af5083edb2a9
+
+	/// Count of accounts with outstanding residuals
+	measure 'Recon Accounts with Residuals' = CALCULATE(DISTINCTCOUNT(fact_gl_transactions[account_id]), FILTER(fact_gl_transactions, fact_gl_transactions[amount_residual]<>0))
+		formatString: #,##0
+		displayFolder: Reconciliation - Outstanding
+		lineageTag: 5450153c-2e94-440c-b793-6be44fdd3172
+
+	/// Accounts marked as reconcilable in COA
+	measure 'Recon Reconcilable Accounts' = CALCULATE(DISTINCTCOUNT(dim_account[account_id]), FILTER(dim_account, dim_account[is_reconcilable]=TRUE))
+		formatString: #,##0
+		displayFolder: Reconciliation - Configuration
+		lineageTag: fde262f9-6e2b-449b-9071-09654332ab15
+
+	/// Transaction reconciliation rate %
+	measure 'Recon Transaction Reconciliation Rate %' = IF([Recon Transactions Requiring Reconciliation]+[Recon Fully Reconciled Transactions]=0, 0, [Recon Fully Reconciled Transactions]/([Recon Transactions Requiring Reconciliation]+[Recon Fully Reconciled Transactions])*100)
+		formatString: #,##0.00"%"
+		displayFolder: Reconciliation - Analysis
+		lineageTag: 5ba5e7d8-ba0e-465c-8b3d-21308d177f95
+
+	/// Total amount in currency columns for residuals
+	measure 'Recon Total Currency Amount' = SUM(fact_gl_transactions[amount_currency])
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Analysis
+		lineageTag: 3c715114-fbf5-459f-85a8-f58601c19dc3
+
+	/// Reconciliation completion rate %
+	measure 'Recon Reconciliation Rate %' = IF([Recon Accounts with Residuals]=0, 100, IF([Recon Accounts with Residuals]=0, 0, [Recon Fully Reconciled Accounts]/([Recon Fully Reconciled Accounts]+[Recon Accounts with Residuals])*100))
+		formatString: #,##0.00"%"
+		displayFolder: Reconciliation - Analysis
+		lineageTag: 47455cb4-0275-4b12-a2df-42df62fbd502
+
+	/// Average residual amount per account
+	measure 'Recon Average Residual per Account' = IF([Recon Accounts with Residuals]=0, 0, [Recon Total Outstanding Residual]/[Recon Accounts with Residuals])
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Analysis
+		lineageTag: b38993d0-8079-45dc-b5a9-c785c6d1a242
+
+	/// Residuals from transactions more than 90 days old
+	measure 'Recon Overdue Residuals (90+ Days)' = CALCULATE(SUM(fact_gl_transactions[amount_residual]), FILTER(fact_gl_transactions, DATEDIFF(fact_gl_transactions[move_date], TODAY(), DAY)>90))
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Aging
+		lineageTag: 8e5711fe-b6c3-4778-b005-c75ea969f982
+
+	/// Residuals from transactions more than 60 days old
+	measure 'Recon Overdue Residuals (60+ Days)' = CALCULATE(SUM(fact_gl_transactions[amount_residual]), FILTER(fact_gl_transactions, DATEDIFF(fact_gl_transactions[move_date], TODAY(), DAY)>60))
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Aging
+		lineageTag: deccf8ed-3907-45bf-9a41-751ed5ae44b4
+
+	/// Residuals from transactions more than 30 days old
+	measure 'Recon Overdue Residuals (30+ Days)' = CALCULATE(SUM(fact_gl_transactions[amount_residual]), FILTER(fact_gl_transactions, DATEDIFF(fact_gl_transactions[move_date], TODAY(), DAY)>30))
+		formatString: #,##0 "EGP"
+		displayFolder: Reconciliation - Aging
+		lineageTag: c9d28f2d-4a9b-4640-a2a3-348963936c5f
+
+	/// Oldest overdue residual by transaction date
+	measure 'Recon Oldest Residual Transaction Date' = CALCULATE(MIN(fact_gl_transactions[move_date]), FILTER(fact_gl_transactions, fact_gl_transactions[amount_residual]<>0))
+		formatString: mm/dd/yyyy
+		displayFolder: Reconciliation - Aging
+		lineageTag: a58b27ef-ee75-4a7f-bf35-b0a91d19cf9d
+
+	measure 'Unpaid Invoices Count' = COUNTROWS(FILTER(fact_invoice, fact_invoice[payment_state] = "not_paid"))
+		formatString: #,##0
+		displayFolder: Payment Status
+		lineageTag: 0c5d3c4c-b963-49c7-b47b-33c6a29e176f
+
+	measure 'Partially Paid Count' = COUNTROWS(FILTER(fact_invoice, fact_invoice[payment_state] = "partial"))
+		formatString: #,##0
+		displayFolder: Payment Status
+		lineageTag: c304c8fd-a807-4c35-b206-10c1b4fe6a85
+
+	measure 'Paid Invoices Count' = COUNTROWS(FILTER(fact_invoice, fact_invoice[payment_state] = "paid"))
+		formatString: #,##0
+		displayFolder: Payment Status
+		lineageTag: 4e1fbe29-8edf-48d3-972d-b5af7b234b7c
+
+	/// Paid invoices
+	measure 'Paid Invoices' = CALCULATE(DISTINCTCOUNT(fact_purchase_order[purchase_order_id]), fact_purchase_order[invoice_status] = "done")
+		formatString: #,##0
+		lineageTag: deb8291f-e14e-45e6-9128-4610d96eb819
+
+	measure 'Overdue Invoices' = COUNTROWS(FILTER(fact_invoice, fact_invoice[payment_state] <> "paid"))
+		formatString: 0
+		lineageTag: 908dfb70-8c5f-4318-8a94-2d399b13da99
+
+	measure 'Overdue Amount' = CALCULATE(SUM(fact_invoice[amount_residual]), FILTER(fact_invoice, fact_invoice[payment_state] <> "paid"))
+		formatString: #,##0 "EGP"
+		lineageTag: a5467ee1-8a5f-4305-9ac6-640463527927
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'MoM % invoice Amount' =
+			
+			DIVIDE(
+			    [Total Amount Signed] - [Previous Month Invoice Amount],
+			[Previous Month Invoice Amount])
+		lineageTag: 8f4d65e1-0fd0-4bc6-98bf-0f11cd50ff9e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Number of unique journals with entries
+	measure 'Unique Journals' = DISTINCTCOUNT(fact_gl_transactions[journal_id])
+		formatString: #,##0
+		displayFolder: Journal - Volume
+		lineageTag: ec654d35-706a-4caa-80c5-49f74c3410dc
+
+	/// Total number of journal entries
+	measure 'Total Journal Entries' = COUNTA(fact_gl_transactions[move_line_id])
+		formatString: #,##0
+		displayFolder: Journal - Volume
+		lineageTag: 9d18c49f-6669-46bb-9a99-47934cf9261d
+
+	/// Number of unique products referenced in journals
+	measure 'Journal Products Count' = CALCULATE(DISTINCTCOUNT(fact_gl_transactions[product_id]), FILTER(fact_gl_transactions, fact_gl_transactions[product_id]<>BLANK()))
+		formatString: #,##0
+		displayFolder: Journal - Volume
+		lineageTag: aabc0dde-6320-4a83-8323-2054be947fbd
+
+	/// Number of unique partners referenced in journals
+	measure 'Journal Partners Count' = CALCULATE(DISTINCTCOUNT(fact_gl_transactions[partner_id]), FILTER(fact_gl_transactions, fact_gl_transactions[partner_id]<>BLANK()))
+		formatString: #,##0
+		displayFolder: Journal - Volume
+		lineageTag: 0e0d2be9-21c8-4435-a5e2-58436d42b3ff
+
+	/// Count of entries from draft/unposted journals
+	measure 'Journal Unposted Entries' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[parent_state]<>"posted"))
+		formatString: #,##0
+		displayFolder: Journal - Status
+		lineageTag: 5523622f-de23-427a-9eb7-d7ed1ed08dc2
+
+	/// Count of entries from posted journals
+	measure 'Journal Posted Entries' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[parent_state]="posted"))
+		formatString: #,##0
+		displayFolder: Journal - Status
+		lineageTag: 1c61b259-32a9-496c-a3dc-90f4b164403a
+
+	/// Total debits by journal
+	measure 'Journal Total Debits' = SUM(fact_gl_transactions[debit])
+		formatString: #,##0 "EGP"
+		displayFolder: Journal - Balance
+		lineageTag: 5f2ef9ab-0937-455b-92cd-5a78d6fd92d9
+
+	/// Total credits by journal
+	measure 'Journal Total Credits' = SUM(fact_gl_transactions[credit])
+		formatString: #,##0 "EGP"
+		displayFolder: Journal - Balance
+		lineageTag: 7e74b038-ae9c-47d9-9274-e784f93b185e
+
+	/// Percentage posting rate for all journals
+	measure 'Journal Posting Rate %' = IF([Total Journal Entries]=0, 0, [Journal Posted Entries]/[Total Journal Entries]*100)
+		formatString: #,##0.00"%"
+		displayFolder: Journal - Analysis
+		lineageTag: 84971209-6d6e-4049-8974-02909a0bb89c
+
+	/// Total entries with matching debit/credit pairs
+	measure 'Journal Detail Line Entries' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[display_type]="line_detail"))
+		formatString: #,##0
+		displayFolder: Journal - Analysis
+		lineageTag: 7fed0b89-caba-4b8b-bea1-a2cbed03459e
+
+	/// Average entry amount per journal transaction
+	measure 'Journal Average Entry Amount' = IF([Total Journal Entries]=0, 0, ([Journal Total Debits]+[Journal Total Credits])/[Total Journal Entries])
+		formatString: #,##0 "EGP"
+		displayFolder: Journal - Analysis
+		lineageTag: ce543704-1b3a-4d1b-88e6-50750a492775
+
+	measure 'Vendor Refunds' = COUNTROWS(FILTER(fact_invoice, fact_invoice[move_type] = "in_refund"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: 28240e87-c814-4773-9f5f-31f309b1df48
+
+	measure 'Vendor Bills' = COUNTROWS(FILTER(fact_invoice, fact_invoice[move_type] = "in_invoice"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: 09072601-2abe-4866-b1c1-7f07ff9ad932
+
+	measure 'Total Invoices' = COUNTA(fact_invoice[move_id])
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: cd8fb15c-6814-4b18-a425-b014fa6db259
+
+	measure 'Total Invoice Amount' = SUM(fact_invoice[amount_total])
+		formatString: #,##0 "EGP"
+		displayFolder: Invoice Volume
+		lineageTag: 15e11da2-d677-4495-a73e-074e0990b982
+
+	measure 'Posted Invoices' = COUNTROWS(FILTER(fact_invoice, fact_invoice[state] = "posted"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: ffc1fe27-6161-418b-869e-d47205f9b994
+
+	measure 'Draft Invoices' = COUNTROWS(FILTER(fact_invoice, fact_invoice[state] = "draft"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: af7ed6d0-1b23-4991-a583-d074218fc20e
+
+	measure 'Customer Refunds' = COUNTROWS(FILTER(fact_invoice, fact_invoice[move_type] = "out_refund"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: 80714d33-6d25-4d0a-b901-97af3c71fed5
+
+	measure 'Customer Invoices' = COUNTROWS(FILTER(fact_invoice, fact_invoice[move_type] = "out_invoice"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: b8c40884-0789-412a-99c1-bd18923af2b1
+
+	measure 'Cancelled Invoices' = COUNTROWS(FILTER(fact_invoice, fact_invoice[state] = "cancel"))
+		formatString: #,##0
+		displayFolder: Invoice Volume
+		lineageTag: 804c63b9-4a73-4074-acc5-060eb96407ff
+
+	/// Number of unique accounts with transactions
+	measure 'Unique Accounts with Activity' = DISTINCTCOUNT(fact_gl_transactions[account_id])
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: 32430343-f52c-4fb9-9712-d6ad8d2c1273
+
+	/// Count of all GL transaction lines
+	measure 'Total GL Transactions' = COUNTA(fact_gl_transactions[move_line_id])
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: ba58393f-f3e1-4857-b5a2-4f0ecf38fd10
+
+	/// Count of accounts marked as reconcilable
+	measure 'GL Reconcilable Accounts Count' = CALCULATE(DISTINCTCOUNT(dim_account[account_id]), FILTER(dim_account, dim_account[is_reconcilable]=TRUE))
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: 83af2863-77f7-4b70-8202-9278d883073b
+
+	/// Count of non-trade (expense/revenue) accounts
+	measure 'GL Non-Trade Accounts' = CALCULATE(DISTINCTCOUNT(dim_account[account_id]), FILTER(dim_account, dim_account[non_trade]=TRUE))
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: c9e92346-8930-4144-8b1e-c8fa8f53e7f3
+
+	/// Number of different currencies used in accounts
+	measure 'GL Accounts by Currency Count' = DISTINCTCOUNT(dim_account[currency_name])
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: 7a4f18bb-5193-4b64-ac6c-bd8d631f985d
+
+	/// Count of active accounts in chart of accounts
+	measure 'GL Active Accounts' = CALCULATE(DISTINCTCOUNT(dim_account[account_id]), FILTER(dim_account, dim_account[is_active]=TRUE))
+		formatString: #,##0
+		displayFolder: GL/Ledger - Volume
+		lineageTag: 3b944739-7d6a-420f-87c6-b6ca0ed13b54
+
+	/// Total tax base amount for all transactions
+	measure 'GL Tax Base Amount' = SUM(fact_gl_transactions[tax_base_amount])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Tax
+		lineageTag: 702fd026-351b-4810-a028-caa39eda6645
+
+	/// Count of posted GL transactions
+	measure 'GL Posted Transactions' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[parent_state]="posted"))
+		formatString: #,##0
+		displayFolder: GL/Ledger - Status
+		lineageTag: 5ca259bf-73f4-4883-a31e-62e3a8541d49
+
+	/// Count of draft GL transactions
+	measure 'GL Draft Transactions' = CALCULATE(COUNTA(fact_gl_transactions[move_line_id]), FILTER(fact_gl_transactions, fact_gl_transactions[parent_state]="draft"))
+		formatString: #,##0
+		displayFolder: GL/Ledger - Status
+		lineageTag: 369c537e-53e5-4e6d-8ba6-c4eb34486674
+
+	/// Total debit amounts across all GL transactions
+	measure 'Total Debits' = SUM(fact_gl_transactions[debit])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Balance
+		lineageTag: 8b11fb6b-96c7-4584-984b-1d8c2e99db25
+
+	/// Total credit amounts across all GL transactions
+	measure 'Total Credits' = SUM(fact_gl_transactions[credit])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Balance
+		lineageTag: 599e218c-7248-4883-a870-901f27520f12
+
+	/// Net balance of all GL transactions
+	measure 'Net Balance' = SUM(fact_gl_transactions[balance])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Balance
+		lineageTag: 08844567-9bf1-43d3-a757-22950c4beafc
+
+	/// Total residual (unpaid/unmatched) amounts
+	measure 'GL Residual Amount Outstanding' = SUM(fact_gl_transactions[amount_residual])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Balance
+		lineageTag: de92df56-6784-433e-b25e-7f1e36b483b4
+
+	/// Variance between total debits and credits (should be 0)
+	measure 'Debit/Credit Balance Check' = [Total Debits]-[Total Credits]
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Balance
+		lineageTag: b86291ea-0420-4707-a9f5-3789582e45d8
+
+	/// Percentage of posted vs total transactions
+	measure 'GL Posting Rate %' = IF([Total GL Transactions]=0, 0, [GL Posted Transactions]/[Total GL Transactions]*100)
+		formatString: #,##0.00"%"
+		displayFolder: GL/Ledger - Analysis
+		lineageTag: 7c71e2fe-1c81-4301-92cf-924ea7a2cd21
+
+	/// Average transaction size
+	measure 'GL Average Transaction Amount' = IF([Total GL Transactions]=0, 0, ([Total Debits]+[Total Credits])/[Total GL Transactions])
+		formatString: #,##0 "EGP"
+		displayFolder: GL/Ledger - Analysis
+		lineageTag: 496b17b2-8a6d-4c35-b76e-a9426f4fecf2
+
+	partition 06_InvoiceMeasures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

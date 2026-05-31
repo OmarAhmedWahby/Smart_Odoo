@@ -1,0 +1,157 @@
+table 04_CrmMeasures
+	lineageTag: 4a00126d-c34b-4c3b-8b35-1a9184a92b31
+
+	/// Total count of opportunities in pipeline
+	measure 'Total Opportunities' = COUNTA(fact_crm_pipeline[lead_id])
+		formatString: #,##0
+		displayFolder: Pipeline
+		lineageTag: 6472f427-18a6-45a5-9286-5f128e060d67
+
+	/// Count of active opportunities
+	measure 'Active Opportunities' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[active] = TRUE()))
+		formatString: #,##0
+		displayFolder: Pipeline
+		lineageTag: 383475cf-66f9-4379-a07c-ba6d207210fc
+
+	/// Sum of expected revenue for all opportunities
+	measure 'Total Expected Revenue' = SUM(fact_crm_pipeline[expected_revenue])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 730865b3-5d0c-402f-ab46-8d61aa54aa6a
+
+	/// Sum of prorated revenue
+	measure 'Total Prorated Revenue' = SUM(fact_crm_pipeline[prorated_revenue])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 33a0f0d2-dcf7-4873-9b1f-85015ba4be9b
+
+	/// Sum of monthly recurring revenue
+	measure 'Total MRR' = SUM(fact_crm_pipeline[recurring_revenue_monthly])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 6f1bd928-deb7-4c4d-bc23-a2d112e567bd
+
+	/// Count of won deals
+	measure 'Won Deals' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[is_won] = TRUE()))
+		formatString: #,##0
+		displayFolder: Win/Loss
+		lineageTag: b2ff001c-1b6c-4c42-894f-171e44514acd
+
+	/// Count of lost deals
+	measure 'Lost Deals' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[is_lost] = TRUE()))
+		formatString: #,##0
+		displayFolder: Win/Loss
+		lineageTag: 3d9272a5-b0a9-4289-af37-df9dc2cab508
+
+	/// Win rate as percentage
+	measure 'Win Rate %' = IF([Total Opportunities] = 0, 0, [Won Deals] / ([Won Deals] + [Lost Deals]))
+		formatString: 0.0%
+		displayFolder: Win/Loss
+		lineageTag: 69e85d2f-81a5-4a80-ac31-f75488f3407d
+
+	/// Average probability of opportunities
+	measure 'Average Probability' = AVERAGE(fact_crm_pipeline[probability])
+		formatString: 0.0%
+		displayFolder: Probability
+		lineageTag: 0322a172-9407-4a82-acb2-3d83f5d6a511
+
+	/// Average automated probability score
+	measure 'Average Automated Probability' = AVERAGE(fact_crm_pipeline[automated_probability])
+		formatString: 0.0%
+		displayFolder: Probability
+		lineageTag: a3fb7de2-3676-4310-a76d-6d38971e04b5
+
+	/// Average days opportunity is open
+	measure 'Average Days Open' = AVERAGE(fact_crm_pipeline[day_open])
+		formatString: #,##0
+		displayFolder: Velocity
+		lineageTag: 9b4ba439-742d-48eb-8ce3-641bda25285d
+
+	/// Average days from open to close
+	measure 'Average Days to Close' = AVERAGE(fact_crm_pipeline[day_close])
+		formatString: #,##0
+		displayFolder: Velocity
+		lineageTag: 2ce26948-bca2-429b-8c13-887c1c83a800
+
+	/// Weighted pipeline value (expected revenue * probability)
+	measure 'Weighted Pipeline Value' = SUMX(fact_crm_pipeline, fact_crm_pipeline[expected_revenue] * fact_crm_pipeline[probability])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 5e0fc23b-f1cf-4fcf-9d5e-0c510c801412
+
+	/// Revenue from won deals
+	measure 'Won Revenue' = CALCULATE(SUM(fact_crm_pipeline[prorated_revenue]), FILTER(fact_crm_pipeline, fact_crm_pipeline[is_won] = TRUE()))
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: 7f06f246-c690-4c23-b010-d305624a77e5
+
+	/// Opportunities by priority high
+	measure 'High Priority Opps' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[priority] = "high"))
+		formatString: #,##0
+		displayFolder: Priority
+		lineageTag: a92f41e1-d738-4b8b-bb6a-2b941b1380c9
+
+	/// Opportunities by priority medium
+	measure 'Medium Priority Opps' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[priority] = "medium"))
+		formatString: #,##0
+		displayFolder: Priority
+		lineageTag: ff7b1f56-df34-4ca8-96ba-b8b110d7d14b
+
+	/// Opportunities with no activity over 30 days
+	measure 'Stalled Opportunities' = COUNTROWS(FILTER(fact_crm_pipeline, fact_crm_pipeline[day_open] > 30 && fact_crm_pipeline[is_won] = FALSE() && fact_crm_pipeline[is_lost] = FALSE()))
+		formatString: #,##0
+		displayFolder: Health
+		lineageTag: 1ac0c99a-d62a-40fa-bf0e-e91ada2dedfe
+
+	/// Percentage of active to total opportunities
+	measure 'Pipeline Health %' = IF([Total Opportunities] = 0, 0, [Active Opportunities] / [Total Opportunities])
+		formatString: 0.0%
+		displayFolder: Health
+		lineageTag: 598ca461-87ef-4916-b212-25ce4c6d2105
+
+	/// Average expected revenue per opportunity
+	measure 'Average Deal Size' = IF([Total Opportunities] = 0, 0, [Total Expected Revenue] / [Total Opportunities])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: e6cbc65d-ce93-4e19-8ad8-0de6af105b87
+
+	/// Average revenue per won deal
+	measure 'Average Won Deal Size' = IF([Won Deals] = 0, 0, [Won Revenue] / [Won Deals])
+		formatString: #,##0 "EGP"
+		displayFolder: Revenue
+		lineageTag: e93d063f-dabf-42ec-9901-48519af64a0b
+
+	/// Count of opportunities by stage
+	measure 'Opportunities by Stage' = COUNTA(fact_crm_pipeline[stage_name])
+		formatString: #,##0
+		displayFolder: Pipeline
+		lineageTag: 2df05088-4455-4e1f-91d0-f72c4e792e8c
+
+	/// Count of unique leads in pipeline
+	measure 'Unique Leads' = DISTINCTCOUNT(fact_crm_pipeline[lead_id])
+		formatString: #,##0
+		displayFolder: Leads
+		lineageTag: c829999a-8a56-4dd2-97c5-ea3aebb0eb85
+
+	/// Count of lost deals by reason
+	measure 'Losses by Reason' = COUNTA(fact_crm_pipeline[lost_reason_name])
+		formatString: #,##0
+		displayFolder: Win/Loss
+		lineageTag: fbbffa02-38b3-4e2f-984d-8f2dac034074
+
+	measure 'Total Deals' = COUNTROWS('fact_crm_pipeline')
+		formatString: 0
+		lineageTag: bc02cb73-797a-42c6-b6c2-4d2427dcb098
+
+	partition 04_CrmMeasures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

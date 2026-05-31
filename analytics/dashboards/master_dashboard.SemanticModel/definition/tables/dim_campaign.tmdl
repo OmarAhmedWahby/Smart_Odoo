@@ -1,0 +1,80 @@
+table dim_campaign
+	lineageTag: b9b93bc6-2657-4b03-89c0-e6b837fd289d
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d5dbc313-d7e8-4c78-8fd8-4cc078653e79
+		summarizeBy: sum
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: ca560c4f-6097-41c4-ac1f-eb8d453c7052
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c157386-06f2-4222-9cfc-1b8da4843d17
+		summarizeBy: sum
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: f449b073-6799-4c4b-b7a6-d1f0767c8cda
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a9059302-91f9-4ce2-ac88-d5475487e62a
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_auto_campaign
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e1c20624-5d64-4a89-b87b-c02f06885e9a
+		summarizeBy: none
+		sourceColumn: is_auto_campaign
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwh_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9923fd1a-b438-4cf2-8a86-da0cc303ce4d
+		summarizeBy: none
+		sourceColumn: dwh_loaded_at
+
+		variation Variation
+			isDefault
+			relationship: d9ba618b-dd26-49ac-be5c-d2e3bd1df6d2
+			defaultHierarchy: LocalDateTable_13ff6d75-aa68-4998-81f8-f9aa70ff4a2f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_campaign = m
+		mode: import
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-f88d29c6-4087.cloud.databricks.com", "/sql/1.0/warehouses/f482bdcca461ed4f", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0"]),
+				    smart_odoo_Database = Source{[Name="smart_odoo",Kind="Database"]}[Data],
+				    gold_Schema = smart_odoo_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_campaign_Table = gold_Schema{[Name="dim_campaign",Kind="Table"]}[Data]
+				in
+				    dim_campaign_Table
+
