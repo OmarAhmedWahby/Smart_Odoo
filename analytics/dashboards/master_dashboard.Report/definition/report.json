@@ -79,8 +79,43 @@
           "type": "Image"
         },
         {
+          "name": "calendar09166493108876916.png",
+          "path": "calendar09166493108876916.png",
+          "type": "Image"
+        },
+        {
+          "name": "calendar25276989239219816.png",
+          "path": "calendar25276989239219816.png",
+          "type": "Image"
+        },
+        {
+          "name": "delete057598497218323774.png",
+          "path": "delete057598497218323774.png",
+          "type": "Image"
+        },
+        {
+          "name": "delete7205907584440115.png",
+          "path": "delete7205907584440115.png",
+          "type": "Image"
+        },
+        {
+          "name": "filter4968730494767002.png",
+          "path": "filter4968730494767002.png",
+          "type": "Image"
+        },
+        {
           "name": "logo6200190574797189.png",
           "path": "logo6200190574797189.png",
+          "type": "Image"
+        },
+        {
+          "name": "logo620019057479718911729889127358206.png",
+          "path": "logo620019057479718911729889127358206.png",
+          "type": "Image"
+        },
+        {
+          "name": "logo62001905747971899787182221599551.png",
+          "path": "logo62001905747971899787182221599551.png",
           "type": "Image"
         },
         {
@@ -99,6 +134,17 @@
           "type": "CustomTheme"
         }
       ]
+    },
+    {
+      "name": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6.pbiviz.json",
+          "path": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
     }
   ],
   "settings": {
@@ -107,6 +153,7 @@
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
+    "filterPaneHiddenInEditMode": true,
     "useDefaultAggregateDisplayName": true
   }
 }

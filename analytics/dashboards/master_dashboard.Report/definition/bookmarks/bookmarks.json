@@ -1,0 +1,325 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "97a163acfaa24eac87896fb558d80828",
+      "displayName": "Group - Revenue Overview",
+      "children": [
+        "304c7cb3587f407686a066becefcc15e",
+        "712960fd2623412ba83883ceb3b79070",
+        "fb964a2825454813879e34ece7228224",
+        "b683c2da1265437ba030073c40e95e29",
+        "1e6cd4c96ee8d0006d84",
+        "44bd2e315cbd45e28187",
+        "4d79fee0b2217e7bc0e8",
+        "6971a43d23a20dcb91c2"
+      ]
+    },
+    {
+      "name": "7defb944e5ba4909b763a158155f35e5",
+      "displayName": "Group - Revenue Drivers (P)",
+      "children": [
+        "6b4ba40b300542e5b5608b1f8aa665ac",
+        "779a050b3b5d4db58ee84c0412ca7222",
+        "8ea54ab6d630414193e5b3462be954c4",
+        "e918b27534384b6bb760a2a7c16cd03c",
+        "550a1858ae534de5b6720474e2d06e2a",
+        "5bc0b16697a54d11b6e8be0810097d95",
+        "819a3329dd85402abd70e6a7802ba376",
+        "be9239ba7f6c48f09d413d74d24b573a"
+      ]
+    },
+    {
+      "name": "298927bdc283463494a2ae41f191f93f",
+      "displayName": "Group - Revenue Drivers (C)",
+      "children": [
+        "01729e9f51d647cdbea15ad881a6fb01",
+        "f778c39d49e541748b4ed6eb0010b1f5",
+        "d4045ef9233c44a9b7a771424c3f27cf",
+        "6b5b07832cb9457a9ed9a761fffe6040",
+        "ebd791cbcfee479d83cc56862ba8c44d",
+        "9ded1ee703f14257bde3420677b8274a",
+        "990460debf55432e94a2a21756c2f441",
+        "f4138269e9514d1fa1f14194d9cf3752"
+      ]
+    },
+    {
+      "name": "bd399f57b4e14210b473f70cbc93cd12",
+      "displayName": "Group - Purchase Overview",
+      "children": [
+        "0e766a19fc464a5abe1d36e62001f084",
+        "f79164e5c3ca4e32b3f966fcf0fde440",
+        "1c14e40f00ad492d876b46f266ebc0b8",
+        "f475642b110c4a9aa5d8bbee2804f07a",
+        "675c5629400548aeadc265bf04fa9acf",
+        "619978bc2f8c4a70bdf238865b16a29c",
+        "6da7ccef4a5041ae98c0abcca14ae1ee",
+        "badbf5d077bf4e13aee9c7ca3b344b31"
+      ]
+    },
+    {
+      "name": "ae304b8cbffa414c898f8fd418ea507f",
+      "displayName": "Group - Purchase Drivers (P)",
+      "children": [
+        "003d9d6b19934e799e65926e22153945",
+        "b0940b825f9b48908add3c016fdd302f",
+        "9c4539cecb5b41bfbf8b36a1eca43825",
+        "a78b9978f3684bddb432de311aae1673",
+        "d6e247dde6664ac693ee5fcbd52403d2",
+        "8ee64db2673f4e6ab4b946adf2c55d1d",
+        "4e5701ee4cbf44879365c7c496d99b3b",
+        "e022bab329464712b610967354c1fcc5"
+      ]
+    },
+    {
+      "name": "31b35b57729545d9a00ea81879c59ac0",
+      "displayName": "Group - Purchase Drivers (S)",
+      "children": [
+        "7c5747583d8046e897c129bbbd62cdc3",
+        "9560826a038f4d9684f49cbdb80bff62",
+        "029d6f50b9d445579f5895db279b8fca",
+        "24773069dbdf4a2780de0fc7e88d1888",
+        "90752943fb3e403180de92412d257f5d",
+        "71281f1a6cf745d29fcbda2a4ca9f233",
+        "d8cf74dd9ff04c9489595ea5e996fdb2",
+        "da2994c47b6744679ed60bd6e2528593"
+      ]
+    },
+    {
+      "name": "49b12dc911674692bc938e3ca08dee4b",
+      "displayName": "Group - Inventory Overview",
+      "children": [
+        "b78d296cbcb34e48816a9b38bb0d7427",
+        "999bea936b0f4c658d22db337b152d5e",
+        "dadef5791f4745c1a363ce0a4d596b15",
+        "5a71cf8c1fde44889491203d36ce3ba7",
+        "26d173c3533a44e399964a07c8725ce4",
+        "732b5e5476f94577b11a6afc948198f5",
+        "b4c5b22374de49be8a2dfef366838730",
+        "a81adf2f5e764e1d8b8b794c2e75ed93"
+      ]
+    },
+    {
+      "name": "28a493a1c41d42ef95787c0f7449ac1f",
+      "displayName": "Group - Warehouse Overview",
+      "children": [
+        "834d9a09a1d04771a6ad005881262279",
+        "720b6ff86f714049aa64f1698afc6e03",
+        "d3eb524b59b647b2a56dac55148d58c2",
+        "6a62933926da4b70922cafbf8defe1a3",
+        "a3a0958173f245408730de3d3d9cc73d",
+        "7899f2c9d2844ece96703ed36aa3d16c",
+        "ea05de1cf15940abae229eb99a3ac4f6",
+        "ecd52dc0698a4fcca5d5f86fdae3cd97"
+      ]
+    },
+    {
+      "name": "97b1c8972ea04c92aa3e609af5acd35b",
+      "displayName": "Group - Inventory Aging",
+      "children": [
+        "a0d534c9319543abacb563211789be46",
+        "83303dc0824b42a8843cde212b430453",
+        "2bc8e841673f4b3b843c1c2773084954",
+        "f63a45eeb9ec41b08293817033de88d7",
+        "4eabc8ffc42a44fa87db721504f4f665",
+        "b16dcfb91916423db237343c2f8d707b",
+        "53a7134e0fd947c786a3315a36eb3bbb",
+        "1b625a90fc424894ba97d23a944ef1e7"
+      ]
+    },
+    {
+      "name": "e225d696f94a44baaa2981ec713ccd6a",
+      "displayName": "Group - Movements Analysis",
+      "children": [
+        "e20102c851c44267922f58cb10e88243",
+        "e28d18e2b46f4df2bbe6f70af55c3dd1",
+        "3a40571cf3ed4abfa24eb49f87b1af98",
+        "52eda6277a9941bbba3c1ab0cd020854",
+        "199f9238afcc4453b03fd0621ea39c95",
+        "d2cb36aad70d4817a91d3619903f3e39",
+        "a5f88b6fd8fd4589b30d0bd06b127601",
+        "4dee14813215428a8dae440f0db301df"
+      ]
+    },
+    {
+      "name": "9abf0c33df2d4f36b815c7bae7c4e8ce",
+      "displayName": "Group - Sales Pipeline",
+      "children": [
+        "e502a41cc5614cc3b0b57a1282be67b4",
+        "64f674ffd4b4403f999adadb172a18cc",
+        "aca7cbe6f1d44cb48733fbced7ae8ea7",
+        "2a7df6bcfe9549f8a6854ad12c7e4061",
+        "a064fd74401a482681d5a6416432d040",
+        "870fa50046934c4d9f2b3386b166739d",
+        "4d85e6790871403f968a2af5d271e2fb",
+        "9a025de47cb84043ba15d306a7baae72"
+      ]
+    },
+    {
+      "name": "ed43c6fd5026484fa3d1b5c7ae6ad923",
+      "displayName": "Group - Deal Analytics",
+      "children": [
+        "e906df2021114294aef95c26ee7c8d01",
+        "5332b0a139b64f8f8d0ef47a758a4a5f",
+        "13291fa56ef5459e90a175cd3051a6e3",
+        "4e668b53885a4aab8575e3eb912db5b7",
+        "be9500e18360416e9f44a840a4c8220c",
+        "01240260157846aaa5e351120fa36440",
+        "38eb68c756764b58ad8e5509b78a1d47",
+        "1cec09f5eb3847a8a997be71793bf752"
+      ]
+    },
+    {
+      "name": "192eec774250489bbefac672cf358d17",
+      "displayName": "Group - Pipeline Velocity",
+      "children": [
+        "499923528e8946fd9bb5b07425c463ac",
+        "3982d6b600654d389d2807c5aa5fd35f",
+        "b444c2452bf2408a8574b95ebe150629",
+        "f297e25f45d844d4b655036cef8ccf60",
+        "b9a4eca09d54415195ec9f8e768e6e9f",
+        "97f8ccfd674c4eb6af5be197c3c4cf1f",
+        "174d7f0b160d4bfdaf59d55850a47065",
+        "111ba572b73c456b939012b22d9ea7bc"
+      ]
+    },
+    {
+      "name": "6511de65c1b8448783362124080646f9",
+      "displayName": "Group - HR Overview",
+      "children": [
+        "42e8c60075df4a11848a27554a62190c",
+        "dc9f854f4e214b0598168bed59d672fc",
+        "4503339637d944c185c6b9803fe44752",
+        "1c25ff5a411f4c0ba860982141c22005",
+        "2c76fb86af2f43eca4d57caa8c1e9c07",
+        "800885fa709d474c8aeb292ebbc9bd3f",
+        "f16cd8db7d1c4b2fb123327cfd8a06d6",
+        "6ca32a8d873841068e892ebf59d79f72"
+      ]
+    },
+    {
+      "name": "f40335e59eca4b628429367146dd9875",
+      "displayName": "Group - HR Development",
+      "children": [
+        "4b728406683540b7bebb4ae0eb94a720",
+        "c3a2947c7cf04dfdac54356a0ec2f6da",
+        "97f8bf9702c745b8b540a4ee14045b97",
+        "987eb6e807dd4f6cb7486f152fed534f",
+        "2d75188f6093448bbb2cbdeb860ec60d",
+        "9d504d4e392e49da91f020a744143c4b",
+        "ff2ddbf251e64598a179e5ad8d9cdb7c",
+        "862663117c8945bfb9d18e566854f8ee"
+      ]
+    },
+    {
+      "name": "3f8344fdb8fc4486a8ecf1a676885948",
+      "displayName": "Group - Invoice Overview",
+      "children": [
+        "7f37b0d08aa144fa971046a6ba799323",
+        "eea2e7cbfb3f4a36843d420b4179a139",
+        "c0237913d0a04194b0840e03139dc442",
+        "4aa34eac7c2741229a77e771089950eb",
+        "a48b1ac8ff2f46a28208b7d3eca94d2b",
+        "96e7b2c397204e44ba1eaf56056f9c71",
+        "e11515f9b3794c95ae714f5e7a61ae5f",
+        "2b9da8844f1f4490b7f0c008d89870ef"
+      ]
+    },
+    {
+      "name": "658a184efa874f6da295cf7ddbd1ad26",
+      "displayName": "Group - Invoice Trend",
+      "children": [
+        "ecf74830d3fa4fe9a6c700ec991d6632",
+        "460c1a6875564122afb8181433d64d79",
+        "c06e37a66ecf460b93e7cd42306d8fbe",
+        "ba0b18d0e40647aeb1b753f71789abec",
+        "e84bb5d67d224e6ea7991161f7a30fdd",
+        "15904ac711c542f18a6d7187e14264c4",
+        "c57356feab8043eb8d5fa358b76b290d",
+        "947b76bd1e7c4f55bf7f994a456e192a"
+      ]
+    },
+    {
+      "name": "8926cd19a2514fc4933922decad42e32",
+      "displayName": "Group - AR/AP Aging",
+      "children": [
+        "bb84d45faa674e598f6d095cd6ae3836",
+        "12bf973520de404f94cc7ed6cd2ffe95",
+        "d9a08d97fb81408aa6fe4c3f0ab1056c",
+        "46f0b48d2c684a959c0f82731c89dddb",
+        "ae1347b271394121949ef8ecc8797929",
+        "5c4cc04c0c114db893cca9760c0b9fe4",
+        "0cea9d27feeb4259a46230eaf8153722",
+        "2a9d2e58ff554d2eb246e72400a9b44f"
+      ]
+    },
+    {
+      "name": "b4027677838a4ad6b31b9705bd9d9723",
+      "displayName": "Group - Signed Amounts",
+      "children": [
+        "a5478e520cb943cd932cd341d04319c4",
+        "9199921079774473b371c20c6437deb9",
+        "50dec2307dd84168ad7abfa1fbcda1a0",
+        "f00d5f5502374a6b91b334b8e411bb0a",
+        "df46f18c9be34019ac9cbd15f28f915c",
+        "3740a4c820c744ecb55bae18f289dcea",
+        "598f1925b91344c984d0165616a8fb3c",
+        "5ff41e5d226b4a35b22abadfd20e5592"
+      ]
+    },
+    {
+      "name": "e0522bbe0b484399bd170b2e5bc72347",
+      "displayName": "Group - Partner Volume",
+      "children": [
+        "621ce6bf45a14d5181a0e4f08b0d024f",
+        "209c2cf321f340439410e93c5536c56a",
+        "216160130e1c407e91161063bb0e54ff",
+        "23939eb24e154da8908bc85e8dfa67d7",
+        "c4d1183b30c84c98a5d52cbfeff4b563",
+        "17317d4584894b42b82877ebc5672869",
+        "1b404e54cd7e44f4859d37c88095a29b",
+        "3758ade9bd034bda90cc7dfe406928ff"
+      ]
+    },
+    {
+      "name": "82cfc851dc31406887e243817eb066b2",
+      "displayName": "Group - Gl Ledger Overview",
+      "children": [
+        "3338f883406d48068f8150cbfbc716e3",
+        "df1e4896558e4d5b99201137ca2bf881",
+        "f0d27909e9884c37b0b28a3ccdaf5634",
+        "b9de339f2fcb4447bac834f4afb5b8a4",
+        "aefdd963dc6d4b5dbe4683eef901aed4",
+        "c79e28a23123497ea6818857d0ff8144",
+        "4f49ea72dbeb41258988d6244cec1611",
+        "c206fca579e7414da53ac077387342fd"
+      ]
+    },
+    {
+      "name": "6f039e80928a45039aedfbd9a1922b67",
+      "displayName": "Group - Account Reconciliation",
+      "children": [
+        "9509ff2c51a04de5be89622856da32ba",
+        "60154dd13d6c4dc3b0fdcf19bd3432cd",
+        "d0cfdade6ab945329c1f65e9d0727a83",
+        "f5c73f150efe4e4c8db4072dff9a7cf8",
+        "7844af022eb14b6fbd5152cec83aa0f6",
+        "51a9017c4db64fd8908ebc9e72d3fe92",
+        "01f9d9f5f4ff48eea783b5aaf2da832f",
+        "a27d329275fe4019b599d69f9662c9e3"
+      ]
+    },
+    {
+      "name": "35509be4c4ad06214050"
+    },
+    {
+      "name": "4067cc5f0b0e4d407dbe"
+    },
+    {
+      "name": "55e0620392c03091b2de"
+    },
+    {
+      "name": "604bc1bf8dc622591d1b"
+    }
+  ]
+}

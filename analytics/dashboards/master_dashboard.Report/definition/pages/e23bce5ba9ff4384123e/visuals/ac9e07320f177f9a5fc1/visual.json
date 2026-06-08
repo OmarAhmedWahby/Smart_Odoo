@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "ac9e07320f177f9a5fc1",
   "position": {
-    "x": 15,
+    "x": 58.75,
     "y": 0,
     "z": 1000,
     "height": 70,
-    "width": 105,
+    "width": 135,
     "tabOrder": 1000
   },
   "visual": {
@@ -48,7 +48,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Nav icon '"
+                  "Value": "'Nav Icon '"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "'01eef0a6a7e5bb8b9645'"
+                  "Value": "'35509be4c4ad06214050'"
                 }
               }
             }
@@ -85,5 +85,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "98b4d6f0c4707a785304",
   "howCreated": "InsertVisualButton"
 }

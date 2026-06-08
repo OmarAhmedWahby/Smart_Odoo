@@ -14,7 +14,7 @@ table fact_inventory
 		dataType: int64
 		formatString: 0
 		lineageTag: 586ac840-8e3c-4c98-9dbd-d55e3f0af36f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: product_id
 
 		annotation SummarizationSetBy = Automatic

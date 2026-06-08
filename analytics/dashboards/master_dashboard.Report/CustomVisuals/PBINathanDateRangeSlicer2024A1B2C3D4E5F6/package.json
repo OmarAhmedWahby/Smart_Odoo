@@ -1,0 +1,29 @@
+{
+  "version": "1.0.1.0",
+  "author": {
+    "name": "PBI Nathan",
+    "email": "support@powerbiwall.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/PBINathanDateRangeSlicer2024A1B2C3D4E5F6.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6",
+    "name": "DateRangeSlicer",
+    "displayName": "Date Range Slicer",
+    "version": "1.0.1.0",
+    "description": "Advanced date range slicer with preset buttons for quick selection. Features dual calendar view, exclude today option, and customizable colors. Perfect for selecting date ranges in your Power BI reports.",
+    "supportUrl": "http://powerbiwall.com/PBI-visuals",
+    "gitHubUrl": "https://github.com/PBI-Nathan/powerbi-visuals-date-range-slicer",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

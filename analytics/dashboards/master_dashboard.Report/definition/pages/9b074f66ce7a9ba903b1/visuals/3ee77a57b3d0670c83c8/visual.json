@@ -4,10 +4,10 @@
   "position": {
     "x": 484.28571428571433,
     "y": 201.42857142857144,
-    "z": 4003,
+    "z": 4000,
     "height": 234.28571428571431,
     "width": 795.71428571428578,
-    "tabOrder": 3003
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "columnChart",
@@ -148,37 +148,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3a7dd23d5da55327ca5a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "06_InvoiceMeasures"
-              }
-            },
-            "Property": "Total GL Transactions"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6ffb0563e7bdaf1b7d84",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_account"
-              }
-            },
-            "Property": "account_name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

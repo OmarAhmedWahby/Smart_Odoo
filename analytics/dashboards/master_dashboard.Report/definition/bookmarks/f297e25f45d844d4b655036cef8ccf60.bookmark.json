@@ -1,0 +1,639 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open list Two - Pipeline Velocity",
+  "name": "f297e25f45d844d4b655036cef8ccf60",
+  "options": {
+    "targetVisualNames": [
+      "5db179b74e9101ce0960",
+      "370622051d628a70cc27",
+      "291bd9a8420224d0eb5b",
+      "760e58130700881cc051",
+      "8830079d634b2596be98",
+      "31b0d4fab1581667309b",
+      "07d3b9b82240e48a0e3d",
+      "0eafb8b1dd4a975076bb",
+      "1182e573d13998209765",
+      "47fa896c34729d18d609",
+      "52d573a4b95a1b1e4e71",
+      "5f3411b05740a30003de",
+      "73281f86521ebc878b38",
+      "7a823e720e5a5ac03ada",
+      "a94c53e048ae57ab8200",
+      "aeafbcb0974e6c257666",
+      "b405b0d0962a24ad636e",
+      "f8c81503b092100cee5e",
+      "46b293dfb0d446ed685b",
+      "0d354847692786a71ee5",
+      "29630e18b8381bbed316",
+      "63ebcc83527b4eb08b97",
+      "8789c0acb3c880767946",
+      "8eae4bacaa400813a049",
+      "8f629d366b210eb90560",
+      "9d9efcb40d309d7aa452",
+      "a4065752641b81017b50",
+      "c35a749d097cb8accc69",
+      "c56235d231e9d1091939",
+      "ce7ab028ba0c4333b1e2",
+      "f92d704e700b53245a60",
+      "aa6f6a4e44580cd8124c",
+      "d07e6fb7c007a08988c3",
+      "fde311e1ea70028ea483"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "a1e2a84d48fb67f4f218",
+    "sections": {
+      "a1e2a84d48fb67f4f218": {
+        "visualContainers": {
+          "291bd9a8420224d0eb5b": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2a26e76d884ac4d32cf7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1bd4587fd3dbe5c85088",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "campaign_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "988b059037133b201e4a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Expected Revenue"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d8183287cb63200e52d4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Prorated Revenue"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Expected Revenue"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "campaign_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "07d3b9b82240e48a0e3d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0eafb8b1dd4a975076bb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1182e573d13998209765": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "47fa896c34729d18d609": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "52d573a4b95a1b1e4e71": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5f3411b05740a30003de": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "73281f86521ebc878b38": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7a823e720e5a5ac03ada": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a94c53e048ae57ab8200": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "aeafbcb0974e6c257666": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b405b0d0962a24ad636e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f8c81503b092100cee5e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0d354847692786a71ee5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "29630e18b8381bbed316": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "63ebcc83527b4eb08b97": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8789c0acb3c880767946": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8eae4bacaa400813a049": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8f629d366b210eb90560": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9d9efcb40d309d7aa452": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a4065752641b81017b50": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c35a749d097cb8accc69": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c56235d231e9d1091939": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ce7ab028ba0c4333b1e2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f92d704e700b53245a60": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "aa6f6a4e44580cd8124c": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "d07e6fb7c007a08988c3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fde311e1ea70028ea483": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "4847400ae41fe4594ff8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5562a5ec4eda2b628079",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "stage_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "66ca2581704030451ceb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "priority"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1b20f555d08dbc558205",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Stalled Opportunities"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Stalled Opportunities"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "stage_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "760e58130700881cc051": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8830079d634b2596be98": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "63c840e0af979ba37919": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0a3bcb79b86272c50104",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Average Days Open"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e5dd4fe941d96d51c0b9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Stalled Opportunities"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "40430375050b952a3eb0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Unique Leads"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "65a520fd1ab29400a21a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total MRR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d71af0303a99add04354",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Average Automated Probability"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Average Days Open"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "487d06a7fe224ddb6955": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1df7160bc8d7d0587e07",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "6191582053419a25a878": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9bbe98455d72b6ceb69c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1ddd35898222c3aeb01d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "Days Open Bucket"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3b97f730136d1859965c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "Days Open Bucket"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "370622051d628a70cc27": {
+            "isHidden": false,
+            "children": {
+              "31b0d4fab1581667309b": {
+                "isHidden": true
+              },
+              "46b293dfb0d446ed685b": {
+                "isHidden": false
+              }
+            }
+          },
+          "5db179b74e9101ce0960": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

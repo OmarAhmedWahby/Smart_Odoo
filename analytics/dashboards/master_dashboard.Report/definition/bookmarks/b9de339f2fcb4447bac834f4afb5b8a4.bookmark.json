@@ -1,0 +1,707 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open list Two - Gl Ledger Overview",
+  "name": "b9de339f2fcb4447bac834f4afb5b8a4",
+  "options": {
+    "targetVisualNames": [
+      "b01e239f7c2e8216c115",
+      "cd23c53014485e750ac7",
+      "cbb60755b2154cbbdb03",
+      "f66cb6307c1be17100c6",
+      "a75e8f805b1000800b4e",
+      "0999b6d69b84d2c14c37",
+      "10afd0802ec2eb77250c",
+      "1f97b347753e4700973c",
+      "2efbb663b2c8d1a005db",
+      "5542cd7a053ac2932e30",
+      "83b571d05578207ec3c4",
+      "8a51241e762e61c41344",
+      "9d4e30870a6b5e8c52d2",
+      "a8a29b447c07d8cb89b2",
+      "c9d39b9e7429c09d2e0a",
+      "d21f7e2730976a3391b1",
+      "e3aa7266085e06478704",
+      "04b00b3d3dc7b110c300",
+      "52c19c305194c606b195",
+      "64fc0da436b971da9d7e",
+      "663f3011e38a9533d5b2",
+      "8d4ab2ff6b1c45a04c0d",
+      "c024677dc921dd1aa054",
+      "ce3510e200121a050661",
+      "d0baab2e04536bddac90",
+      "e5d91895a4d4600de9b4",
+      "f496341d4347ced78d85",
+      "fa8c6690a088705265a4",
+      "fb05ab21945502033835",
+      "4882b608c856b0007a92",
+      "8823e01f839540ccce14",
+      "91d27611aa0c5d700b7a",
+      "15179cabd5a7a2749bb0",
+      "970fdeb5057607057c67"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "9b074f66ce7a9ba903b1",
+    "sections": {
+      "9b074f66ce7a9ba903b1": {
+        "visualContainers": {
+          "80b5d292c9ff6036b1d7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b52795c912ae138560e9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "fef377c92f5fc6500b03": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "3ee77a57b3d0670c83c8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1dfa9a023200ae2a6475",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_account"
+                        }
+                      },
+                      "Property": "account_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "29c062bcd00653c55e04",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total GL Transactions"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total GL Transactions"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_account"
+                        }
+                      },
+                      "Property": "account_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "15179cabd5a7a2749bb0": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "970fdeb5057607057c67": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ac1a673904cd750a02d9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b05d2b1fde9478881dc0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total Debits"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4e2cc54885c64d3c3126",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total Credits"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4bb9feee5a5a0dca90d0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Net Balance"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "64984b6d0004614cc06a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total Journal Entries"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total Debits"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "b01e239f7c2e8216c115": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "bc0c0f52588da82a5e11": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "637f054d07a2a430141c",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6f5c69d22d015cb21c93",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b31d141cdbc2dedd0996",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f010bf10a441627e044b",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "863c872bbd8a5451a10a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "Total GL Transactions"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "bff61355421898de5e17": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ffdaf465ec7674176974",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "GL Posted Transactions"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5412a090991590b01d5e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "GL Draft Transactions"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "06_InvoiceMeasures"
+                        }
+                      },
+                      "Property": "GL Posted Transactions"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "4882b608c856b0007a92": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8823e01f839540ccce14": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "91d27611aa0c5d700b7a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "04b00b3d3dc7b110c300": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "52c19c305194c606b195": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "64fc0da436b971da9d7e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "663f3011e38a9533d5b2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8d4ab2ff6b1c45a04c0d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c024677dc921dd1aa054": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ce3510e200121a050661": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d0baab2e04536bddac90": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "e5d91895a4d4600de9b4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f496341d4347ced78d85": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fa8c6690a088705265a4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fb05ab21945502033835": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0999b6d69b84d2c14c37": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "10afd0802ec2eb77250c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1f97b347753e4700973c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2efbb663b2c8d1a005db": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5542cd7a053ac2932e30": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "83b571d05578207ec3c4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8a51241e762e61c41344": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9d4e30870a6b5e8c52d2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a8a29b447c07d8cb89b2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c9d39b9e7429c09d2e0a": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "d21f7e2730976a3391b1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e3aa7266085e06478704": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "a75e8f805b1000800b4e": {
+            "isHidden": false
+          },
+          "f66cb6307c1be17100c6": {
+            "isHidden": false,
+            "children": {
+              "cbb60755b2154cbbdb03": {
+                "isHidden": false
+              },
+              "cd23c53014485e750ac7": {
+                "isHidden": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

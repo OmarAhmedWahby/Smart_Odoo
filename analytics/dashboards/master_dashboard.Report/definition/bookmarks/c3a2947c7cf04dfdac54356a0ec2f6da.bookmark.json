@@ -1,0 +1,966 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open Nav Bar - HR Development",
+  "name": "c3a2947c7cf04dfdac54356a0ec2f6da",
+  "options": {
+    "targetVisualNames": [
+      "c604fa75cdc3a1d7089d",
+      "017794a04aae77d7db06",
+      "ec61b192a0a209db018c",
+      "1707beae80ace8abc64c",
+      "0beca3a646012095ce0b",
+      "1b40acf1698005783003",
+      "1e281c6c0c1a9ec55e3c",
+      "41093d4a9e1c9068d677",
+      "47522e98454d0b77b590",
+      "54e19ff8baeb68942ad5",
+      "691e70bf2824cd2863e0",
+      "7312cd1473b6067119d0",
+      "9909965beda204018a1d",
+      "9a8245467c9a0c48c20d",
+      "ac12c90574080060a940",
+      "bbaa70ecc8b5480d1681",
+      "8a8bf270d697b04a0db9",
+      "8ddd988c60d8115c143b",
+      "904b6e0ec5caea57ce80",
+      "b1fab695d749da80967a",
+      "23bd162dde795ee7529a",
+      "42bf09b2980975204ae0",
+      "58b0dc4cb70c49bb7291",
+      "677a8afe6236416be001",
+      "68f8a77409485beeb206",
+      "8590ba229dcad5c25c1c",
+      "9b611c5846dc898caeab",
+      "9d385a1c140732eca7a3",
+      "a8473ee108d04d1c0a72",
+      "bf15fdece987872b634b",
+      "c650df7ae04e9a00749c",
+      "f6b9ac3c9edb231902e2",
+      "7280a2faeceee50056a7",
+      "7887822e05e7506e5038"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "d30440a06ff3556de8db",
+    "sections": {
+      "d30440a06ff3556de8db": {
+        "visualContainers": {
+          "0beca3a646012095ce0b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1b40acf1698005783003": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1e281c6c0c1a9ec55e3c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "41093d4a9e1c9068d677": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "47522e98454d0b77b590": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "54e19ff8baeb68942ad5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "691e70bf2824cd2863e0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7312cd1473b6067119d0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9909965beda204018a1d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9a8245467c9a0c48c20d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ac12c90574080060a940": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bbaa70ecc8b5480d1681": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8a8bf270d697b04a0db9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8ddd988c60d8115c143b": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "904b6e0ec5caea57ce80": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "23bd162dde795ee7529a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "42bf09b2980975204ae0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "58b0dc4cb70c49bb7291": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "677a8afe6236416be001": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "68f8a77409485beeb206": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8590ba229dcad5c25c1c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9b611c5846dc898caeab": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9d385a1c140732eca7a3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a8473ee108d04d1c0a72": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bf15fdece987872b634b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c650df7ae04e9a00749c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f6b9ac3c9edb231902e2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1f15a861691053767d40": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cba8f1c7750465a34456",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Total Managers"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2e966c52dae5c09442b9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8a434590de706b4d5308",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Employees per Manager"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "98bec3f1bcd68c0c8510",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Unique Study Fields"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Total Managers"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "322d7224658ca149ca5a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1ee4717241f6df257abb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_employee",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "coach_name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a6e08649e7575522ab51",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "dim_employee",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "01",
+                                  "Entity": "05_HrMeasures",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "coach_name"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "01"
+                                        }
+                                      },
+                                      "Property": "Active Employees"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 10
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "dim_employee",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "coach_name"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "c157204b81b8d7b78977",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2e84b95beed60649ff76": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1bdd0d3604962d465c1a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "8ddeddd1925f4dcf22cd": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "a0b306ee846d56963521": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ab18daa1ac0b10b13d00",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Employees with Coach"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "de0869ed85196d8cc818",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Certified Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "39f3a0f1ebdd67000403",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Certification Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "71e74a98a9860d0261c1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Coaching Participation %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Employees with Coach"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "a58ce89816e21f6dd360": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "73b6fed23070d3d66d04",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "study_field"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1c647b4d09210d54003d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "study_field"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c604fa75cdc3a1d7089d": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "7280a2faeceee50056a7": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7887822e05e7506e5038": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "fa66acf42947df4c7afa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "14a9c788fbc1516b1848",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_employee",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "manager_name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "218511e692173ae8dfcd",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "d",
+                                  "Entity": "dim_employee",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "01",
+                                  "Entity": "05_HrMeasures",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "manager_name"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "01"
+                                        }
+                                      },
+                                      "Property": "Active Employees"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 10
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "d",
+                        "Entity": "dim_employee",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "manager_name"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "25c0692179de14a162dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "017794a04aae77d7db06": {
+            "isHidden": false,
+            "children": {
+              "b1fab695d749da80967a": {
+                "isHidden": true
+              }
+            }
+          },
+          "ec61b192a0a209db018c": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

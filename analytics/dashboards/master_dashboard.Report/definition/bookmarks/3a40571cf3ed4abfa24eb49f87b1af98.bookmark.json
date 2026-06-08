@@ -1,0 +1,908 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open list One - Movements Analysis",
+  "name": "3a40571cf3ed4abfa24eb49f87b1af98",
+  "options": {
+    "targetVisualNames": [
+      "4d383ae240cbc1d4dcdb",
+      "aff2a9bd31e5301215be",
+      "1079f27b6aeb519620d7",
+      "3a8faa0a8069adcbd4c3",
+      "45d20c503ec386973953",
+      "14758744c480e3e268c3",
+      "15684dd1509843aac529",
+      "efa0748a0c0b80807007",
+      "5758c8103ad08c518087",
+      "5ab2b121787956005dd1",
+      "5f621880a2d4d2ae19e6",
+      "75dc6e1497e4540e2a5d",
+      "7d74b31c0700b319a10e",
+      "7e106b0da9ae216cd60d",
+      "7e836eee35919d85ebe9",
+      "83cdff249ea8817c2b80",
+      "c963c0b2138bb8157082",
+      "d571c554c40672ec009b",
+      "de94a89db0b64eb052a1",
+      "0116bd0091cd6c047aeb",
+      "16cbdfca160c9ca85c24",
+      "1bdbc05dbb647013a002",
+      "391e373b8c8a10041db0",
+      "3c54de8c7550e230bb26",
+      "42c66568cb366c868786",
+      "4dbed87b335641868d57",
+      "50e2fecb592cc3b08767",
+      "549e52260541a1380340",
+      "76c5c42f398b41ea4ba0",
+      "80bc51e0ae1050566453",
+      "9fbe7c5e08d025eadedb",
+      "565ff7eb9e04371a2550",
+      "70c709d068b73053dadb",
+      "b1a947868a7c037ca98c"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "f5556e895bdfcb68b240",
+    "sections": {
+      "f5556e895bdfcb68b240": {
+        "visualContainers": {
+          "4d383ae240cbc1d4dcdb": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "5758c8103ad08c518087": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5ab2b121787956005dd1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5f621880a2d4d2ae19e6": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "75dc6e1497e4540e2a5d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7d74b31c0700b319a10e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7e106b0da9ae216cd60d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7e836eee35919d85ebe9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "83cdff249ea8817c2b80": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c963c0b2138bb8157082": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d571c554c40672ec009b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "de94a89db0b64eb052a1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0116bd0091cd6c047aeb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "16cbdfca160c9ca85c24": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "1bdbc05dbb647013a002": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "391e373b8c8a10041db0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3c54de8c7550e230bb26": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "42c66568cb366c868786": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4dbed87b335641868d57": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "50e2fecb592cc3b08767": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "549e52260541a1380340": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "76c5c42f398b41ea4ba0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "80bc51e0ae1050566453": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9fbe7c5e08d025eadedb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "565ff7eb9e04371a2550": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "70c709d068b73053dadb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b1a947868a7c037ca98c": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "14758744c480e3e268c3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2f7c98dda22f32f99701": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "a33003b38302b0014c18": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1feb0abd08bb5e055c85",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "56b7ca2b67654f0c797a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f03d6c0c9d62d9e35e30",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "01_SalesMeasures"
+                        }
+                      },
+                      "Property": "Total Movement Qty"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ab2062138ce8bce53218",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Inbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e4be78b2836846b27dc2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Outbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6e7bc2a5db03e932d413",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Internal Transfers"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7e4f66ff9d02d55a14d2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Movement Fulfillment Rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "74cca984b7c0e8bcc092",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Inventory Turnover Ratio"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "01_SalesMeasures"
+                        }
+                      },
+                      "Property": "Total Movement Qty"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "88d0b3e225edf059bf19": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7f52036205cf90ce400c",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "0",
+                                  "Entity": "01_SalesMeasures",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "f1",
+                                  "Entity": "fact_inventory_movement",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "f1"
+                                      }
+                                    },
+                                    "Property": "product_name"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "0"
+                                        }
+                                      },
+                                      "Property": "Total Movement Qty"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 20
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "f1",
+                        "Entity": "fact_inventory_movement",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f1"
+                                    }
+                                  },
+                                  "Property": "product_name"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory_movement"
+                        }
+                      },
+                      "Property": "product_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5c194ec1ca7a5dcba403",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "01_SalesMeasures"
+                        }
+                      },
+                      "Property": "Total Movement Qty"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "01_SalesMeasures"
+                        }
+                      },
+                      "Property": "Total Movement Qty"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory_movement"
+                        }
+                      },
+                      "Property": "product_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9415acac5ac22e430de7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "55e3be4294bc402480c1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Inventory Turnover Ratio"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Inventory Turnover Ratio"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "a81adec06a244afb67d9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2a15805cb200ccaa0100",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "183a76b58831507bd078",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4fb7eb402784d3ab4a0b",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a70fc8bdd27e5098ab10",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "95ee8b1832809400099c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Inbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f7420a2315d489350064",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Outbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "15684dd1509843aac529": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "efa0748a0c0b80807007": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "c6844fc602b414743577": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "afa83c6d31d2d47b25a0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory_movement"
+                        }
+                      },
+                      "Property": "move_state"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "875410b05bc248cb90ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Outbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02bb3242daa601873775",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Inbound Movement"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Outbound Movement"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory_movement"
+                        }
+                      },
+                      "Property": "move_state"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "1079f27b6aeb519620d7": {
+            "isHidden": false,
+            "children": {
+              "3a8faa0a8069adcbd4c3": {
+                "isHidden": true
+              },
+              "45d20c503ec386973953": {
+                "isHidden": false
+              }
+            }
+          },
+          "aff2a9bd31e5301215be": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

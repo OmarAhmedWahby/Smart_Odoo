@@ -1,0 +1,861 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open list One - Inventory Overview",
+  "name": "dadef5791f4745c1a363ce0a4d596b15",
+  "options": {
+    "targetVisualNames": [
+      "5936a5a105ee95a45399",
+      "9629b0d06aee324c09d2",
+      "0d723ef333d90975b1b1",
+      "3bfde46376055aa407be",
+      "066c60d482c925aa3d37",
+      "8f046dfec439b8706b21",
+      "ecd27dc1b7c1ed22860d",
+      "1acc80d09b130d43588e",
+      "4ef3a0916850540e95e4",
+      "4fffb92a053c3e093539",
+      "50bae9113e80cc9dde3b",
+      "552b964f849868900b67",
+      "55c749849b8a2a028d83",
+      "7fe25e719d523ec50778",
+      "823cebfd0e5606816e77",
+      "896a99344e6a22e938ca",
+      "92c4ebda02d91143ac59",
+      "c70b93faa118a403ed01",
+      "e41c272db1022003bee0",
+      "0d04af520ea7e51042e7",
+      "1a2ead38735408792130",
+      "32ecf7002547d020b0b0",
+      "5d992623467b83b0abb6",
+      "66a3bef66cb63b159025",
+      "a2b9e210d31360536650",
+      "a4e4dd6d9c61d529210a",
+      "b22ac03497138020270b",
+      "bcf66d365420c5591d00",
+      "bfc517b26908302e9505",
+      "c493f4e1e0ec18d2ca6b",
+      "fdf30f5c60716a05c793",
+      "849740d08e9c7c838a88",
+      "d4ef596b0cc308929a53",
+      "f66774e6c060a08e89ea"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "8f51368399d682ec07c6",
+    "sections": {
+      "8f51368399d682ec07c6": {
+        "visualContainers": {
+          "066c60d482c925aa3d37": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "0d04af520ea7e51042e7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1a2ead38735408792130": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1acc80d09b130d43588e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1e27f38635bc60946011": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ff3d33d537bb001d720c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Traget Stock Health"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "01b3c20559520d23eb2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Stock Health %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Stock Health %"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "32ecf7002547d020b0b0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "447fbc2da8357361b7bf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1328f370dea17e9b5706",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7be839dc94171aae1768",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67c65a05e213624ca427",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "31ae0afb13502becaeee",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ac01666b3404e2a6503b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Reserved Qty"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3d00cc604941088bddc2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total On Hand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5651fa4c10920500171a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Available Qty"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4624b96cf8f44e7ca53f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "39e3555ba7ddcca613c9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory"
+                        }
+                      },
+                      "Property": "inventory_status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6667e1807007ad40c100",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "fact_inventory"
+                            }
+                          },
+                          "Property": "product_id"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "fact_inventory"
+                            }
+                          },
+                          "Property": "product_id"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_inventory"
+                        }
+                      },
+                      "Property": "inventory_status"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4ef3a0916850540e95e4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4fffb92a053c3e093539": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "50bae9113e80cc9dde3b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "552b964f849868900b67": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "55c749849b8a2a028d83": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5d992623467b83b0abb6": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "66a3bef66cb63b159025": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7fe25e719d523ec50778": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "823cebfd0e5606816e77": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "849740d08e9c7c838a88": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "896a99344e6a22e938ca": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8f046dfec439b8706b21": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "910d57561acdf3eeb27f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "575130d82ad427e97449",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Inventory Value"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d3b3d61c10e80db21201",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total On Hand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8dc25e686ba0742369b7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Stock Health %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0f3838ac0ca478850985",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Low Stock Items"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "070b5dbc232b0a99cae0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Commitment Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Inventory Value"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "92c4ebda02d91143ac59": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a2b9e210d31360536650": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a4e4dd6d9c61d529210a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b22ac03497138020270b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bcf66d365420c5591d00": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bfc517b26908302e9505": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c493f4e1e0ec18d2ca6b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c70b93faa118a403ed01": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "cb31d2e91ca85b8a3a62": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ca63632cc3a1b8b1d42b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_warehouse"
+                        }
+                      },
+                      "Property": "warehouse_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b4aee624a8027d6c15da",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Reserved Qty"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dd5de3e786a772c69803",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total On Hand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bab42a0000745c6c245c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Available Qty"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "03_inventoryMeasures"
+                        }
+                      },
+                      "Property": "Total Reserved Qty"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_warehouse"
+                        }
+                      },
+                      "Property": "warehouse_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d4ef596b0cc308929a53": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "d9984d6b7148789bc0b9": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "e41c272db1022003bee0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ecd27dc1b7c1ed22860d": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "f3422bede30c4dbff5a7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6f536b7ec0c630e29d7c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "f66774e6c060a08e89ea": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fdf30f5c60716a05c793": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "5936a5a105ee95a45399": {
+            "isHidden": false
+          },
+          "9629b0d06aee324c09d2": {
+            "isHidden": false,
+            "children": {
+              "0d723ef333d90975b1b1": {
+                "isHidden": true
+              },
+              "3bfde46376055aa407be": {
+                "isHidden": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

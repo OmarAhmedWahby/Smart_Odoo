@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "066df12a4db09ece624c",
   "position": {
-    "x": 15,
+    "x": 57.5,
     "y": 0,
-    "z": 1000,
+    "z": 0,
     "height": 70,
-    "width": 105,
-    "tabOrder": 1000
+    "width": 135,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "image",
@@ -62,7 +62,20 @@
             "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "'3abcc40e548bee83438d'"
+                  "Value": "'55e0620392c03091b2de'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Nav Icon Hide'"
                 }
               }
             }
@@ -72,6 +85,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2fe43e633da1b939b393",
   "howCreated": "InsertVisualButton"
 }

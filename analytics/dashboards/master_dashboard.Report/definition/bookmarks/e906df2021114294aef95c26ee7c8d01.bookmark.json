@@ -1,0 +1,823 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Hide Nav Bar - Deal Analytics",
+  "name": "e906df2021114294aef95c26ee7c8d01",
+  "options": {
+    "targetVisualNames": [
+      "e83ac7b0b46ce825b8c6",
+      "25a65a0abb20b126a8a7",
+      "9b3982b699834d423c43",
+      "089361fa17807704276c",
+      "e5c4c1c3108bb6e58301",
+      "27efbdf0a70b1964da08",
+      "4a85471d4e41e831e971",
+      "6274a43282728b89e4b2",
+      "18d59ff609c150b88ca9",
+      "21a0c300770d1d50b982",
+      "2f58d89b07da5cba8097",
+      "3b9ec8040229b9d63846",
+      "47b86e83214eb3473912",
+      "51db5f2c30092041c50d",
+      "687f58c08a07d23170d0",
+      "83673a17b274aa54b86a",
+      "890d20a3e003ab386c97",
+      "a3050fae2c3907ec922a",
+      "bc10df60c9ce045cc85d",
+      "f8b11a10d6a060935cee",
+      "ccbd01ead6500a324c20",
+      "f73cc54b4ec6d4dcbd91",
+      "042662c7801da16ce821",
+      "0c687eb0bbc9c8122859",
+      "1e38697a02bb38660a20",
+      "4802d3eb426e0759dee0",
+      "51f17ed0960d324da39a",
+      "579527780dd876bbbdb0",
+      "935dbd9763b4234465b2",
+      "b46b21bda860d8ea1720",
+      "d691b3fbd4799e935670",
+      "e3f0c02ba9086539207e",
+      "f9aaafead4b21d81da13",
+      "ff4f116e27be7010ae1d"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "302f656e78fb28d008ae",
+    "sections": {
+      "302f656e78fb28d008ae": {
+        "visualContainers": {
+          "063e1b7651815e839953": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cee85a52ab8089c37615",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "05e2586db6694e0060b0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Won Deals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0078a86c87a968995098",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Lost Deals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "285ac36da5a69e00c98d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Won Revenue"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "87d0e3483383801ca8b0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Average Deal Size"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "27efbdf0a70b1964da08": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "4a85471d4e41e831e971": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "18d59ff609c150b88ca9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "21a0c300770d1d50b982": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2f58d89b07da5cba8097": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3b9ec8040229b9d63846": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "47b86e83214eb3473912": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "51db5f2c30092041c50d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "687f58c08a07d23170d0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "83673a17b274aa54b86a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "890d20a3e003ab386c97": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a3050fae2c3907ec922a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bc10df60c9ce045cc85d": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "f8b11a10d6a060935cee": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ccbd01ead6500a324c20": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "042662c7801da16ce821": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0c687eb0bbc9c8122859": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1e38697a02bb38660a20": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4802d3eb426e0759dee0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "51f17ed0960d324da39a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "579527780dd876bbbdb0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "935dbd9763b4234465b2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b46b21bda860d8ea1720": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d691b3fbd4799e935670": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e3f0c02ba9086539207e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f9aaafead4b21d81da13": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ff4f116e27be7010ae1d": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "438b16631468432573d7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1c3c14255300255d57ee",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "stage_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4e6fffdd4304257adc89",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Total Deals"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "stage_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4c4784178e439bfcf8c6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9b3f5530bea9b9e65900",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_team"
+                        }
+                      },
+                      "Property": "team_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "512d74d009b269ce85ca",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_campaign"
+                        }
+                      },
+                      "Property": "campaign_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2ae0a2fea31e019538d4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_lead"
+                        }
+                      },
+                      "Property": "lead_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b8d0f10f721cbbb30961",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Win Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Win Rate %"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_team"
+                        }
+                      },
+                      "Property": "team_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "75757128a8c3b8f5b60d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "29789628db88010e0a01",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c65307578a0d6a72a82c",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "194e6f84d4d40782e447",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "14ab81ff322a7ab25425",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0cd9b7c4db3a6c249899",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Won Deals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e2257fc066305bc81309",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Lost Deals"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9b3982b699834d423c43": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "a44373cb5d9d060ad00e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "640644dc0aa0353c7888",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "lost_reason_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5e8a396f0b060ea52b80",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Lost Deals"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "04_CrmMeasures"
+                        }
+                      },
+                      "Property": "Lost Deals"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_crm_pipeline"
+                        }
+                      },
+                      "Property": "lost_reason_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2685645dfdeae870494b": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c51416c97bff860e168e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "377d1d9660e0c806212c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "089361fa17807704276c": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "e5c4c1c3108bb6e58301": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "25a65a0abb20b126a8a7": {
+            "isHidden": true,
+            "children": {
+              "f73cc54b4ec6d4dcbd91": {
+                "isHidden": true
+              }
+            }
+          },
+          "e83ac7b0b46ce825b8c6": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

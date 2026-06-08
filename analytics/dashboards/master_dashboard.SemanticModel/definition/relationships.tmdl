@@ -483,3 +483,7 @@ relationship 5f21d1f1-0e2f-9650-d54a-a17540a7dfc9
 	fromColumn: fact_invoice.delivery_date
 	toColumn: dim_date.full_date
 
+relationship d7e3cf30-94a6-e624-9569-fc0e4d9a6a8a
+	fromColumn: fact_inventory.product_id
+	toColumn: dim_product.product_id
+

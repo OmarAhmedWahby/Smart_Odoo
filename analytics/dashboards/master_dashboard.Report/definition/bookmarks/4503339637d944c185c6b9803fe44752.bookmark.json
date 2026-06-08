@@ -1,0 +1,906 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Open list One - HR Overview",
+  "name": "4503339637d944c185c6b9803fe44752",
+  "options": {
+    "targetVisualNames": [
+      "07011977c4d009c907e3",
+      "e1439c500db326370459",
+      "8e22eb177308222160ae",
+      "fd9c9ab74dbb3a0034b6",
+      "839a095e34836b6b3a04",
+      "bced38c56ae0300885c0",
+      "7a5aea559cd141741300",
+      "dc79f3b4b48b0d2a0cd9",
+      "25267141798b077d0ec9",
+      "4f524691e002a7abad61",
+      "58a7336c09e8a9c65300",
+      "6e27a92542d8e66db30a",
+      "7f1f393e568700b42a46",
+      "8f64312c621d9a60e1e0",
+      "b96d1534c0c2ea4b8ae2",
+      "c0d836f030b5c29abb76",
+      "cc9b925b4cd61a1e2346",
+      "d3473fae9862526509c3",
+      "df2be45fad163078b904",
+      "fd6587add3a0b31735ab",
+      "8a81de5a2c2b54040b60",
+      "c6163fca2140d753aa20",
+      "f43890eb12c58b78c525",
+      "024d8ed5eb1820b70181",
+      "211809970237438009a3",
+      "30a9b8b0207145e3e239",
+      "417cdeaac45543b748c0",
+      "454131a027b27e9c0790",
+      "5a5555702e37a21ae367",
+      "7d13e57a9b222995a120",
+      "9461cc500de40c85d0cb",
+      "94ef766060b19303d360",
+      "9980a2fbb234a363d607",
+      "cb8ba45f2415a01d58dd"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "b3c6c616eb70809256c4",
+    "sections": {
+      "b3c6c616eb70809256c4": {
+        "visualContainers": {
+          "0572093b17dd3ed841bb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "31ebc85341c4db8b4b6d",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c7a651aecd17d10e5258",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e5801949d005a8400d94",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ce03ab1552869d14c89a",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f5d58c2fde3070962c5c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f7ecabdb460314079b9e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Inactive Employees"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2ea962efa680042d9739": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4e2d9875d3b6509c4006",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Tenure < 1 Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3a275af16bceda0494a6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Tenure 1-3 Years"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "46bf59733b6ad0d6e9c4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Tenure 3-5 Years"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "de42f779880e2da99bb4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Tenure 5+ Years"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Tenure < 1 Year"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "44bfbaa1aed65a9749cd": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3ece608215c60bca8187",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Visa Expiring Soon"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "54f403e2e68203cdd4d1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Work Permit Expiring"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7df50e40c84c3966b0e7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Certified Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0981b1c30e073d7d43ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Coaching Participation %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Visa Expiring Soon"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "25267141798b077d0ec9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4f524691e002a7abad61": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "58a7336c09e8a9c65300": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "6e27a92542d8e66db30a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7f1f393e568700b42a46": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8f64312c621d9a60e1e0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b96d1534c0c2ea4b8ae2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c0d836f030b5c29abb76": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cc9b925b4cd61a1e2346": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d3473fae9862526509c3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "df2be45fad163078b904": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fd6587add3a0b31735ab": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8a81de5a2c2b54040b60": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c6163fca2140d753aa20": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "f43890eb12c58b78c525": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "024d8ed5eb1820b70181": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "07011977c4d009c907e3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "211809970237438009a3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "30a9b8b0207145e3e239": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "417cdeaac45543b748c0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "454131a027b27e9c0790": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5a5555702e37a21ae367": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7d13e57a9b222995a120": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9461cc500de40c85d0cb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "94ef766060b19303d360": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9980a2fbb234a363d607": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cb8ba45f2415a01d58dd": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7de7628afa8feba0753e": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "cb1107e80618f12b8548": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a85a0f4002a90d895767",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "bced38c56ae0300885c0": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "7a5aea559cd141741300": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "dc79f3b4b48b0d2a0cd9": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "e3bbada2f32dc289c0f0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8b0c5c2c325ca5cb94df",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_25b34f2a-1661-4c8c-bf51-473ccb14b3b0",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "l"
+                                        }
+                                      },
+                                      "Property": "Year"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dim_date"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "full_date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 1,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_25b34f2a-1661-4c8c-bf51-473ccb14b3b0"
+                                  }
+                                },
+                                "Property": "Year"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "(Blank)"
+                    }
+                  ]
+                },
+                {
+                  "name": "19e2bf5e42d7d8a00060",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "Age Bin"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2a71e535db77731b23b3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "Age Bin"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f368d905ac8f1a6f7f48": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2896e49d08005ab291d8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Total Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7cd279d9248b02174a3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Active Employees"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f19499d8b692a0cd182",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "New Hires (Last 90 Days)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db90f8609e780a4a4e3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Average Tenure (Years)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "45f356f2708ceb85759c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Hiring Rate %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "05_HrMeasures"
+                        }
+                      },
+                      "Property": "Total Employees"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "8e22eb177308222160ae": {
+            "isHidden": false,
+            "children": {
+              "839a095e34836b6b3a04": {
+                "isHidden": false
+              },
+              "fd9c9ab74dbb3a0034b6": {
+                "isHidden": true
+              }
+            }
+          },
+          "e1439c500db326370459": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "035f24eb0b765802b4ad",
+  "position": {
+    "x": 251.25,
+    "y": 0,
+    "z": 13000,
+    "height": 720,
+    "width": 1028.75,
+    "tabOrder": 5000
+  },
+  "visualGroup": {
+    "displayName": "Overley",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}
