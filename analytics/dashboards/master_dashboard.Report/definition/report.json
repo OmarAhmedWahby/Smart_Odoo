@@ -104,6 +104,11 @@
           "type": "Image"
         },
         {
+          "name": "left_Arrow6303175845248117.png",
+          "path": "left_Arrow6303175845248117.png",
+          "type": "Image"
+        },
+        {
           "name": "logo6200190574797189.png",
           "path": "logo6200190574797189.png",
           "type": "Image"
@@ -132,6 +137,11 @@
           "name": "Power_BI_Theme_Generator_-_BIB029735976166638034.json",
           "path": "Power_BI_Theme_Generator_-_BIB029735976166638034.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "table4266751195057369.png",
+          "path": "table4266751195057369.png",
+          "type": "Image"
         }
       ]
     },
@@ -153,7 +163,6 @@
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
-    "filterPaneHiddenInEditMode": true,
     "useDefaultAggregateDisplayName": true
   }
 }

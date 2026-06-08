@@ -3,7 +3,7 @@ table dim_date
 
 	column full_date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: edc1a6ac-6934-4790-9524-c47980ffaebe
 		summarizeBy: none
 		sourceColumn: full_date

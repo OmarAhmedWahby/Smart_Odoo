@@ -308,7 +308,7 @@ table fact_invoice
 
 	column invoice_date_due
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: a4199a46-8d59-4089-b912-54d20d4cdc21
 		summarizeBy: none
 		sourceColumn: invoice_date_due

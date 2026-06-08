@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Filter Panel",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

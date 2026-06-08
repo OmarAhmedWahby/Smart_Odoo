@@ -3,11 +3,11 @@
   "name": "22d9bddad29297b5e88f",
   "position": {
     "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 522.5,
-    "width": 928.75,
-    "tabOrder": 1000
+    "y": 80,
+    "z": 0,
+    "height": 640,
+    "width": 1280,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,89 +20,96 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_inventory"
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "full_date"
+                }
+              },
+              "queryRef": "dim_date.full_date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_sales"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "Sum(fact_sales.order_id)",
+              "nativeQueryRef": "order_id",
+              "displayName": "Order ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
                     }
                   },
                   "Property": "product_name"
                 }
               },
-              "queryRef": "fact_inventory.product_name",
-              "nativeQueryRef": "product_name"
+              "queryRef": "dim_product.product_name",
+              "nativeQueryRef": "Product Name",
+              "displayName": "Product Name"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_inventory"
+                      "Entity": "dim_partner"
                     }
                   },
-                  "Property": "category"
+                  "Property": "partner_name"
                 }
               },
-              "queryRef": "fact_inventory.category",
-              "nativeQueryRef": "category_name",
-              "displayName": "category_name"
+              "queryRef": "dim_partner.partner_name",
+              "nativeQueryRef": "Customer Name",
+              "displayName": "Customer Name"
             },
             {
               "field": {
-                "Column": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_inventory"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_sales"
+                        }
+                      },
+                      "Property": "product_qty"
                     }
                   },
-                  "Property": "warehouse_name"
+                  "Function": 0
                 }
               },
-              "queryRef": "fact_inventory.warehouse_name",
-              "nativeQueryRef": "warehouse_name"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_inventory"
-                    }
-                  },
-                  "Property": "inventory_age_days"
-                }
-              },
-              "queryRef": "Sum(fact_inventory.inventory_age_days)",
-              "nativeQueryRef": "product_age ",
-              "displayName": "product_age ",
+              "queryRef": "Sum(fact_sales.product_qty)",
+              "nativeQueryRef": "Qty",
+              "displayName": "Qty",
               "format": "G"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_inventory"
+                      "Entity": "01_SalesMeasures"
                     }
                   },
-                  "Property": "stock_value"
+                  "Property": "Realized Revenue"
                 }
               },
-              "queryRef": "Sum(fact_inventory.stock_value)",
-              "nativeQueryRef": "stock_value",
-              "format": "#,##0 \" EGP\""
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_inventory"
-                    }
-                  },
-                  "Property": "inventory_movement_status"
-                }
-              },
-              "queryRef": "fact_inventory.inventory_movement_status",
-              "nativeQueryRef": "status",
-              "displayName": "status"
+              "queryRef": "01_SalesMeasures.Realized Revenue",
+              "nativeQueryRef": "Net Revenue",
+              "displayName": "Net Revenue"
             }
           ]
         }
@@ -111,21 +118,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "fact_inventory"
-                      }
-                    },
-                    "Property": "inventory_age_days"
+                  "SourceRef": {
+                    "Entity": "dim_date"
                   }
                 },
-                "Function": 0
+                "Property": "full_date"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -138,6 +140,83 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.5341749679744D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fact_sales.order_id)"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "gridHorizontalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }
@@ -188,6 +267,13 @@
                   }
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -220,7 +306,15 @@
       ],
       "visualHeader": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "border": [
@@ -238,5 +332,98 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0c8c8740a385a4c5b2db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "order_id"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "990c81b6eed2c166adde",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_product"
+              }
+            },
+            "Property": "product_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b7c3ee2447e7e7650bc2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "full_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "52cdd876e92315534aa6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_partner"
+              }
+            },
+            "Property": "partner_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "55c8877ed90630569274",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_sales"
+                  }
+                },
+                "Property": "product_qty"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d625e97330ee5518632b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "01_SalesMeasures"
+              }
+            },
+            "Property": "Realized Revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
