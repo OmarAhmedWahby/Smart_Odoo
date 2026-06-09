@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "09446fce4dc8daad63d8",
   "position": {
     "x": 3.8749591282435825,
@@ -13,5 +13,6 @@
     "displayName": "List One",
     "groupMode": "ScaleMode"
   },
-  "parentGroupName": "cdd8964fb122d8014385"
+  "parentGroupName": "cdd8964fb122d8014385",
+  "isHidden": true
 }

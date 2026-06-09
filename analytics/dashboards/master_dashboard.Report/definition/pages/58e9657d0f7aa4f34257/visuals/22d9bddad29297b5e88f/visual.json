@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "22d9bddad29297b5e88f",
   "position": {
     "x": 0,
@@ -194,6 +194,20 @@
           "selector": {
             "metadata": "Sum(fact_sales.order_id)"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "292.71421498029036D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_partner.partner_name"
+          }
         }
       ],
       "grid": [
@@ -332,98 +346,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0c8c8740a385a4c5b2db",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "order_id"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "990c81b6eed2c166adde",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_product"
-              }
-            },
-            "Property": "product_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b7c3ee2447e7e7650bc2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "full_date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "52cdd876e92315534aa6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_partner"
-              }
-            },
-            "Property": "partner_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "55c8877ed90630569274",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_sales"
-                  }
-                },
-                "Property": "product_qty"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d625e97330ee5518632b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "01_SalesMeasures"
-              }
-            },
-            "Property": "Realized Revenue"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

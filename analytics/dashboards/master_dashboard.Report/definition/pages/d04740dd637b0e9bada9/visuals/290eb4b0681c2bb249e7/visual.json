@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "290eb4b0681c2bb249e7",
   "position": {
     "x": 0,
@@ -345,98 +345,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fa815ec6be1e2d71883b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_product"
-              }
-            },
-            "Property": "product_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "cd53c15f64c7c4195a40",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "full_date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "554849265ccd40702e3d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_partner"
-              }
-            },
-            "Property": "partner_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8269526378ce531de643",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_purchase_order"
-              }
-            },
-            "Property": "purchase_order_id"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8fe922631e0eddae1663",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_purchase_order"
-                  }
-                },
-                "Property": "product_qty"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ee571dec9933bb9bc4e8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "02_PurchaseMeasures"
-              }
-            },
-            "Property": "Total Spend PO"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

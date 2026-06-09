@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "5938eff254386436b346",
   "position": {
     "x": 0,
@@ -489,81 +489,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "dd6c7e75e3d60ca29296",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_crm_pipeline"
-              }
-            },
-            "Property": "campaign_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "321963f75dc0e572c038",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_crm_pipeline"
-              }
-            },
-            "Property": "Days Open Bucket"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5c9606630a3e1144330c",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_crm_pipeline"
-                  }
-                },
-                "Property": "expected_revenue"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "12a952bdce42028dc717",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_crm_pipeline"
-              }
-            },
-            "Property": "lead_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0f1fc083436a8e5c21aa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_partner"
-              }
-            },
-            "Property": "partner_name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

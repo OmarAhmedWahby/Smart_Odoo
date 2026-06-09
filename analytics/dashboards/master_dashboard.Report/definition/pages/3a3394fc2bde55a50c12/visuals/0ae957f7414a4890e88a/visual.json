@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0ae957f7414a4890e88a",
   "position": {
     "x": 0,
@@ -404,98 +404,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3f5d04b172e50052b081",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_product"
-              }
-            },
-            "Property": "product_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "920e6c16a00ea3966e3e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "full_date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b603395050b2115da900",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_product"
-              }
-            },
-            "Property": "categ_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b7cc7abd5e7b720eb929",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_inventory_location"
-              }
-            },
-            "Property": "warehouse_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1467a71297c6dc5ae724",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "03_inventoryMeasures"
-              }
-            },
-            "Property": "Total Movement Value"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3866e16020901de643a0",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_inventory_movement"
-                  }
-                },
-                "Property": "moved_qty"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

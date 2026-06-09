@@ -4,12 +4,15 @@
   "name": "f79164e5c3ca4e32b3f966fcf0fde440",
   "options": {
     "targetVisualNames": [
-      "593a2b1e778b869d4be2",
-      "115a4b71716c00e50c1b",
       "f36cc9b3ab16c548c859",
+      "115a4b71716c00e50c1b",
+      "dcb25fea97d46d344882",
+      "5a5c9e1fb459c8230c77",
+      "593a2b1e778b869d4be2",
+      "6509ff7ad4ba9cdce776",
+      "ce7ec6d70947c0d94a47",
       "0a0d58420c94d6813610",
       "23cd686b660a189612a0",
-      "5a5c9e1fb459c8230c77",
       "0593a05ce261a64bc0d2",
       "07f5dc6209112134bca1",
       "08f21c0d829095d920c1",
@@ -23,7 +26,6 @@
       "c9fe97cbb4be1a051e60",
       "dbc9e47de8c96c1969dc",
       "956d9edae37021b74499",
-      "dcb25fea97d46d344882",
       "040e15005b7d1b518a5e",
       "21d96200002ab0007d8a",
       "5782f0d06d1dcca4048c",
@@ -35,9 +37,7 @@
       "e46ab6fdc6ed7ac2b1d8",
       "e4b98e0a10565a596d40",
       "efc6fd97487592e4dc23",
-      "fe2a889b27bcc36da142",
-      "6509ff7ad4ba9cdce776",
-      "ce7ec6d70947c0d94a47"
+      "fe2a889b27bcc36da142"
     ],
     "suppressActiveSection": true,
     "suppressData": true
@@ -66,6 +66,12 @@
               "objects": {}
             }
           },
+          "083ea781a60122c6e3a1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "08f21c0d829095d920c1": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -75,6 +81,116 @@
           "0a0d58420c94d6813610": {
             "singleVisual": {
               "visualType": "image",
+              "objects": {}
+            }
+          },
+          "0b13663080a1bd074798": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "145ff1103db646c12d78": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "dacd62c0be9a343ea0ce",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_product",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "product_type"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "product_type"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "product_type"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "1491d914ba0918c0c3b3": {
+            "singleVisual": {
+              "visualType": "shape",
               "objects": {}
             }
           },
@@ -90,9 +206,113 @@
               "objects": {}
             }
           },
+          "23a8e3bfe70bd3304d7d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eae5b2d05c7bc2ad0dc2",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_product",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "categ_name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "categ_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "categ_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "23cd686b660a189612a0": {
             "singleVisual": {
               "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "28b686bf9639cde02639": {
+            "singleVisual": {
+              "visualType": "image",
               "objects": {}
             }
           },
@@ -100,6 +320,104 @@
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
+            }
+          },
+          "380a428e10ea6730a390": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "30f2ecc58859953b3903",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_partner",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "partner_name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_partner"
+                        }
+                      },
+                      "Property": "partner_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_partner"
+                        }
+                      },
+                      "Property": "partner_name"
+                    }
+                  }
+                ]
+              }
             }
           },
           "4057fc7014cc348400a6": {
@@ -118,7 +436,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "74c06576809e00e480ed",
+                  "name": "1630a5d0ac0088dd2d62",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -254,7 +572,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "8ab5c7af8cb1a60c92de",
+                  "name": "0d835f30ac659542c403",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -299,9 +617,119 @@
               "objects": {}
             }
           },
+          "8a2aabf0ad404cd6a9d3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4567d722ea1a162529d8",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dim_product",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "product_name"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "product_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "product_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8a9f0d0c1d0504c245d7": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
           "902c40fd0ee14b02de60": {
             "singleVisual": {
               "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "91c4b5508200c704e686": {
+            "singleVisual": {
+              "visualType": "image",
               "objects": {}
             }
           },
@@ -321,7 +749,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "a966935568b12738dcee",
+                  "name": "7bbdb2ab4d249098b3ba",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -336,7 +764,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "959a8f316cded687860b",
+                  "name": "196940068d0d0d1866ba",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -351,7 +779,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "d49fc89ebb8ce6288ed2",
+                  "name": "fc193e37dc801344c3e0",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -391,7 +819,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "f2441b90e3ba6cc9b85b",
+                  "name": "25f914e49b7b756805b8",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -417,7 +845,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b3e2f5bc8ad05006273b",
+                  "name": "ac16cff940a68707a97c",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -443,7 +871,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "62433ae79a97d220ee00",
+                  "name": "a91ba758a5b150dd48b7",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -469,7 +897,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "e05389046070cb514b04",
+                  "name": "a2c9e3bb0e8e82854150",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -495,7 +923,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "8bb17d04398875443160",
+                  "name": "308e43795ddebe5b4aa1",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -705,7 +1133,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "4fa9c6603e7677c6a412",
+                  "name": "795eabe840ba7bc9e9d3",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -720,7 +1148,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "6aace69e2272e0bdcc7c",
+                  "name": "2c29675d538ca10a08c9",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -788,6 +1216,12 @@
               "objects": {}
             }
           },
+          "c5158b45e9422391c9d4": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
           "c547bf8e7b390cc12590": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -828,7 +1262,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "f44a59406ac821c21d10",
+                  "name": "d96a2a90e54c33e3dd0d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -843,7 +1277,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "978a739b413e59091106",
+                  "name": "6c4804b6b8ada758665b",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -858,7 +1292,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "df18db2c40acd5420298",
+                  "name": "6736aba64a0c90bd68d9",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -873,7 +1307,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5681b3de0c269a52a000",
+                  "name": "f698bdab649b8048174c",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -888,7 +1322,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "084ca644372b80c47bc5",
+                  "name": "fcf3760595c6b2b05342",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -903,7 +1337,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "21ba2b86ec81e973a2a5",
+                  "name": "23ba61dd986b1c8d7821",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -918,7 +1352,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "e94f7699391906d6c5ba",
+                  "name": "6282eeb8d294eaaa8434",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -965,16 +1399,65 @@
               "visualType": "actionButton",
               "objects": {}
             }
+          },
+          "ff9184f77c388010962a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "810311295776037a0d89",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  }
+                }
+              ]
+            }
           }
         },
         "visualContainerGroups": {
           "115a4b71716c00e50c1b": {
             "isHidden": false,
             "children": {
+              "5a5c9e1fb459c8230c77": {
+                "isHidden": false
+              },
               "dcb25fea97d46d344882": {
                 "isHidden": true
               }
             }
+          },
+          "1d104e20000d6a6dbd35": {
+            "isHidden": true
+          },
+          "ca85b67fcecc3a299309": {
+            "isHidden": true
           },
           "f36cc9b3ab16c548c859": {
             "isHidden": false

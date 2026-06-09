@@ -4,10 +4,11 @@
   "name": "c3a2947c7cf04dfdac54356a0ec2f6da",
   "options": {
     "targetVisualNames": [
-      "c604fa75cdc3a1d7089d",
       "017794a04aae77d7db06",
-      "ec61b192a0a209db018c",
+      "b1fab695d749da80967a",
       "1707beae80ace8abc64c",
+      "ec61b192a0a209db018c",
+      "c604fa75cdc3a1d7089d",
       "0beca3a646012095ce0b",
       "1b40acf1698005783003",
       "1e281c6c0c1a9ec55e3c",
@@ -23,7 +24,6 @@
       "8a8bf270d697b04a0db9",
       "8ddd988c60d8115c143b",
       "904b6e0ec5caea57ce80",
-      "b1fab695d749da80967a",
       "23bd162dde795ee7529a",
       "42bf09b2980975204ae0",
       "58b0dc4cb70c49bb7291",
@@ -66,147 +66,9 @@
               "objects": {}
             }
           },
-          "41093d4a9e1c9068d677": {
+          "1f077f93e452d4847655": {
             "singleVisual": {
               "visualType": "image",
-              "objects": {}
-            }
-          },
-          "47522e98454d0b77b590": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "54e19ff8baeb68942ad5": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "691e70bf2824cd2863e0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "7312cd1473b6067119d0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "9909965beda204018a1d": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "9a8245467c9a0c48c20d": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "ac12c90574080060a940": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "bbaa70ecc8b5480d1681": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "8a8bf270d697b04a0db9": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "8ddd988c60d8115c143b": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "904b6e0ec5caea57ce80": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "23bd162dde795ee7529a": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "42bf09b2980975204ae0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "58b0dc4cb70c49bb7291": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "677a8afe6236416be001": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "68f8a77409485beeb206": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "8590ba229dcad5c25c1c": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "9b611c5846dc898caeab": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "9d385a1c140732eca7a3": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "a8473ee108d04d1c0a72": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "bf15fdece987872b634b": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "c650df7ae04e9a00749c": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "f6b9ac3c9edb231902e2": {
-            "singleVisual": {
-              "visualType": "actionButton",
               "objects": {}
             }
           },
@@ -214,7 +76,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "cba8f1c7750465a34456",
+                  "name": "9726b7c50b7045ddd989",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -229,7 +91,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2e966c52dae5c09442b9",
+                  "name": "c4350fec3aa69e8110c8",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -244,7 +106,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "8a434590de706b4d5308",
+                  "name": "ede31a0f6a59156a36a8",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -259,7 +121,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "98bec3f1bcd68c0c8510",
+                  "name": "c9e3512cb1ad9a0bc423",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -293,6 +155,37 @@
                   }
                 }
               ]
+            }
+          },
+          "23bd162dde795ee7529a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2e84b95beed60649ff76": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "65b345d3dd21adc2a3c0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Last Refresh"
+                        }
+                      },
+                      "Property": "Last Refresh"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
             }
           },
           "322d7224658ca149ca5a": {
@@ -459,7 +352,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "c157204b81b8d7b78977",
+                  "name": "d39969cf5540eabb418a",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -509,20 +402,101 @@
               }
             }
           },
-          "2e84b95beed60649ff76": {
+          "41093d4a9e1c9068d677": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "42bf09b2980975204ae0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "47522e98454d0b77b590": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "54e19ff8baeb68942ad5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "58b0dc4cb70c49bb7291": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "677a8afe6236416be001": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "68d3a21c00d07c1a5baa": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "68f8a77409485beeb206": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "691e70bf2824cd2863e0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7280a2faeceee50056a7": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7312cd1473b6067119d0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "75e151574eab6117c589": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "1bdd0d3604962d465c1a",
-                  "type": "Advanced",
+                  "name": "eae5b2d05c7bc2ad0dc2",
+                  "type": "Categorical",
                   "expression": {
-                    "Measure": {
+                    "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Last Refresh"
+                          "Entity": "dim_product"
                         }
                       },
-                      "Property": "Last Refresh"
+                      "Property": "categ_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0abe5f96de6585e6c71c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "employee_name"
                     }
                   },
                   "howCreated": 0
@@ -530,7 +504,122 @@
               ]
             },
             "singleVisual": {
-              "visualType": "cardVisual",
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "employee_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7887822e05e7506e5038": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8590ba229dcad5c25c1c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8748051915e0e4cb7e6e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b88d47b6b8bc08474d10",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "895e86ed1996905a61a4": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "8a8bf270d697b04a0db9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8ddd988c60d8115c143b": {
+            "singleVisual": {
+              "visualType": "image",
               "objects": {}
             }
           },
@@ -540,11 +629,87 @@
               "objects": {}
             }
           },
+          "904b6e0ec5caea57ce80": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "922d7b15e3105300765e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "93519539bb91e0be3804": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "edfc651b29d71d08408a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9909965beda204018a1d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9a8245467c9a0c48c20d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9b611c5846dc898caeab": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9d385a1c140732eca7a3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "a0b306ee846d56963521": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "ab18daa1ac0b10b13d00",
+                  "name": "71298e50078c02ec4604",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -559,7 +724,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "de0869ed85196d8cc818",
+                  "name": "d75b2a7e7e604d308356",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -574,7 +739,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "39f3a0f1ebdd67000403",
+                  "name": "56d514dc103e2668320b",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -589,7 +754,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "71e74a98a9860d0261c1",
+                  "name": "ecef61236997150c33b6",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -625,11 +790,17 @@
               ]
             }
           },
+          "a10c0e5d04c9a408b40d": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
           "a58ce89816e21f6dd360": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "73b6fed23070d3d66d04",
+                  "name": "040626d8b383e0435282",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -644,7 +815,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "1c647b4d09210d54003d",
+                  "name": "ad543bc7468192e435d9",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -694,6 +865,36 @@
               }
             }
           },
+          "a8473ee108d04d1c0a72": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ac12c90574080060a940": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "adc36be922a05c17bb79": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "bbaa70ecc8b5480d1681": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bf15fdece987872b634b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "c604fa75cdc3a1d7089d": {
             "singleVisual": {
               "visualType": "image",
@@ -703,15 +904,91 @@
               }
             }
           },
-          "7280a2faeceee50056a7": {
+          "c650df7ae04e9a00749c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d91330ceca669541d342": {
             "singleVisual": {
               "visualType": "image",
               "objects": {}
             }
           },
-          "7887822e05e7506e5038": {
+          "e9d116875adec303b5b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "30f2ecc58859953b3903",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_partner"
+                        }
+                      },
+                      "Property": "partner_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "8a3b77444b05051d0478",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
             "singleVisual": {
-              "visualType": "shape",
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f6b9ac3c9edb231902e2": {
+            "singleVisual": {
+              "visualType": "actionButton",
               "objects": {}
             }
           },
@@ -879,7 +1156,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "25c0692179de14a162dd",
+                  "name": "52a76b278b8beccb08cd",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -934,10 +1211,19 @@
           "017794a04aae77d7db06": {
             "isHidden": false,
             "children": {
+              "1707beae80ace8abc64c": {
+                "isHidden": false
+              },
               "b1fab695d749da80967a": {
                 "isHidden": true
               }
             }
+          },
+          "2d712ef5201c85734735": {
+            "isHidden": true
+          },
+          "5a25475cc6202250c102": {
+            "isHidden": true
           },
           "ec61b192a0a209db018c": {
             "isHidden": false

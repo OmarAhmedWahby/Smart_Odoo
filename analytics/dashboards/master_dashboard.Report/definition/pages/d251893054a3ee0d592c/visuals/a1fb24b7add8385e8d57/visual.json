@@ -1,8 +1,8 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "a1fb24b7add8385e8d57",
   "position": {
-    "x": 0.35714285714283278,
+    "x": 1.5306122448979929,
     "y": 209.59643772670211,
     "z": 3000,
     "height": 40,
@@ -204,7 +204,7 @@
             "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "'e1a4d92b04a78bb3c142'"
+                  "Value": "'f5556e895bdfcb68b240'"
                 }
               }
             }

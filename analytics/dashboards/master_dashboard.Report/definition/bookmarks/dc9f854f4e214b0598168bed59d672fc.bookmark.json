@@ -4,11 +4,12 @@
   "name": "dc9f854f4e214b0598168bed59d672fc",
   "options": {
     "targetVisualNames": [
-      "bced38c56ae0300885c0",
-      "8e22eb177308222160ae",
-      "fd9c9ab74dbb3a0034b6",
-      "839a095e34836b6b3a04",
       "e1439c500db326370459",
+      "8e22eb177308222160ae",
+      "bced38c56ae0300885c0",
+      "7a5aea559cd141741300",
+      "dc79f3b4b48b0d2a0cd9",
+      "839a095e34836b6b3a04",
       "25267141798b077d0ec9",
       "4f524691e002a7abad61",
       "58a7336c09e8a9c65300",
@@ -24,6 +25,7 @@
       "8a81de5a2c2b54040b60",
       "c6163fca2140d753aa20",
       "f43890eb12c58b78c525",
+      "fd9c9ab74dbb3a0034b6",
       "024d8ed5eb1820b70181",
       "07011977c4d009c907e3",
       "211809970237438009a3",
@@ -35,9 +37,7 @@
       "9461cc500de40c85d0cb",
       "94ef766060b19303d360",
       "9980a2fbb234a363d607",
-      "cb8ba45f2415a01d58dd",
-      "7a5aea559cd141741300",
-      "dc79f3b4b48b0d2a0cd9"
+      "cb8ba45f2415a01d58dd"
     ],
     "suppressActiveSection": true,
     "suppressData": true
@@ -48,11 +48,23 @@
     "sections": {
       "b3c6c616eb70809256c4": {
         "visualContainers": {
+          "024d8ed5eb1820b70181": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0393f7c4ee87d0caae91": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
           "0572093b17dd3ed841bb": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "8eb5500f9ad1d0c839a4",
+                  "name": "e010bd2c640e9e4dc21a",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -78,7 +90,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "aa986998e9e3b594b4e7",
+                  "name": "132330750023507ec0d1",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -104,7 +116,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "38a81b3ec230bb418004",
+                  "name": "a3a3c500bd390e6dec2a",
                   "type": "Categorical",
                   "expression": {
                     "HierarchyLevel": {
@@ -130,7 +142,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "831471dba1148c118715",
+                  "name": "16541be02ea5a8195722",
                   "type": "Advanced",
                   "expression": {
                     "HierarchyLevel": {
@@ -156,7 +168,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "7dcce8b3098316bd9003",
+                  "name": "58c13f70341909c5578d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -171,7 +183,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5843f8be56a89050e0de",
+                  "name": "88b7f4ec0b07c5722634",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -217,11 +229,69 @@
               }
             }
           },
+          "07011977c4d009c907e3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "211809970237438009a3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "25267141798b077d0ec9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "28c3aeb8a0bd1b9dca10": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "16716d8d99e9c54201d3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "PBINathanDateRangeSlicer2024A1B2C3D4E5F6",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Property": "full_date"
+                    }
+                  }
+                }
+              ]
+            }
+          },
           "2ea962efa680042d9739": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "6400c6f244dee52d70ba",
+                  "name": "ba0a0a5331b7d8031be9",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -236,7 +306,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2739a030d7c542707603",
+                  "name": "15e5ae7526990606639e",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -251,7 +321,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "049f23c05b064cb20606",
+                  "name": "0a25daa7642a9270669d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -266,7 +336,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "210be18d1aa3b0a86410",
+                  "name": "17531b6e21eb43750c75",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -302,11 +372,93 @@
               ]
             }
           },
+          "30a9b8b0207145e3e239": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3a9879d90756a1ad85b6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eae5b2d05c7bc2ad0dc2",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product"
+                        }
+                      },
+                      "Property": "categ_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "955841af6c8492d54700",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "employee_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "employee_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "417cdeaac45543b748c0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "44bfbaa1aed65a9749cd": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "42b83a69964d09c80215",
+                  "name": "7781276d954cbe6ac5b0",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -321,7 +473,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "9b2365db0e26494091c4",
+                  "name": "ec359618eee5a6e4ce5a",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -336,7 +488,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "38bfd8f07b2247398074",
+                  "name": "9964f4966c1e75a14d3c",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -351,7 +503,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "0fc641b4b748582637d0",
+                  "name": "520bc96d302c90ae55a8",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -387,9 +539,21 @@
               ]
             }
           },
-          "25267141798b077d0ec9": {
+          "454131a027b27e9c0790": {
             "singleVisual": {
               "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4a498002ea20e701b46b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4dac6bcb5901778d8884": {
+            "singleVisual": {
+              "visualType": "image",
               "objects": {}
             }
           },
@@ -405,55 +569,98 @@
               "objects": {}
             }
           },
+          "5a5555702e37a21ae367": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "63a76d9290020a501e46": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b88d47b6b8bc08474d10",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "coach_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "6e27a92542d8e66db30a": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
+          "7a5aea559cd141741300": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7d13e57a9b222995a120": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7d18f94e8b699b3cb871": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7de7628afa8feba0753e": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
           "7f1f393e568700b42a46": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "8f64312c621d9a60e1e0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "b96d1534c0c2ea4b8ae2": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "c0d836f030b5c29abb76": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "cc9b925b4cd61a1e2346": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "d3473fae9862526509c3": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "df2be45fad163078b904": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "fd6587add3a0b31735ab": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
@@ -465,61 +672,7 @@
               "objects": {}
             }
           },
-          "c6163fca2140d753aa20": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "f43890eb12c58b78c525": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "024d8ed5eb1820b70181": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "07011977c4d009c907e3": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "211809970237438009a3": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "30a9b8b0207145e3e239": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "417cdeaac45543b748c0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "454131a027b27e9c0790": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "5a5555702e37a21ae367": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "7d13e57a9b222995a120": {
+          "8f64312c621d9a60e1e0": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
@@ -543,15 +696,106 @@
               "objects": {}
             }
           },
-          "cb8ba45f2415a01d58dd": {
+          "a8adafc37695e283bb90": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "ae2e13f8c0108c9c156e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "30f2ecc58859953b3903",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_partner"
+                        }
+                      },
+                      "Property": "partner_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "6edbc328ad8c37900436",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_employee"
+                        }
+                      },
+                      "Property": "manager_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b96d1534c0c2ea4b8ae2": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
-          "7de7628afa8feba0753e": {
+          "bced38c56ae0300885c0": {
             "singleVisual": {
-              "visualType": "textbox",
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c0d836f030b5c29abb76": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c6163fca2140d753aa20": {
+            "singleVisual": {
+              "visualType": "image",
               "objects": {}
             }
           },
@@ -559,7 +803,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "bf86e9ee741e50ec8807",
+                  "name": "df84ea3c124be33143b2",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -580,24 +824,33 @@
               "objects": {}
             }
           },
-          "bced38c56ae0300885c0": {
+          "cb8ba45f2415a01d58dd": {
             "singleVisual": {
-              "visualType": "image",
-              "objects": {},
-              "display": {
-                "mode": "hidden"
-              }
+              "visualType": "actionButton",
+              "objects": {}
             }
           },
-          "7a5aea559cd141741300": {
+          "cc9b925b4cd61a1e2346": {
             "singleVisual": {
-              "visualType": "image",
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d3473fae9862526509c3": {
+            "singleVisual": {
+              "visualType": "actionButton",
               "objects": {}
             }
           },
           "dc79f3b4b48b0d2a0cd9": {
             "singleVisual": {
               "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "df2be45fad163078b904": {
+            "singleVisual": {
+              "visualType": "actionButton",
               "objects": {}
             }
           },
@@ -701,7 +954,7 @@
                   ]
                 },
                 {
-                  "name": "a19dcd350430a5463732",
+                  "name": "797c31f985a40d7044c9",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -716,7 +969,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b0be0a81e74510785b52",
+                  "name": "c4be10b05460b5ecb224",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -766,11 +1019,23 @@
               }
             }
           },
+          "e71f859de9c2bdd0956d": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "f296390d3dd6ec4d8409": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
           "f368d905ac8f1a6f7f48": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "94792efcc6b614967e71",
+                  "name": "f52d1eeb1695c8b64ae0",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -785,7 +1050,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "8e8270d65ad8da9a49ec",
+                  "name": "9c707be0240cb81049a7",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -800,7 +1065,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "ab082fe3c608582a5be6",
+                  "name": "7f939b3ca04503127043",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -815,7 +1080,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "ae097fa5e08509be8d0b",
+                  "name": "406baab41825a6be463a",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -830,7 +1095,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5eae535ee9110bcddea8",
+                  "name": "ddd0e981236a0b0d09a9",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -865,6 +1130,18 @@
                 }
               ]
             }
+          },
+          "f43890eb12c58b78c525": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fd6587add3a0b31735ab": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
           }
         },
         "visualContainerGroups": {
@@ -872,15 +1149,21 @@
             "isHidden": false,
             "children": {
               "839a095e34836b6b3a04": {
-                "isHidden": true
+                "isHidden": false
               },
               "fd9c9ab74dbb3a0034b6": {
-                "isHidden": false
+                "isHidden": true
               }
             }
           },
+          "8e9d530f9300410530ea": {
+            "isHidden": true
+          },
           "e1439c500db326370459": {
             "isHidden": false
+          },
+          "e84a287fe065633e3605": {
+            "isHidden": true
           }
         }
       }

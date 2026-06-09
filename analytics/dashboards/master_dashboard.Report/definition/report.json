@@ -89,6 +89,11 @@
           "type": "Image"
         },
         {
+          "name": "crm7373347755011991.png",
+          "path": "crm7373347755011991.png",
+          "type": "Image"
+        },
+        {
           "name": "delete057598497218323774.png",
           "path": "delete057598497218323774.png",
           "type": "Image"
@@ -101,6 +106,21 @@
         {
           "name": "filter4968730494767002.png",
           "path": "filter4968730494767002.png",
+          "type": "Image"
+        },
+        {
+          "name": "grocery-store7579718927246124.png",
+          "path": "grocery-store7579718927246124.png",
+          "type": "Image"
+        },
+        {
+          "name": "hr634899740235568.png",
+          "path": "hr634899740235568.png",
+          "type": "Image"
+        },
+        {
+          "name": "invoice17601068762753802.png",
+          "path": "invoice17601068762753802.png",
           "type": "Image"
         },
         {
@@ -129,6 +149,11 @@
           "type": "Image"
         },
         {
+          "name": "money-tag3918813054528184.png",
+          "path": "money-tag3918813054528184.png",
+          "type": "Image"
+        },
+        {
           "name": "Omar_Wahby_-_Copy(1)6232540787089494.png",
           "path": "Omar_Wahby_-_Copy(1)6232540787089494.png",
           "type": "Image"
@@ -137,6 +162,11 @@
           "name": "Power_BI_Theme_Generator_-_BIB029735976166638034.json",
           "path": "Power_BI_Theme_Generator_-_BIB029735976166638034.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "shipping7273145419165895.png",
+          "path": "shipping7273145419165895.png",
+          "type": "Image"
         },
         {
           "name": "table4266751195057369.png",
@@ -163,6 +193,7 @@
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
+    "filterPaneHiddenInEditMode": true,
     "useDefaultAggregateDisplayName": true
   }
 }
