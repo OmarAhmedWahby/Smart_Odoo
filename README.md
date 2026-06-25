@@ -5,6 +5,9 @@ Enterprise Data Platform integrating ERP, Data Engineering,
 Business Intelligence, Machine Learning, and Web Applications
 </h4>
 
+
+
+
 ## 📌 Project Overview
 Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system.
 
@@ -79,11 +82,19 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 
 
 
+## Business Intelligence
+
+The Power BI semantic model integrates multiple business domains into a centralized analytical layer
+
+#### Semantic Model
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Semantic_Model.png)
+
+
 
 
 
 #### Domain-Oriented Data Marts
-![]()
+![Sales Mart](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Sales_Mart.png)
 ![]()
 ![]()
 ![]()
