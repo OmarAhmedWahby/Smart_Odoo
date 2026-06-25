@@ -89,14 +89,18 @@ The Power BI semantic model integrates multiple business domains into a centrali
 #### Semantic Model
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Semantic_Model.png)
 
-
-
-
+---
 
 #### Domain-Oriented Data Marts
-![Sales Mart](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Sales_Mart.png)
-![]()
-![]()
-![]()
-![]()
-![]()
+- Sales Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Sales_Mart.png)
+- Purchase Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Purchase_Mart.png)
+- Inventory Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Inventory_Mart.png)
+- Invoice Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Invoice_Mart.png)
+- CRM Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Crm_Mart.png)
+- HR Mart
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Hr_Mart.png)
