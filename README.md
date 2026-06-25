@@ -8,7 +8,7 @@ An end-to-end enterprise-grade analytics system built on top of Odoo ERP, transf
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)]()
 [![Lakeflow](https://img.shields.io/badge/Lakeflow_Jobs-FF3621?style=for-the-badge)]()
 [![Databricks Asset Bundles](https://img.shields.io/badge/Databricks_Asset_Bundles-FF3621?style=for-the-badge&logo=databricks&logoColor=white)]()
-[![RPC API](https://img.shields.io/badge/RPC_API-009688?style=for-the-badge)]()
+[![ODBC Driver](https://img.shields.io/badge/ODBC_Driver-Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)]()
 
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)]()
 [![DAX](https://img.shields.io/badge/DAX-217346?style=for-the-badge)]()
@@ -19,3 +19,4 @@ An end-to-end enterprise-grade analytics system built on top of Odoo ERP, transf
 
 [![ASP.NET MVC](https://img.shields.io/badge/ASP.NET_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)]()
 [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)]()
+[![RPC API](https://img.shields.io/badge/RPC_API-009688?style=for-the-badge)]()
