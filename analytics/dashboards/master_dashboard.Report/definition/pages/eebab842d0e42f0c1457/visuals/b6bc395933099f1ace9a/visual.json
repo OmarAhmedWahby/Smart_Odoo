@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "b6bc395933099f1ace9a",
   "position": {
     "x": 420.59816615106956,
@@ -182,7 +182,7 @@
             "startAngle": {
               "expr": {
                 "Literal": {
-                  "Value": "260L"
+                  "Value": "127L"
                 }
               }
             }

@@ -1,0 +1,337 @@
+﻿@model Smart_Odoo.Models.HrDashboardViewModel
+
+@{
+    ViewData["Title"] = "HR Management";
+    ViewData["ActiveMenu"] = "HR"; 
+}
+
+@section Styles {
+    <style>
+        /* ================= BENTO GRID & COMPONENTS ================= */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .bento-item {
+            background: var(--bg-surface); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color); border-radius: 24px; padding: 24px;
+            box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; animation: fadeUp 0.6s backwards;
+            min-width: 0; max-width: 100%;
+        }
+        .bento-item:hover {
+            transform: translateY(-4px); border-color: var(--c-theme, var(--border-hover));
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 8px 20px var(--c-bg, transparent);
+        }
+
+        /* Stats Cards */
+        .stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .stat-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-primary); letter-spacing: -1px; margin-bottom: 12px; }
+        .stat-sub { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;}
+        .stat-sub.green { color: #10b981; }
+        .stat-sub.blue { color: #3b82f6; }
+        .stat-sub.purple { color: #a855f7; }
+        
+        /* Quick Actions */
+        .qa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .qa-card {
+            background: rgba(128, 128, 128, 0.03); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 16px;
+            cursor: pointer; transition: all 0.3s; text-decoration: none;
+        }
+        .qa-card:hover { background: var(--c-bg); border-color: var(--c-theme); transform: translateY(-3px); }
+        .qa-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; background: var(--bg-surface); color: var(--c-theme); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .qa-title { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 4px; }
+        .qa-desc { font-size: 0.8rem; color: var(--text-secondary); margin: 0; }
+
+        /* Charts */
+        .chart-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+        .chart-wrapper { position: relative; width: 100%; height: 260px; min-width: 0; }
+
+        /* Premium Table & Avatars */
+        .table-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+        .table-header-row h5 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .table-tools { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; display: flex; gap: 8px; align-items: center; cursor: pointer; }
+        .btn-outline:hover { background: var(--border-hover); border-color: var(--text-secondary); }
+        
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -24px; padding: 0 24px; }
+        .table-responsive::-webkit-scrollbar { height: 6px; }
+        .table-responsive::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 10px; }
+
+        .erp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 800px; }
+        .erp-table th { text-align: left; padding: 16px; color: var(--text-secondary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-color); }
+        .erp-table td { padding: 18px 16px; font-size: 0.95rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); transition: background 0.3s; vertical-align: middle;}
+        .erp-table tbody tr:hover td { background: rgba(128, 128, 128, 0.02); }
+        .erp-table tbody tr:last-child td { border-bottom: none; }
+        .cell-bold { font-weight: 700; color: var(--text-primary); }
+
+        .emp-avatar {
+            width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;
+        }
+        
+        /* Badges */
+        .badge { padding: 6px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .view-link { color: var(--accent-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+        .view-link:hover { color: var(--c-theme); text-decoration: underline; }
+
+        @@media (max-width: 1200px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .qa-bento, .chart-bento, .table-bento { grid-column: span 2; }
+            .qa-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @@media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .bento-item, .qa-bento, .chart-bento, .table-bento { grid-column: span 1 !important; }
+            .qa-grid { grid-template-columns: 1fr; }
+            .table-header-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .table-tools { width: 100%; justify-content: space-between; }
+            .search-box { width: 100%; }
+            .table-tools .btn-outline { flex: 1; justify-content: center; }
+        }
+    </style>
+}
+
+<div class="module-header card-hr">
+    <div class="mod-icon"><i class="fa-solid fa-users"></i></div>
+    <div>
+        <h1 class="page-title">Human Resources</h1>
+        <p class="page-sub">Manage employees, payroll, and HR operations</p>
+    </div>
+</div>
+
+<div class="bento-grid">
+    
+    <div class="bento-item card-hr" style="animation-delay: 0.1s;">
+        <div class="stat-label">Total Employees</div>
+        <div class="stat-value">@(Model?.HrKpi?.TotalEmployees ?? 156)</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-user-plus"></i> +@(Model?.HrKpi?.NewEmployeesThisMonth ?? 12) this month
+        </div>
+    </div>
+            
+    <div class="bento-item card-hr" style="animation-delay: 0.2s;">
+        <div class="stat-label">Departments</div>
+        <div class="stat-value">@(Model?.HrKpi?.TotalDepartments ?? 8)</div>
+        <div class="stat-sub blue">
+            <i class="fa-solid fa-network-wired"></i> Across organization
+        </div>
+    </div>
+            
+    <div class="bento-item card-hr" style="animation-delay: 0.3s;">
+        <div class="stat-label">Active Jobs</div>
+        <div class="stat-value">@(Model?.HrKpi?.ActiveJobs ?? 96)</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-arrow-trend-up"></i> +2% from last month
+        </div>
+    </div>
+            
+    <div class="bento-item qa-bento card-hr" style="grid-column: span 4; animation-delay: 0.5s; padding: 20px;">
+        <div class="qa-grid">
+            <a href="#" class="qa-card card-hr">
+                <div class="qa-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <div>
+                    <div class="qa-title">Leave Management</div>
+                    <p class="qa-desc">Manage leave requests and approvals</p>
+                </div>
+            </a>
+            <a href="#" class="qa-card card-hr" style="--c-theme: #10b981; --c-bg: rgba(16, 185, 129, 0.12);">
+                <div class="qa-icon"><i class="fa-solid fa-user-plus"></i></div>
+                <div>
+                    <div class="qa-title">Recruitment</div>
+                    <p class="qa-desc">Track hiring and onboarding</p>
+                </div>
+            </a>
+            <a href="#" class="qa-card card-hr" style="--c-theme: #3b82f6; --c-bg: rgba(59, 130, 246, 0.12);">
+                <div class="qa-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                <div>
+                    <div class="qa-title">Payroll</div>
+                    <p class="qa-desc">Process payroll and benefits</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bento-item card-hr chart-bento" style="grid-column: span 2; animation-delay: 0.6s;">
+        <div class="chart-title">Employees by Department</div>
+        <div class="chart-wrapper">
+            <canvas id="deptChart"></canvas>
+        </div>
+    </div>
+            
+    <div class="bento-item card-hr chart-bento" style="grid-column: span 2; animation-delay: 0.7s;">
+        <div class="chart-title">Employee Growth Trend</div>
+        <div class="chart-wrapper">
+            <canvas id="growthChart"></canvas>
+        </div>
+    </div>
+
+    <div class="bento-item card-hr table-bento" style="grid-column: span 4; animation-delay: 0.8s;">
+        <div class="table-header-row">
+            <h5>Employee List</h5>
+        </div>
+                
+        <div class="table-responsive">
+            <table class="erp-table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Status</th>
+                        <th>Join Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model?.EmployeeList != null && Model.EmployeeList.Any())
+                    {
+                        foreach(var emp in Model.EmployeeList.TakeLast(5))
+                        {
+                            <tr>
+                                <td><span class="cell-bold">@emp.EmployeeCode</span></td>
+                                <td>
+                                    <span style="display:flex; align-items:center; gap:12px;">
+                                        <span class="emp-avatar" style="background: linear-gradient(135deg, #a855f7, #6366f1);">
+                                            @(string.IsNullOrEmpty(emp.EmployeeName) ? "??" : emp.EmployeeName.Substring(0, 2).ToUpper())
+                                        </span>
+                                        @emp.EmployeeName
+                                    </span>
+                                </td>
+                                <td>@emp.DepartmentName</td>
+                                <td>@emp.Position</td>
+                                <td>
+                                    @{
+                                        var badgeClass = emp.EmployeeStatus?.ToLower() == "active" ? "badge-green" : "badge-yellow";
+                                    }
+                                    <span class="badge @badgeClass">@emp.EmployeeStatus</span>
+                                </td>
+                                <td>@emp.JoinDate.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td><span class="cell-bold">EMP-001</span></td>
+                            <td>
+                                <span style="display:flex; align-items:center; gap:12px;">
+                                    <span class="emp-avatar" style="background: linear-gradient(135deg, #2563eb, #0ea5e9);">JD</span>
+                                    John Doe
+                                </span>
+                            </td>
+                            <td>Engineering</td>
+                            <td>Senior Developer</td>
+                            <td><span class="badge badge-green">Active</span></td>
+                            <td>2024-01-15</td>
+                            <td><a href="#" class="view-link">View Profile</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cell-bold">EMP-002</span></td>
+                            <td>
+                                <span style="display:flex; align-items:center; gap:12px;">
+                                    <span class="emp-avatar" style="background: linear-gradient(135deg, #9333ea, #d946ef);">SS</span>
+                                    Sarah Smith
+                                </span>
+                            </td>
+                            <td>Marketing</td>
+                            <td>Marketing Manager</td>
+                            <td><span class="badge badge-green">Active</span></td>
+                            <td>2023-06-20</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof Chart === 'undefined') return;
+
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+            Chart.defaults.color = "#64748b";
+            
+            const gridColor = "rgba(128, 128, 128, 0.1)";
+            const tooltipBg = "rgba(15, 23, 42, 0.9)";
+
+            const deptData = @Html.Raw(Json.Serialize(Model?.EmployeesByDepartment?.Select(x => x.TotalEmployees) ?? new List<int>{ 45, 25, 30, 20, 36 }));
+            const deptLabels = @Html.Raw(Json.Serialize(Model?.EmployeesByDepartment?.Select(x => x.DepartmentName) ?? new List<string>{ "Engineering", "Marketing", "Finance", "HR", "Sales" }));
+
+
+            const growthData = @Html.Raw(Json.Serialize(Model?.EmployeeGrowthTrend?.Select(x => x.TotalEmployees) ?? new List<int>{ 120, 125, 130, 138, 145, 150, 156 }));
+            const growthLabels = @Html.Raw(Json.Serialize(Model?.EmployeeGrowthTrend?.Select(x => x.MonthShort) ?? new List<string>{ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" }));
+
+            const ctxDept = document.getElementById('deptChart');
+            if(ctxDept && deptData.length > 0) {
+                new Chart(ctxDept, {
+                    type: 'doughnut',
+                    data: {
+                        labels: deptLabels,
+                        datasets: [{
+                            data: deptData,
+                            backgroundColor: [
+                                '#a855f7', // Purple
+                                '#ec4899', // Pink
+                                '#3b82f6', // Blue
+                                '#10b981', // Green
+                                '#f59e0b'  // Orange
+                            ],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        cutout: '75%', 
+                        plugins: { 
+                            legend: { position: 'right', labels: { color: '#94a3b8', padding: 20, font: { size: 12 } } }, 
+                            tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8 } 
+                        }
+                    }
+                });
+            }
+
+            const ctxGrowth = document.getElementById('growthChart');
+            if(ctxGrowth && growthData.length > 0) {
+                let gradientGrowth = ctxGrowth.getContext('2d').createLinearGradient(0, 0, 0, 300);
+                gradientGrowth.addColorStop(0, 'rgba(168, 85, 247, 0.4)'); // Theme Purple
+                gradientGrowth.addColorStop(1, 'rgba(168, 85, 247, 0.0)');
+
+                new Chart(ctxGrowth, {
+                    type: 'line',
+                    data: {
+                        labels: growthLabels,
+                        datasets: [{
+                            label: 'Total Employees',
+                            data: growthData,
+                            borderColor: '#a855f7',
+                            backgroundColor: gradientGrowth,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#a855f7',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8, displayColors: false } },
+                        scales: { 
+                            x: { grid: { display: false } }, 
+                            y: { grid: { color: gridColor }, beginAtZero: false } 
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

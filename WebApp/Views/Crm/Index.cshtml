@@ -1,0 +1,388 @@
+﻿@model Smart_Odoo.Models.CrmDashboardViewModel
+
+@{
+    ViewData["Title"] = "CRM Management";
+    ViewData["ActiveMenu"] = "CRM"; 
+}
+
+@section Styles {
+    <style>
+        /* ================= BENTO GRID & COMPONENTS ================= */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .bento-item {
+            background: var(--bg-surface); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color); border-radius: 24px; padding: 24px;
+            box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; animation: fadeUp 0.6s backwards;
+            min-width: 0; max-width: 100%;
+        }
+        .bento-item:hover {
+            transform: translateY(-4px); border-color: var(--c-theme, var(--border-hover));
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 8px 20px var(--c-bg, transparent);
+        }
+
+        /* CRM Theme Colors (Pink/Magenta) */
+        .card-crm { --c-theme: #ec4899; --c-bg: rgba(236, 72, 153, 0.12); }
+
+        /* Stats Cards */
+        .stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .stat-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-primary); letter-spacing: -1px; margin-bottom: 12px; }
+        .stat-sub { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;}
+        .stat-sub.green { color: #10b981; }
+        .stat-sub.blue { color: #3b82f6; }
+        .stat-sub.pink { color: #ec4899; }
+        
+        /* Action Cards (CRM Specific) */
+        .qa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .qa-card {
+            background: rgba(128, 128, 128, 0.03); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 16px;
+            cursor: pointer; transition: all 0.3s; text-decoration: none;
+        }
+        .qa-card:hover { background: var(--c-bg); border-color: var(--c-theme); transform: translateY(-3px); }
+        .qa-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; justify-content: center; align-items: center; font-size: 1.3rem; background: var(--bg-surface); color: var(--c-theme); box-shadow: 0 4px 12px rgba(0,0,0,0.05); flex-shrink: 0;}
+        .qa-title { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 4px; }
+        .qa-desc { font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;}
+
+        /* Charts */
+        .chart-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+        .chart-wrapper { position: relative; width: 100%; height: 260px; min-width: 0; }
+        .pipeline-wrapper { height: 280px; } /* Slightly taller for pipeline */
+
+        /* Premium Table & Avatars */
+        .table-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+        .table-header-row h5 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .table-tools { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; display: flex; gap: 8px; align-items: center; cursor: pointer; }
+        .btn-outline:hover { background: var(--border-hover); border-color: var(--text-secondary); }
+        
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -24px; padding: 0 24px; }
+        .table-responsive::-webkit-scrollbar { height: 6px; }
+        .table-responsive::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 10px; }
+
+        .erp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 900px; }
+        .erp-table th { text-align: left; padding: 16px; color: var(--text-secondary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-color); }
+        .erp-table td { padding: 18px 16px; font-size: 0.95rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); transition: background 0.3s; vertical-align: middle;}
+        .erp-table tbody tr:hover td { background: rgba(128, 128, 128, 0.02); }
+        .erp-table tbody tr:last-child td { border-bottom: none; }
+        
+        .cell-bold { font-weight: 700; color: var(--text-primary); }
+        .cust-avatar {
+            width: 36px; height: 36px; border-radius: 12px; display: flex; justify-content: center; align-items: center;
+            font-size: 0.85rem; font-weight: 700; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); flex-shrink: 0;
+        }
+        
+        /* Badges */
+        .badge { padding: 6px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-pink { background: rgba(236, 72, 153, 0.15); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+        .badge-gray { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+
+        .view-link { color: var(--accent-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+        .view-link:hover { color: var(--c-theme); text-decoration: underline; }
+
+        @@media (max-width: 1200px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .qa-bento, .chart-bento, .table-bento, .pipeline-bento { grid-column: span 2; }
+            .qa-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @@media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .bento-item, .qa-bento, .chart-bento, .table-bento, .pipeline-bento { grid-column: span 1 !important; }
+            .qa-grid { grid-template-columns: 1fr; }
+            .table-header-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .table-tools { width: 100%; justify-content: space-between; }
+            .search-box { width: 100%; }
+            .table-tools .btn-outline { flex: 1; justify-content: center; }
+        }
+    </style>
+}
+
+<div class="module-header card-crm">
+    <div class="mod-icon"><i class="fa-solid fa-address-book"></i></div>
+    <div>
+        <h1 class="page-title">Customer Relationship</h1>
+        <p class="page-sub">Manage customer interactions, leads, and sales pipeline</p>
+    </div>
+</div>
+
+<div class="bento-grid">
+    
+    <div class="bento-item card-crm" style="animation-delay: 0.1s;">
+        <div class="stat-label">Total Customers</div>
+        <div class="stat-value">@(Model?.KpiSummary?.TotalCustomers.ToString("N0") ?? "542")</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-user-plus"></i> +@(Model?.KpiSummary?.CustomersAddedThisMonth ?? 18) this month
+        </div>
+    </div>
+            
+    <div class="bento-item card-crm" style="animation-delay: 0.2s;">
+        <div class="stat-label">Active Deals</div>
+        <div class="stat-value">@(Model?.KpiSummary?.ActiveDeals.ToString("N0") ?? "123")</div>
+        <div class="stat-sub blue">
+            <i class="fa-solid fa-filter-circle-dollar"></i> In pipeline
+        </div>
+    </div>
+            
+    <div class="bento-item card-crm" style="animation-delay: 0.3s;">
+        <div class="stat-label">Total Deal Value</div>
+        <div class="stat-value">@(Model?.KpiSummary?.TotalDealValue.ToString("N0") ?? "$2.4M")</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-arrow-trend-up"></i> +@(Model?.KpiSummary?.DealValuePctChange)% from last month
+        </div>
+    </div>
+            
+    <div class="bento-item card-crm" style="animation-delay: 0.4s;">
+        <div class="stat-label">Conversion Rate</div>
+        <div class="stat-value">@(Model?.KpiSummary?.ConversionRatePct.ToString("0.0") ?? "24.8")%</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-arrow-trend-up"></i> +@(Model?.KpiSummary?.ConversionRateChange)% from last month
+        </div>
+    </div>
+
+    <div class="bento-item qa-bento card-crm" style="grid-column: span 4; animation-delay: 0.5s; padding: 20px;">
+        <div class="qa-grid">
+            <a href="#" class="qa-card card-crm">
+                <div class="qa-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div>
+                    <div class="qa-title">Email Campaign</div>
+                    <p class="qa-desc">Create and send targeted email campaigns</p>
+                </div>
+            </a>
+            <a href="#" class="qa-card card-crm" style="--c-theme: #10b981; --c-bg: rgba(16, 185, 129, 0.12);">
+                <div class="qa-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                    <div class="qa-title">Call Schedule</div>
+                    <p class="qa-desc">Manage follow-ups and meetings</p>
+                </div>
+            </a>
+            <a href="#" class="qa-card card-crm" style="--c-theme: #8b5cf6; --c-bg: rgba(139, 92, 246, 0.12);">
+                <div class="qa-icon"><i class="fa-solid fa-user-tag"></i></div>
+                <div>
+                    <div class="qa-title">Lead Management</div>
+                    <p class="qa-desc">Track, assign, and convert new leads</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bento-item card-crm chart-bento" style="grid-column: span 2; animation-delay: 0.6s;">
+        <div class="chart-title">Customer Growth</div>
+        <div class="chart-wrapper">
+            <canvas id="growthChart"></canvas>
+        </div>
+    </div>
+            
+    <div class="bento-item card-crm chart-bento" style="grid-column: span 2; animation-delay: 0.7s;">
+        <div class="chart-title">Customer Segments</div>
+        <div class="chart-wrapper">
+            <canvas id="segmentChart"></canvas>
+        </div>
+    </div>
+
+    <div class="bento-item card-crm pipeline-bento" style="grid-column: span 4; animation-delay: 0.8s;">
+        <div class="chart-title">Sales Pipeline Stages</div>
+        <div class="chart-wrapper pipeline-wrapper">
+            <canvas id="pipelineChart"></canvas>
+        </div>
+    </div>
+
+    <div class="bento-item card-crm table-bento" style="grid-column: span 4; animation-delay: 0.9s;">
+        <div class="table-header-row">
+            <h5>Customers</h5>
+        </div>
+                
+        <div class="table-responsive">
+            <table class="erp-table">
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Contact Email</th>
+                        <th>Status</th>
+                        <th>Active Deals</th>
+                        <th>Total Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model?.CustomerList != null && Model.CustomerList.Any())
+                    {
+                        foreach(var cust in Model.CustomerList.TakeLast(5))
+                        {
+                            <tr>
+                                <td><span class="cell-bold">@cust.CustomerId</span></td>
+                                <td>
+                                    <span style="display:flex; align-items:center; gap:12px;">
+                                        <span class="cust-avatar" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                                            @(string.IsNullOrEmpty(cust.CustomerName) ? "??" : cust.CustomerName.Substring(0, 2).ToUpper())
+                                        </span>
+                                        <span class="cell-bold">@cust.CustomerName</span>
+                                    </span>
+                                </td>
+                                <td>@cust.Email</td>
+                                <td>
+                                    @{
+                                        var badgeClass = cust.Status?.ToLower() switch {
+                                            "active" => "badge-green",
+                                            "lead" => "badge-pink",
+                                            "inactive" => "badge-gray",
+                                            _ => "badge-gray"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass">@cust.Status</span>
+                                </td>
+                                <td>@cust.OpenDeals</td>
+                                <td>@cust.TotalValue.ToString("N0")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td><span class="cell-bold">CUS-001</span></td>
+                            <td><span style="display:flex; align-items:center; gap:12px;"><span class="cust-avatar" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">AC</span><span class="cell-bold">ABC Corporation</span></span></td>
+                            <td>john@abc.com</td>
+                            <td><span class="badge badge-green">Active</span></td>
+                            <td>12</td>
+                            <td>$145,000</td>
+                        </tr>
+                        <tr>
+                            <td><span class="cell-bold">CUS-002</span></td>
+                            <td><span style="display:flex; align-items:center; gap:12px;"><span class="cust-avatar" style="background: linear-gradient(135deg, #3b82f6, #0ea5e9);">XI</span><span class="cell-bold">XYZ Industries</span></span></td>
+                            <td>sarah@xyz.com</td>
+                            <td><span class="badge badge-green">Active</span></td>
+                            <td>8</td>
+                            <td>$89,500</td>
+                        </tr>
+                        <tr>
+                            <td><span class="cell-bold">CUS-003</span></td>
+                            <td><span style="display:flex; align-items:center; gap:12px;"><span class="cust-avatar" style="background: linear-gradient(135deg, #10b981, #14b8a6);">GT</span><span class="cell-bold">Global Tech Ltd.</span></span></td>
+                            <td>mike@globaltech.com</td>
+                            <td><span class="badge badge-pink">Lead</span></td>
+                            <td>3</td>
+                            <td>$34,200</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof Chart === 'undefined') return;
+
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+            Chart.defaults.color = "#64748b";
+            
+            const gridColor = "rgba(128, 128, 128, 0.1)";
+            const tooltipBg = "rgba(15, 23, 42, 0.9)";
+
+            // 1. Data Mapping: CustomerGrowth (Area Chart)
+            const growthData = @Html.Raw(Json.Serialize(Model?.CustomerGrowth?.Select(x => x.CumulativeCustomers) ?? new List<int>{ 450, 480, 495, 510, 525, 542 }));
+            const growthLabels = @Html.Raw(Json.Serialize(Model?.CustomerGrowth?.Select(x => x.MonthName) ?? new List<string>{ "Jan", "Feb", "Mar", "Apr", "May", "Jun" }));
+
+            // 2. Data Mapping: CustomerSegments (Doughnut Chart)
+            const segmentData = @Html.Raw(Json.Serialize(Model?.CustomerSegments?.Select(x => x.TotalCustomers) ?? new List<int>{ 240, 180, 122 }));
+            const segmentLabels = @Html.Raw(Json.Serialize(Model?.CustomerSegments?.Select(x => x.Segment) ?? new List<string>{ "Enterprise", "SMB", "Startups" }));
+
+            // 3. Data Mapping: SalesPipeline (Horizontal Bar Chart)
+            const pipelineData = @Html.Raw(Json.Serialize(Model?.SalesPipeline?.Select(x => x.DealCount) ?? new List<int>{ 150, 85, 45, 20, 12 }));
+            const pipelineLabels = @Html.Raw(Json.Serialize(Model?.SalesPipeline?.Select(x => x.StageName) ?? new List<string>{ "Lead Generation", "Qualified", "Proposal Made", "Negotiation", "Closed Won" }));
+
+            // --- Chart 1: Customer Growth (Pink Area Chart) ---
+            const ctxGrowth = document.getElementById('growthChart');
+            if(ctxGrowth && growthData.length > 0) {
+                let gradientGrowth = ctxGrowth.getContext('2d').createLinearGradient(0, 0, 0, 300);
+                gradientGrowth.addColorStop(0, 'rgba(236, 72, 153, 0.4)'); // Theme Pink
+                gradientGrowth.addColorStop(1, 'rgba(236, 72, 153, 0.0)');
+
+                new Chart(ctxGrowth, {
+                    type: 'line',
+                    data: {
+                        labels: growthLabels,
+                        datasets: [{
+                            label: 'Total Customers',
+                            data: growthData,
+                            borderColor: '#ec4899',
+                            backgroundColor: gradientGrowth,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#ec4899',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8, displayColors: false } },
+                        scales: { x: { grid: { display: false } }, y: { grid: { color: gridColor }, beginAtZero: false } }
+                    }
+                });
+            }
+
+            // --- Chart 2: Customer Segments (Doughnut Chart) ---
+            const ctxSegment = document.getElementById('segmentChart');
+            if(ctxSegment && segmentData.length > 0) {
+                new Chart(ctxSegment, {
+                    type: 'doughnut',
+                    data: {
+                        labels: segmentLabels,
+                        datasets: [{
+                            data: segmentData,
+                            backgroundColor: [
+                                '#ec4899', // Pink
+                                '#8b5cf6', // Purple
+                                '#0ea5e9'  // Sky Blue
+                            ],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        cutout: '75%', 
+                        plugins: { 
+                            legend: { position: 'bottom', labels: { color: '#94a3b8', padding: 15, font: { size: 12 } } }, 
+                            tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8 } 
+                        }
+                    }
+                });
+            }
+
+            // --- Chart 3: Sales Pipeline (Horizontal Bar Chart / Funnel shape) ---
+            const ctxPipeline = document.getElementById('pipelineChart');
+            if(ctxPipeline && pipelineData.length > 0) {
+                new Chart(ctxPipeline, {
+                    type: 'bar', // Using bar chart configured horizontally to look like a pipeline/funnel
+                    data: {
+                        labels: pipelineLabels,
+                        datasets: [{
+                            label: 'Number of Deals',
+                            data: pipelineData,
+                            backgroundColor: '#ec4899',
+                            borderRadius: 6,
+                            barThickness: 28
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y', // This turns it into a horizontal bar chart
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8 } },
+                        scales: { 
+                            x: { grid: { color: gridColor }, beginAtZero: true },
+                            y: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

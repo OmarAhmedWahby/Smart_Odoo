@@ -1,0 +1,377 @@
+﻿@{
+    string displayUserName = "Guest User";
+    string userInitials = "GU";
+
+    if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        displayUserName = User.Identity.Name; 
+        
+        if (!string.IsNullOrEmpty(displayUserName) && displayUserName.Contains("@"))
+        {
+            displayUserName = displayUserName.Split('@')[0];
+        }
+        
+        if (!string.IsNullOrEmpty(displayUserName))
+        {
+            displayUserName = char.ToUpper(displayUserName[0]) + displayUserName.Substring(1);
+            userInitials = displayUserName.Length >= 2 ? displayUserName.Substring(0, 2).ToUpper() : displayUserName.ToUpper();
+        }
+    }
+}
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Smart ERP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+    
+    <style>
+            /* ================= THEME VARIABLES ================= */
+            :root {
+                /* 🌞 LIGHT THEME */
+                --bg-body: #f4f5f8;
+                --bg-surface: rgba(255, 255, 255, 0.75);
+                --text-primary: #0f172a;
+                --text-secondary: #64748b;
+                --border-color: rgba(15, 23, 42, 0.08);
+                --border-hover: rgba(15, 23, 42, 0.15);
+                --glass-bg: rgba(255, 255, 255, 0.85);
+                --shadow-card: 0 4px 24px rgba(15, 23, 42, 0.04);
+                --accent-main: #4f46e5;
+            
+                --grid-color: rgba(15, 23, 42, 0.04);
+                --glow-1: rgba(79, 70, 229, 0.15);
+                --glow-2: rgba(236, 72, 153, 0.12);
+                --glow-3: rgba(14, 165, 233, 0.15);
+            }
+
+            [data-theme="dark"] {
+                /* 🌙 DARK THEME */
+                --bg-body: #02040a;
+                --bg-surface: rgba(13, 17, 23, 0.65);
+                --text-primary: #f8fafc;
+                --text-secondary: #94a3b8;
+                --border-color: rgba(255, 255, 255, 0.06);
+                --border-hover: rgba(255, 255, 255, 0.15);
+                --glass-bg: rgba(13, 17, 23, 0.75);
+                --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.6);
+                --accent-main: #6366f1;
+
+                --grid-color: rgba(255, 255, 255, 0.03);
+                --glow-1: rgba(99, 102, 241, 0.18);
+                --glow-2: rgba(217, 70, 239, 0.12);
+                --glow-3: rgba(56, 189, 248, 0.12);
+            }
+
+            /* 🎨 MODULE COLORS */
+            .card-ml      { --c-theme: #06b6d4; --c-bg: rgba(6, 182, 212, 0.12); }
+            .card-purchase{ --c-theme: #3b82f6; --c-bg: rgba(59, 130, 246, 0.12); }
+            .card-sales   { --c-theme: #10b981; --c-bg: rgba(16, 185, 129, 0.12); }
+            .card-finance { --c-theme: #f59e0b; --c-bg: rgba(245, 158, 11, 0.12); }
+            .card-hr      { --c-theme: #a855f7; --c-bg: rgba(168, 85, 247, 0.12); }
+            .card-risk    { --c-theme: #ef4444; --c-bg: rgba(239, 68, 68, 0.12); }
+            .card-crm     { --c-theme: #ec4899; --c-bg: rgba(236, 72, 153, 0.12); }
+
+            /* ================= GLOBAL ================= */
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                color: var(--text-primary);
+                margin: 0; overflow-x: hidden;
+                background-color: var(--bg-body);
+                transition: background-color 0.5s ease, color 0.5s ease;
+            }
+            a { text-decoration: none; }
+
+            /* ================= BACKGROUND ================= */
+            .premium-bg {
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                z-index: -1; overflow: hidden;
+                background-color: var(--bg-body);
+                transition: background-color 0.5s ease;
+            }
+            .grid-layer {
+                position: absolute; inset: 0;
+                background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+                background-size: 40px 40px;
+                mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 85%);
+                -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 85%);
+                z-index: 1;
+            }
+            .orb { position: absolute; border-radius: 50%; filter: blur(140px); z-index: 0; transition: background 0.8s ease; }
+            .orb-1 { top: -10%; left: -5%; width: 55vw; height: 55vw; background: var(--glow-1); animation: float1 20s ease-in-out infinite alternate; }
+            .orb-2 { bottom: -15%; right: -5%; width: 65vw; height: 65vw; background: var(--glow-2); animation: float2 24s ease-in-out infinite alternate; }
+            .orb-3 { top: 20%; left: 35%; width: 45vw; height: 45vw; background: var(--glow-3); animation: float3 28s ease-in-out infinite alternate; }
+
+            @@keyframes float1 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(8%, 8%) scale(1.05); } }
+            @@keyframes float2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-8%, -8%) scale(1.1); } }
+            @@keyframes float3 { 0% { transform: translate(0, 0) scale(0.95); } 100% { transform: translate(10%, -10%) scale(1.05); } }
+            @@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+            /* ================= LAYOUT & SIDEBAR ================= */
+            .app-layout { display: flex; padding: 24px; gap: 24px; min-height: 100vh; position: relative; z-index: 2; }
+        
+            .sidebar {
+                width: 84px; background: var(--bg-surface);
+                backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+                border: 1px solid var(--border-color); border-radius: 24px;
+                display: flex; flex-direction: column; align-items: flex-start;
+                padding: 28px 12px; position: sticky; top: 24px; height: calc(100vh - 48px);
+                box-shadow: var(--shadow-card); transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                z-index: 100; overflow: hidden;
+            }
+            .sidebar:hover { width: 250px; }
+            .brand-icon { font-size: 1.8rem; background: linear-gradient(135deg, var(--accent-main), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; padding-left: 14px; }
+            .nav-item { display: flex; align-items: center; width: 220px; margin: 0 0 8px 0; padding: 14px; border-radius: 16px; color: var(--text-secondary); font-weight: 600; transition: all 0.2s ease; margin-bottom: -1px; }
+            .nav-item i { font-size: 1.25rem; width: 24px; text-align: center; margin-right: 16px; flex-shrink: 0;}
+            .nav-text { opacity: 0; transition: opacity 0.3s; white-space: nowrap;}
+            .sidebar:hover .nav-text { opacity: 1; }
+            .nav-item:hover { background: var(--border-color); color: var(--text-primary); }
+            .nav-item.active { background: var(--border-color); color: var(--text-primary); }
+            .nav-item.active i { color: var(--accent-main); text-shadow: 0 0 12px rgba(99, 102, 241, 0.4); }
+
+            /* ================= MAIN CONTENT & TOPBAR ================= */
+            .main-content { flex: 1; display: flex; flex-direction: column; gap: 24px; width: 100%; min-width: 0; }
+            .topbar { background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border-color); border-radius: 20px; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card); position: sticky; top: 24px; z-index: 90; }
+            .search-box { display: flex; align-items: center; gap: 12px; width: 320px; background: rgba(128, 128, 128, 0.05); border: 1px solid transparent; border-radius: 14px; padding: 12px 18px; transition: all 0.3s; }
+            .search-box:focus-within { border-color: var(--accent-main); background: var(--bg-surface); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); }
+            .search-box input { background: transparent; border: none; color: var(--text-primary); width: 100%; outline: none; font-size: 0.95rem;}
+            .tools { display: flex; align-items: center; gap: 16px; }
+            .theme-toggle { background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); width: 44px; height: 44px; border-radius: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; transition: all 0.3s ease; }
+            .theme-toggle:hover { background: var(--border-color); color: var(--text-primary); }
+            .user-profile { display: flex; align-items: center; gap: 14px; padding-left: 20px; border-left: 1px solid var(--border-color); }
+            .avatar { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-main), #0ea5e9); color: white; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 0.95rem; }
+
+            /* ================= SHARED COMPONENTS ================= */
+            .module-header { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; animation: fadeUp 0.4s backwards; }
+            .module-header .mod-icon { width: 64px; height: 64px; border-radius: 18px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; background: var(--c-bg); color: var(--c-theme); box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15); }
+            .page-title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin: 0 0 4px 0; letter-spacing: -1px; }
+            .page-sub { color: var(--text-secondary); font-size: clamp(0.95rem, 2vw, 1.1rem); margin: 0; }
+
+            .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+            .bento-item { background: var(--bg-surface); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: 24px; padding: 24px; box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; animation: fadeUp 0.6s backwards; min-width: 0; max-width: 100%;}
+            .bento-item:hover { transform: translateY(-4px); border-color: var(--c-theme, var(--border-hover)); box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 8px 20px var(--c-bg, transparent); }
+
+            /* ================= MOBILE NAVIGATION ================= */
+            .mobile-topbar { display: none; background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border-color); padding: 16px 24px; position: sticky; top: 0; z-index: 101; }
+            .mobile-brand { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-main), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+            .menu-btn { background: transparent; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+            .mobile-drawer { position: fixed; top: 0; left: -100%; width: 280px; height: 100vh; background: var(--bg-surface); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-right: 1px solid var(--border-color); z-index: 103; transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; padding: 24px; }
+            .mobile-drawer.active { left: 0; }
+            .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+            .drawer-close { background: transparent; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; }
+            .mobile-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 102; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+            .mobile-overlay.active { opacity: 1; pointer-events: auto; }
+
+            /* ================= RESPONSIVE FIXES ================= */
+            @@media (max-width: 1200px) {
+                .bento-grid { grid-template-columns: repeat(2, 1fr); }
+                .chart-bento { grid-column: span 2; }
+                .table-bento { grid-column: span 2; }
+            }
+            @@media (max-width: 992px) {
+                .app-layout { padding: 0; flex-direction: column; gap: 0;}
+                .sidebar { display: none; }
+                .mobile-topbar { display: flex; justify-content: space-between; align-items: center; }
+                .main-content { padding: 16px; margin: 0; width: 100%; max-width: 100vw; overflow-x: hidden; }
+                .topbar { display: none; }
+                .module-header { padding: 0 8px; }
+                .page-title { font-size: 1.8rem; }
+            }
+            @@media (max-width: 768px) {
+                .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+                .bento-item, .chart-bento, .table-bento { grid-column: span 1 !important; }
+                .table-header-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+                .table-tools { width: 100%; justify-content: space-between; }
+                .search-box { width: 100%; }
+                .table-tools .btn-outline { flex: 1; justify-content: center; }
+            }
+    </style>
+    
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    <div class="premium-bg">
+        <div class="grid-layer"></div>
+        <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    </div>
+
+    <div class="mobile-topbar">
+        <div class="mobile-brand"><i class="fa-solid fa-layer-group"></i> Smart ERP</div>
+        <button class="menu-btn" id="openMenu"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="mobile-brand"><i class="fa-solid fa-layer-group"></i></div>
+            <button class="drawer-close" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+            <button type="submit" class="theme-toggle" title="Logout" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.2);">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+        </form>
+
+        </div>
+        <a href="~/" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Home" ? "active" : "")">
+            <i class="fa-solid fa-border-all"></i> <span class="nav-text" style="opacity:1;">Dashboard</span>
+        </a>
+        <a asp-controller="Purchase" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Purchase" ? "active card-purchase" : "")">
+            <i class="fa-solid fa-cart-shopping"></i> <span class="nav-text" style="opacity:1;">Purchase</span>
+        </a>
+        <a asp-controller="Sales" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Sales" ? "active card-sales" : "")">
+            <i class="fa-solid fa-chart-line"></i> <span class="nav-text" style="opacity:1;">Sales</span>
+        </a>
+        <a asp-controller="hr" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "HR" ? "active card-hr" : "")">
+            <i class="fa-solid fa-users"></i> <span class="nav-text" style="opacity:1;">HR</span>
+        </a>
+        <a asp-controller="inventory" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Inventory" ? "active" : "")">
+            <i class="fa-solid fa-boxes-stacked"></i> <span class="nav-text" style="opacity:1;">Inventory</span>
+        </a>
+        <a asp-controller="crm" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+            <i class="fa-solid fa-address-book"></i> <span class="nav-text" style="opacity:1;">CRM</span>
+        </a>
+             <a asp-controller="ML" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+                   <i class="fa-brands fa-airbnb"></i> <span class="nav-text">ML</span>
+                </a>
+             <a asp-controller="bi" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+               <i class="fa-solid fa-chart-area"></i><span class="nav-text">PowerBi</span>
+             </a>
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-color);">
+            <button class="theme-toggle w-100" id="mobileThemeToggle" style="margin-bottom: 12px; display: flex; gap: 12px; border-radius: 16px;">
+                <i class="fa-solid fa-moon" id="mobileThemeIcon"></i> Toggle Theme
+            </button>
+        </div>
+    </div>
+
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <div class="brand-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <nav class="w-100">
+                <a href="~/" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Home" ? "active" : "")">
+                    <i class="fa-solid fa-border-all"></i> <span class="nav-text">Dashboard</span>
+                </a>
+                <a asp-controller="Purchase"  class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Purchase" ? "active card-purchase" : "")">
+                    <i class="fa-solid fa-cart-shopping"></i> <span class="nav-text">Purchase</span>
+                </a>
+                <a asp-controller="Sales"  class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Sales" ? "active card-sales" : "")">
+                    <i class="fa-solid fa-chart-line"></i> <span class="nav-text">Sales</span>
+                </a>
+                <a asp-controller="hr"   class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "HR" ? "active card-hr" : "")">
+                    <i class="fa-solid fa-users"></i> <span class="nav-text">HR</span>
+                </a>
+                <a asp-controller="Inventory"  class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "Inventory" ? "active" : "")">
+                    <i class="fa-solid fa-boxes-stacked"></i> <span class="nav-text">Inventory</span>
+                </a>
+                <a asp-controller="crm" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+                    <i class="fa-solid fa-address-book"></i> <span class="nav-text">CRM</span>
+                </a>                
+                <a asp-controller="ML" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+                   <i class="fa-brands fa-airbnb"></i> <span class="nav-text">ML</span>
+                </a>
+                <a asp-controller="bi" class="nav-item @(ViewData["ActiveMenu"]?.ToString() == "CRM" ? "active card-crm" : "")">
+                   <i class="fa-solid fa-chart-area"></i> <span class="nav-text">PowerBi</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="topbar">
+                <div class="search-box">
+
+                </div>
+                <div class="tools">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
+                    <button class="theme-toggle"><i class="fa-regular fa-bell"></i></button>
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+            <button type="submit" class="theme-toggle" title="Logout" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.2);">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+        </form>
+              <div class="user-profile">
+                  <div style="text-align: right;">
+                      <div style="font-size: 0.9rem; font-weight: 700;">@displayUserName</div>
+                      <div style="font-size: 0.75rem; color: var(--text-secondary);">System User</div>
+                  </div>
+                  <div class="avatar">@userInitials</div>
+              </div>
+                </div>
+            </header>
+
+            @RenderBody()
+
+        </main>
+    </div>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Theme Toggle Logic
+                const htmlElement = document.documentElement;
+                const themeToggleBtn = document.getElementById("themeToggle");
+                const mobileThemeToggleBtn = document.getElementById("mobileThemeToggle");
+                const themeIcon = document.getElementById("themeIcon");
+                const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+
+                const savedTheme = localStorage.getItem("erp-theme") || "dark";
+                htmlElement.setAttribute("data-theme", savedTheme);
+                updateIcons(savedTheme);
+
+                function toggleTheme() {
+                    const currentTheme = htmlElement.getAttribute("data-theme");
+                    const newTheme = currentTheme === "dark" ? "light" : "dark";
+                    htmlElement.setAttribute("data-theme", newTheme);
+                    localStorage.setItem("erp-theme", newTheme);
+                    updateIcons(newTheme);
+                }
+
+                function updateIcons(theme) {
+                    const iconClass = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+                    if(themeIcon) themeIcon.className = iconClass;
+                    if(mobileThemeIcon) mobileThemeIcon.className = iconClass;
+                }
+
+                if(themeToggleBtn) themeToggleBtn.addEventListener("click", toggleTheme);
+                if(mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener("click", toggleTheme);
+
+                // Mobile Drawer Logic
+                const openBtn = document.getElementById("openMenu");
+                const closeBtn = document.getElementById("closeMenu");
+                const drawer = document.getElementById("mobileDrawer");
+                const overlay = document.getElementById("mobileOverlay");
+
+                function openDrawer() {
+                    drawer.classList.add("active");
+                    overlay.classList.add("active");
+                    document.body.style.overflow = "hidden";
+                }
+
+                function closeDrawer() {
+                    drawer.classList.remove("active");
+                    overlay.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+
+                if(openBtn) openBtn.addEventListener("click", openDrawer);
+                if(closeBtn) closeBtn.addEventListener("click", closeDrawer);
+                if(overlay) overlay.addEventListener("click", closeDrawer);
+            });
+    </script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
+
+

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "8ca1745800d17d796156",
   "position": {
     "x": 0,
@@ -28,7 +28,8 @@
               },
               "queryRef": "dim_employee.created_at",
               "nativeQueryRef": "Hiring Date",
-              "displayName": "Hiring Date"
+              "displayName": "Hiring Date",
+              "format": "d"
             },
             {
               "field": {
@@ -121,6 +122,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_employee"
+                  }
+                },
+                "Property": "created_at"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -195,6 +213,36 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "324.66712347627697D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_employee.study_field"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "249.57170681063238D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_employee.employee_name"
           }
         }
       ]

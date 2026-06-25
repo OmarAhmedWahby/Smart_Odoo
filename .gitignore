@@ -1,7 +1,27 @@
-
-
 # Environments
 .env
+appsettings.Development.json
 
+# Databricks
 .databricks/
+
+# Visual Studio
+.vs/
 .vscode/
+
+# Build output
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

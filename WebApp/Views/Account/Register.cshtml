@@ -1,0 +1,113 @@
+﻿@model Smart_Odoo.ViewModels.RegisterViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Smart ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root { --bg-body: #02040a; --bg-surface: rgba(13, 17, 23, 0.65); --text-primary: #f8fafc; --text-secondary: #94a3b8; --border-color: rgba(255, 255, 255, 0.06); --accent-main: #6366f1; --accent-hover: #4f46e5; --grid-color: rgba(255, 255, 255, 0.03); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: var(--text-primary); min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 20px; }
+        .premium-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; }
+        .grid-layer { position: absolute; inset: 0; background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, transparent 80%); }
+        .orb { position: absolute; border-radius: 50%; filter: blur(120px); }
+        .orb-1 { top: 10%; left: 10%; width: 40vw; height: 40vw; background: rgba(99, 102, 241, 0.2); animation: float 20s infinite alternate; }
+        .orb-2 { bottom: 10%; right: 10%; width: 50vw; height: 50vw; background: rgba(168, 85, 247, 0.15); animation: float 25s infinite alternate-reverse; }
+        @@keyframes float { 0% { transform: translate(0,0); } 100% { transform: translate(5%, 5%); } }
+        @@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .auth-card { background: var(--bg-surface); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border-color); border-radius: 24px; padding: 40px; width: 100%; max-width: 500px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); animation: fadeUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) backwards; z-index: 1; margin: auto;}
+        .auth-header { text-align: center; margin-bottom: 30px; }
+        .auth-icon { font-size: 2.5rem; background: linear-gradient(135deg, var(--accent-main), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+        .auth-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .auth-sub { color: var(--text-secondary); font-size: 0.95rem; }
+        .form-group { margin-bottom: 16px; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-secondary); }
+        .form-control { background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-color); color: #fff; border-radius: 12px; padding: 12px 16px; font-size: 0.95rem; transition: all 0.3s; width: 100%; }
+        .form-control:focus { background: rgba(0, 0, 0, 0.4); border-color: var(--accent-main); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); outline: none; color: #fff; }
+        .btn-submit { width: 100%; background: var(--accent-main); color: #fff; border: none; border-radius: 12px; padding: 14px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); margin-top: 15px; }
+        .btn-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .auth-footer { text-align: center; margin-top: 24px; font-size: 0.9rem; color: var(--text-secondary); }
+        .auth-link { color: var(--accent-main); font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .auth-link:hover { color: #a855f7; text-decoration: underline; }
+        .text-danger { font-size: 0.8rem; margin-top: 4px; display: block; color: #ef4444; }
+        .validation-summary-errors { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 20px; font-size: 0.85rem; color: #ef4444; text-align: left; }
+        .row-form { display: flex; gap: 16px; }
+        .row-form .form-group { flex: 1; }
+        
+        @@media (max-width: 576px) {
+            .row-form { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="premium-bg">
+        <div class="grid-layer"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="auth-icon"><i class="fa-solid fa-rocket"></i></div>
+            <h1 class="auth-title">Create an Account</h1>
+            <p class="auth-sub">Join Smart ERP and manage your business.</p>
+        </div>
+
+        <form asp-controller="Account" asp-action="Register" method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+            <div class="form-group">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" placeholder="John Doe" autocomplete="name" autofocus />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <input asp-for="Email" class="form-control" placeholder="name@company.com" autocomplete="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+    <label asp-for="CompanyCode" class="form-label">
+        Company Code <i class="fa-solid fa-key ms-1" style="color: var(--accent-main);"></i>
+    </label>
+    <input asp-for="CompanyCode" class="form-control" placeholder="Enter the secret company code" autocomplete="off" />
+    <span asp-validation-for="CompanyCode" class="text-danger"></span>
+</div>
+
+            <div class="row-form">
+                <div class="form-group">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" class="form-control" placeholder="••••••••" autocomplete="new-password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="••••••••" autocomplete="new-password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Create Account <i class="fa-solid fa-user-plus ms-2"></i></button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a asp-controller="Account" asp-action="Login" class="auth-link">Sign In</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

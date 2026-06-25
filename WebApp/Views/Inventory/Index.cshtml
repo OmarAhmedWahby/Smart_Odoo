@@ -1,0 +1,339 @@
+﻿@model Smart_Odoo.Models.InventoryDashboardViewModel
+
+@{
+    ViewData["Title"] = "Inventory Management";
+    ViewData["ActiveMenu"] = "Inventory"; 
+}
+
+@section Styles {
+    <style>
+        /* ================= BENTO GRID & COMPONENTS ================= */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .bento-item {
+            background: var(--bg-surface); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color); border-radius: 24px; padding: 24px;
+            box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; animation: fadeUp 0.6s backwards;
+            min-width: 0; max-width: 100%;
+        }
+        .bento-item:hover {
+            transform: translateY(-4px); border-color: var(--c-theme, var(--border-hover));
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 8px 20px var(--c-bg, transparent);
+        }
+
+        /* Inventory Theme Colors (Amber/Orange) */
+        .card-inv { --c-theme: #f59e0b; --c-bg: rgba(245, 158, 11, 0.12); }
+
+        /* Stats Cards */
+        .stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .stat-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-primary); letter-spacing: -1px; margin-bottom: 12px; }
+        .stat-sub { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;}
+        .stat-sub.green { color: #10b981; }
+        .stat-sub.orange { color: #f59e0b; }
+        .stat-sub.blue { color: #3b82f6; }
+        
+        /* Premium Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.02));
+            border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 20px;
+            padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+            grid-column: span 4; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.05);
+            animation: fadeUp 0.5s backwards;
+        }
+        .alert-inner { display: flex; align-items: center; gap: 16px; }
+        .alert-inner i { font-size: 2rem; color: #f59e0b; text-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+        .alert-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+        .alert-desc { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+        .btn-solid-orange { background: #f59e0b; color: #fff; border: none; padding: 10px 20px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
+        .btn-solid-orange:hover { background: #d97706; transform: translateY(-2px); }
+
+        /* Charts */
+        .chart-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+        .chart-wrapper { position: relative; width: 100%; height: 260px; min-width: 0; }
+
+        /* Premium Table */
+        .table-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+        .table-header-row h5 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .table-tools { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; display: flex; gap: 8px; align-items: center; cursor: pointer; }
+        .btn-outline:hover { background: var(--border-hover); border-color: var(--text-secondary); }
+        
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -24px; padding: 0 24px; }
+        .table-responsive::-webkit-scrollbar { height: 6px; }
+        .table-responsive::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 10px; }
+
+        .erp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 800px; }
+        .erp-table th { text-align: left; padding: 16px; color: var(--text-secondary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-color); }
+        .erp-table td { padding: 18px 16px; font-size: 0.95rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); transition: background 0.3s; vertical-align: middle;}
+        .erp-table tbody tr:hover td { background: rgba(128, 128, 128, 0.02); }
+        .erp-table tbody tr:last-child td { border-bottom: none; }
+        
+        .cell-bold { font-weight: 700; color: var(--text-primary); }
+        .qty-main { font-weight: 700; }
+        .qty-min { color: var(--text-secondary); font-size: 0.8rem; }
+        .qty-display.low .qty-main { color: #ef4444; }
+        
+        /* Badges */
+        .badge { padding: 6px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-orange { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .view-link { color: var(--accent-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+        .view-link:hover { color: var(--c-theme); text-decoration: underline; }
+
+        @@media (max-width: 1200px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .chart-bento, .table-bento, .alert-banner { grid-column: span 2; }
+        }
+        @@media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .bento-item, .chart-bento, .table-bento, .alert-banner { grid-column: span 1 !important; }
+            .alert-banner { flex-direction: column; text-align: center; gap: 16px; }
+            .alert-inner { flex-direction: column; }
+            .table-header-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .table-tools { width: 100%; justify-content: space-between; }
+            .search-box { width: 100%; }
+            .table-tools .btn-outline { flex: 1; justify-content: center; }
+        }
+    </style>
+}
+
+<div class="module-header card-inv">
+    <div class="mod-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+    <div>
+        <h1 class="page-title">Inventory Management</h1>
+        <p class="page-sub">Track and manage inventory levels in real-time</p>
+    </div>
+</div>
+
+<div class="bento-grid">
+    
+    <div class="bento-item card-inv" style="animation-delay: 0.1s;">
+        <div class="stat-label">Total Items</div>
+        <div class="stat-value">@(Model?.InventoryKpis?.TotalItems.ToString("N0") ?? "12,458")</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-arrow-trend-up"></i> +@(Model?.InventoryKpis?.ItemsAddedThisMonth ?? 156) this month
+        </div>
+    </div>
+            
+    <div class="bento-item card-inv" style="animation-delay: 0.2s;">
+        <div class="stat-label">Total Value</div>
+        <div class="stat-value">@(Model?.InventoryKpis?.TotalInventoryValue.ToString("N0") ?? "$2.4M")</div>
+        <div class="stat-sub green">
+            <i class="fa-solid fa-arrow-trend-up"></i> +@Model?.InventoryKpis?.ValuePctChangeFromLastMonth% from last month
+        </div>
+    </div>
+            
+    <div class="bento-item card-inv" style="animation-delay: 0.3s;">
+        <div class="stat-label">Low Stock Items</div>
+        <div class="stat-value">@(Model?.InventoryKpis?.LowStockItems ?? 23)</div>
+        <div class="stat-sub orange">
+            <i class="fa-solid fa-triangle-exclamation"></i> Needs attention
+        </div>
+    </div>
+            
+    <div class="bento-item card-inv" style="animation-delay: 0.4s;">
+        <div class="stat-label">Categories</div>
+        <div class="stat-value">@(Model?.InventoryKpis?.ActiveCategories ?? 45)</div>
+        <div class="stat-sub blue">
+            <i class="fa-solid fa-layer-group"></i> Active categories
+        </div>
+    </div>
+
+    @if((Model?.InventoryKpis?.LowStockItems ?? 23) > 0)
+    {
+        <div class="alert-banner">
+            <div class="alert-inner">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div>
+                    <div class="alert-title">Low Stock Alert</div>
+                    <div class="alert-desc">@(Model?.InventoryKpis?.LowStockItems ?? 23) items are running low on stock. Review and reorder to maintain optimal inventory levels.</div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="bento-item card-inv chart-bento" style="grid-column: span 2; animation-delay: 0.6s;">
+        <div class="chart-title">Stock Movement Trend</div>
+        <div class="chart-wrapper">
+            <canvas id="stockChart"></canvas>
+        </div>
+    </div>
+            
+    <div class="bento-item card-inv chart-bento" style="grid-column: span 2; animation-delay: 0.7s;">
+        <div class="chart-title">Inventory by Category</div>
+        <div class="chart-wrapper">
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+
+    <div class="bento-item card-inv table-bento" style="grid-column: span 4; animation-delay: 0.8s;">
+        <div class="table-header-row">
+            <h5>Inventory Items</h5>
+        </div>
+                
+        <div class="table-responsive">
+            <table class="erp-table">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model?.InventoryList != null && Model.InventoryList.Any())
+                    {
+                        foreach(var item in Model.InventoryList.TakeLast(5))
+                        {
+                            // Checking if stock is low for styling
+                            bool isLowStock = item.AvailableQuantity <= item.QuantityOnHand;
+
+                            <tr>
+                                <td><span class="cell-bold">@item.ProductId</span></td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Category</td>
+                                <td>
+                                    <span class="qty-display @(isLowStock ? "low" : "")">
+                                        <span class="qty-main">@item.AvailableQuantity</span> 
+                                        <span class="qty-min">/ @item.QuantityOnHand</span>
+                                    </span>
+                                </td>
+                                <td>@item.UnitPrice.ToString("C2")</td>
+                                <td>
+                                    @{
+                                        var badgeClass = isLowStock ? "badge-orange" : "badge-green";
+                                        var statusText = isLowStock ? "Low Stock" : "In Stock";
+                                    }
+                                    <span class="badge @badgeClass">@statusText</span>
+                                </td>
+                                <td><a href="#" class="view-link">View Details</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td><span class="cell-bold">INV-001</span></td>
+                            <td>Laptop Dell XPS 15</td>
+                            <td>Electronics</td>
+                            <td><span class="qty-display"><span class="qty-main">45</span> <span class="qty-min">/ 20</span></span></td>
+                            <td>$1,299.00</td>
+                            <td><span class="badge badge-green">In Stock</span></td>
+                            <td><a href="#" class="view-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cell-bold">INV-002</span></td>
+                            <td>Office Chair Ergonomic</td>
+                            <td>Furniture</td>
+                            <td><span class="qty-display low"><span class="qty-main">12</span> <span class="qty-min">/ 15</span></span></td>
+                            <td>$249.00</td>
+                            <td><span class="badge badge-orange">Low Stock</span></td>
+                            <td><a href="#" class="view-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cell-bold">INV-003</span></td>
+                            <td>Wireless Mouse</td>
+                            <td>Accessories</td>
+                            <td><span class="qty-display"><span class="qty-main">234</span> <span class="qty-min">/ 50</span></span></td>
+                            <td>$29.00</td>
+                            <td><span class="badge badge-green">In Stock</span></td>
+                            <td><a href="#" class="view-link">View Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof Chart === 'undefined') return;
+
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+            Chart.defaults.color = "#64748b";
+            
+            const gridColor = "rgba(128, 128, 128, 0.1)";
+            const tooltipBg = "rgba(15, 23, 42, 0.9)";
+
+            // Data Mapping: StockMovementTrend
+            const movementData = @Html.Raw(Json.Serialize(Model?.StockMovementTrend?.Select(x => (int)x.InboundQty) ?? new List<int>{ 150, 180, 140, 220, 190, 250, 210 }));
+            const movementLabels = @Html.Raw(Json.Serialize(Model?.StockMovementTrend?.Select(x => x.MonthName) ?? new List<string>{ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" }));
+
+            // Data Mapping: InventoryByCategory
+            const catData = @Html.Raw(Json.Serialize(Model?.InventoryByCategory?.Select(x => (int)x.TotalQuantity) ?? new List<int>{ 350, 120, 280, 190 }));
+            const catLabels = @Html.Raw(Json.Serialize(Model?.InventoryByCategory?.Select(x => x.Category) ?? new List<string>{ "Electronics", "Furniture", "Accessories", "Lighting" }));
+
+            // --- Chart 1: Stock Movement Trend (Amber Area Chart) ---
+            const ctxStock = document.getElementById('stockChart');
+            if(ctxStock && movementData.length > 0) {
+                let gradientStock = ctxStock.getContext('2d').createLinearGradient(0, 0, 0, 300);
+                gradientStock.addColorStop(0, 'rgba(245, 158, 11, 0.4)'); // Theme Amber/Orange
+                gradientStock.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
+
+                new Chart(ctxStock, {
+                    type: 'line',
+                    data: {
+                        labels: movementLabels,
+                        datasets: [{
+                            label: 'Movements',
+                            data: movementData,
+                            borderColor: '#f59e0b',
+                            backgroundColor: gradientStock,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#f59e0b',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8, displayColors: false } },
+                        scales: { x: { grid: { display: false } }, y: { grid: { color: gridColor }, beginAtZero: true } }
+                    }
+                });
+            }
+
+            // --- Chart 2: Inventory by Category (Doughnut Chart) ---
+            const ctxCat = document.getElementById('categoryChart');
+            if(ctxCat && catData.length > 0) {
+                new Chart(ctxCat, {
+                    type: 'doughnut',
+                    data: {
+                        labels: catLabels,
+                        datasets: [{
+                            data: catData,
+                            backgroundColor: [
+                                '#f59e0b', // Amber
+                                '#3b82f6', // Blue
+                                '#10b981', // Green
+                                '#a855f7'  // Purple
+                            ],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        cutout: '75%', 
+                        plugins: { 
+                            legend: { position: 'right', labels: { color: '#94a3b8', padding: 15, font: { size: 12 } } }, 
+                            tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8 } 
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

@@ -1,0 +1,277 @@
+﻿@model Smart_Odoo.Models.PurchaseDashboardViewModel
+
+@{
+    ViewData["Title"] = "Purchase Management";
+    ViewData["ActiveMenu"] = "Purchase";
+}
+
+@section Styles {
+    <style>
+        /* ================= BENTO GRID & COMPONENTS ================= */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .bento-item {
+            background: var(--bg-surface); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color); border-radius: 24px; padding: 24px;
+            box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; animation: fadeUp 0.6s backwards;
+            min-width: 0; max-width: 100%;
+        }
+        .bento-item:hover {
+            transform: translateY(-4px); border-color: var(--c-theme, var(--border-hover));
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 8px 20px var(--c-bg, transparent);
+        }
+
+        /* Stats Cards */
+        .stat-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .stat-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-primary); letter-spacing: -1px; margin-bottom: 12px; }
+        .stat-sub { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;}
+        .stat-sub.green { color: #10b981; }
+        .stat-sub.red { color: #ef4444; }
+        .stat-sub.orange { color: #f59e0b; }
+        .stat-sub.blue { color: #3b82f6; }
+        
+        /* Charts */
+        .chart-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+        .chart-wrapper { position: relative; width: 100%; height: 260px; min-width: 0; }
+
+        /* Premium Table */
+        .table-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+        .table-header-row h5 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .table-tools { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; display: flex; gap: 8px; align-items: center; cursor: pointer; }
+        .btn-outline:hover { background: var(--border-hover); border-color: var(--text-secondary); }
+        
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -24px; padding: 0 24px; }
+        .table-responsive::-webkit-scrollbar { height: 6px; }
+        .table-responsive::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 10px; }
+
+        .erp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 800px; }
+        .erp-table th { text-align: left; padding: 16px; color: var(--text-secondary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-color); }
+        .erp-table td { padding: 18px 16px; font-size: 0.95rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); transition: background 0.3s; vertical-align: middle;}
+        .erp-table tbody tr:hover td { background: rgba(128, 128, 128, 0.02); }
+        .erp-table tbody tr:last-child td { border-bottom: none; }
+        .cell-bold { font-weight: 700; color: var(--text-primary); }
+        
+        /* Badges */
+        .badge { padding: 6px 14px; border-radius: 100px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .badge-blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge-teal { background: rgba(20, 184, 166, 0.15); color: #14b8a6; border: 1px solid rgba(20, 184, 166, 0.3); }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        .view-link { color: var(--accent-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+        .view-link:hover { color: #a855f7; text-decoration: underline; }
+
+        @@media (max-width: 1200px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .chart-bento { grid-column: span 2; }
+            .table-bento { grid-column: span 2; }
+        }
+        @@media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .bento-item, .chart-bento, .table-bento { grid-column: span 1 !important; }
+            .table-header-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .table-tools { width: 100%; justify-content: space-between; }
+            .search-box { width: 100%; }
+            .table-tools .btn-outline { flex: 1; justify-content: center; }
+        }
+    </style>
+}
+
+<div class="module-header card-purchase">
+    <div class="mod-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+    <div>
+        <h1 class="page-title">Purchase Management</h1>
+        <p class="page-sub">Manage purchase orders and supplier relationships</p>
+    </div>
+</div>
+
+<div class="bento-grid">
+    
+    <div class="bento-item card-purchase" style="animation-delay: 0.1s;">
+        <div class="stat-label">Total Orders</div>
+        <div class="stat-value">@(Model?.PurchaseKpi?.TotalOrders.ToString("N0") ?? "0")</div>
+        <div class="stat-sub @(Model?.PurchaseKpi?.OrdersGrowthPercent>= 0 ? "green" : "red")">
+            <i class="fa-solid @(Model?.PurchaseKpi?.OrdersGrowthPercent >= 0 ? "fa-arrow-trend-up" : "fa-arrow-trend-down")"></i> 
+            @(Model?.PurchaseKpi?.OrdersGrowthPercent ?? 0)% from last month
+        </div>
+    </div>
+            
+    <div class="bento-item card-purchase" style="animation-delay: 0.2s;">
+        <div class="stat-label">Total Spend</div>
+        <div class="stat-value">@(Model?.PurchaseKpi?.TotalSpend.ToString("N0") ?? "0")</div>
+        <div class="stat-sub @(Model?.PurchaseKpi?.SpendGrowthPercent <= 0 ? "green" : "red")"> 
+            @* Spend Growth: Decrease is usually good (green), Increase is bad (red) depending on your business logic *@
+            <i class="fa-solid @(Model?.PurchaseKpi?.SpendGrowthPercent >= 0 ? "fa-arrow-trend-up" : "fa-arrow-trend-down")"></i> 
+            @(Model?.PurchaseKpi?.SpendGrowthPercent ?? 0)% from last month
+        </div>
+    </div>
+            
+    <div class="bento-item card-purchase" style="animation-delay: 0.3s;">
+        <div class="stat-label">Active Suppliers</div>
+        <div class="stat-value">@(Model?.PurchaseKpi?.ActiveSuppliers ?? 0)</div>
+        <div class="stat-sub blue">
+            <i class="fa-solid fa-truck-fast"></i> @(Model?.PurchaseKpi?.NewSuppliersThisMonth ?? 0) new this month
+        </div>
+    </div>
+            
+    <div class="bento-item card-purchase" style="animation-delay: 0.4s;">
+        <div class="stat-label">Pending Approvals</div>
+        <div class="stat-value">@(Model?.PendingApprovals?.PendingApprovals ?? 0)</div>
+        <div class="stat-sub orange">
+            <i class="fa-solid fa-circle-exclamation"></i> Needs attention
+        </div>
+    </div>
+
+    <div class="bento-item card-purchase chart-bento" style="grid-column: span 2; animation-delay: 0.5s;">
+        <div class="chart-title">Monthly Purchase Trend</div>
+        <div class="chart-wrapper">
+            <canvas id="purchaseTrendChart"></canvas>
+        </div>
+    </div>
+            
+    <div class="bento-item card-purchase chart-bento" style="grid-column: span 2; animation-delay: 0.6s;">
+        <div class="chart-title">Top Suppliers by Orders</div>
+        <div class="chart-wrapper">
+            <canvas id="suppliersChart"></canvas>
+        </div>
+    </div>
+
+    <div class="bento-item card-purchase table-bento" style="grid-column: span 4; animation-delay: 0.7s;">
+        <div class="table-header-row">
+            <h5>Recent Purchase Orders</h5>
+        </div>
+                
+        <div class="table-responsive">
+            <table class="erp-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Supplier</th>
+                        <th>Items</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model?.RecentPurchaseOrders != null && Model.RecentPurchaseOrders.Any())
+                    {
+                        foreach(var po in Model.RecentPurchaseOrders)
+                        {
+                            <tr>
+                                <td><span class="cell-bold">@po.PurchaseOrderId</span></td>
+                                <td>@po.SupplierName</td>
+                                <td>@po.ItemsCount</td>
+                                <td><span class="cell-bold">@po.OrderAmount.ToString("N0")</span></td>
+                                <td>
+                                    @{
+                                        var badgeClass = po.PurchaseStatus?.ToLower() switch {
+                                            "approved" => "badge-green",
+                                            "pending" => "badge-yellow",
+                                            "in transit" => "badge-blue",
+                                            "delivered" => "badge-teal",
+                                            "cancelled" => "badge-red",
+                                            _ => "badge-yellow"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass">@po.PurchaseStatus</span>
+                                </td>
+                                <td>@po.PurchaseDate.ToString("yyyy-MM-dd")</td>
+                                <td><a href="#" class="view-link">View Details</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center" style="padding: 30px;">No recent purchase orders found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof Chart === 'undefined') return;
+
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+            Chart.defaults.color = "#64748b";
+            
+            const gridColor = "rgba(128, 128, 128, 0.1)";
+            const tooltipBg = "rgba(15, 23, 42, 0.9)";
+
+            // 1. تحويل الداتا لـ JSON عشان الـ Javascript يقراها
+            const trendData = @Html.Raw(Json.Serialize(Model?.SpendTrend?.Select(x => x.TotalSpend) ?? new List<decimal>()));
+            const trendLabels = @Html.Raw(Json.Serialize(Model?.SpendTrend?.Select(x => x.MonthShort) ?? new List<string>()));
+
+            const supplierData = @Html.Raw(Json.Serialize(Model?.TopSuppliers?.Select(x => x.TotalOrders) ?? new List<int>()));
+            const supplierLabels = @Html.Raw(Json.Serialize(Model?.TopSuppliers?.Select(x => x.SupplierName) ?? new List<string>()));
+
+            // --- Chart 1: Purchase Trend (Blue Area Chart) ---
+            const ctxTrend = document.getElementById('purchaseTrendChart');
+            if(ctxTrend && trendData.length > 0) {
+                let gradientTrend = ctxTrend.getContext('2d').createLinearGradient(0, 0, 0, 300);
+                gradientTrend.addColorStop(0, 'rgba(59, 130, 246, 0.4)'); // Theme Blue
+                gradientTrend.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+
+                new Chart(ctxTrend, {
+                    type: 'line',
+                    data: {
+                        labels: trendLabels,
+                        datasets: [{
+                            label: 'Spend ($)',
+                            data: trendData,
+                            borderColor: '#3b82f6',
+                            backgroundColor: gradientTrend,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#3b82f6',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8, displayColors: false } },
+                        scales: { x: { grid: { display: false } }, y: { grid: { color: gridColor }, beginAtZero: true, ticks: { callback: function(value) { return '$' + value / 1000 + 'k'; } } } }
+                    }
+                });
+            }
+
+            // --- Chart 2: Top Suppliers (Bar Chart) ---
+            const ctxSuppliers = document.getElementById('suppliersChart');
+            if(ctxSuppliers && supplierData.length > 0) {
+                new Chart(ctxSuppliers, {
+                    type: 'bar',
+                    data: {
+                        labels: supplierLabels,
+                        datasets: [{
+                            label: 'Orders',
+                            data: supplierData,
+                            backgroundColor: '#0ea5e9', // Sky Blue
+                            borderRadius: 6,
+                            borderSkipped: false,
+                            barThickness: 24
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: tooltipBg, titleColor: '#fff', bodyColor: '#fff', padding: 12, cornerRadius: 8 } },
+                        scales: { x: { grid: { display: false } }, y: { grid: { color: gridColor }, beginAtZero: true } }
+                    }
+                });
+            }
+        });
+    </script>
+}
