@@ -1,9 +1,9 @@
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/logo.png)
 
-<p align="center">
+<h3 align="center">
 Enterprise Data Platform integrating ERP, Data Engineering,
-Business Intelligence, Machine Learning, and Web Applications.
-</p>
+Business Intelligence, Machine Learning, and Web Applications
+</h3>
 
 ## 📌 Project Overview
 Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system.
