@@ -15,7 +15,7 @@ The platform provides analytical solutions across multiple business domains:
 - Human Resources
 - Customer Relationship Management (CRM)
 
----## 🧰 Tools & Technologies
+## 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
 [![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)]()
 [![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)]()
