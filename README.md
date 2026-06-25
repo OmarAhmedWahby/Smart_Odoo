@@ -1,8 +1,8 @@
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/logo.png)
 
 ## 📌 Project Overview
-Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system
-The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights
+Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system.
+The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights.
 
 ## 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
@@ -21,3 +21,30 @@ The platform extracts operational data from Odoo ERP, processes and transforms t
 [![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=for-the-badge&logo=mlflow&logoColor=white)]()
 [![ASP.NET MVC](https://img.shields.io/badge/ASP.NET_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)]()
 [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)]()
+
+## Overall System Architecture
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/FullArchieture.png)
+
+## Data Engineering Architecture
+The data engineering layer serves as the core foundation of Smart Odoo.
+
+### Medallion Architecture (Analytics Server)
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/data_architeture.png)
+
+#### Components
+Odoo ERP Data Sources
+RPC API Integration
+Databricks Workspaces
+Apache Spark Processing
+Delta Lake Storage
+Lakeflow Job Orchestration
+Databricks Asset Bundles
+
+#### Pipeline Stages
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Master_job.png)
+
+Data Extraction
+Data Validation
+Data Transformation
+Analytical Serving
+
