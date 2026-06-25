@@ -2,9 +2,20 @@
 
 ## 📌 Project Overview
 Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system.
+
 The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights.
 
-## 🧰 Tools & Technologies
+## 🏢 Business Domains
+The platform provides analytical solutions across multiple business domains:
+
+- Sales
+- Purchase
+- Inventory
+- Invoice & Accounting
+- Human Resources
+- Customer Relationship Management (CRM)
+
+---## 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
 [![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)]()
 [![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)]()
@@ -32,19 +43,37 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/data_architeture.png)
 
 #### Components
-Odoo ERP Data Sources
-RPC API Integration
-Databricks Workspaces
-Apache Spark Processing
-Delta Lake Storage
-Lakeflow Job Orchestration
-Databricks Asset Bundles
+- Odoo ERP Data Sources
+- RPC API Integration
+- Databricks Workspaces
+- Apache Spark Processing
+- Delta Lake Storage
+- Lakeflow Job Orchestration
+- Databricks Asset Bundles
+
+#### Galaxy Schema
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/OLAP_Dark.png)
 
 #### Pipeline Stages
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Master_job.png)
+- Data Extraction
+- Data Validation
+- Data Transformation
+- Analytical Serving
 
-Data Extraction
-Data Validation
-Data Transformation
-Analytical Serving
+#### Security and Access Control
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/secrets.png)
 
+
+
+
+
+
+
+#### Domain-Oriented Data Marts
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
