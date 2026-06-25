@@ -51,16 +51,18 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 - Lakeflow Job Orchestration
 - Databricks Asset Bundles
 
+---
+
 #### Galaxy Schema
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/OLAP_Dark.png)
-
+---
 #### Pipeline Stages
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Master_job.png)
 - Data Extraction
 - Data Validation
 - Data Transformation
 - Analytical Serving
-
+---
 #### Security and Access Control
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/secrets.png)
 
