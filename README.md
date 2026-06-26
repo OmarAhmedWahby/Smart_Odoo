@@ -51,7 +51,7 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 ### Medallion Architecture (Analytics Server)
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/data_architeture.png)
 
-#### Components
+### Components
 - Odoo ERP Data Sources
 - RPC API Integration
 - Databricks Workspaces
@@ -62,12 +62,12 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 
 ---
 
-#### Galaxy Schema
+### Galaxy Schema
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/OLAP_Dark.png)
 
 ---
 
-#### Pipeline Stages
+### Pipeline Stages
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Master_job.png)
 - Data Extraction
 - Data Validation
@@ -76,7 +76,7 @@ The data engineering layer serves as the core foundation of Smart Odoo.
   
 ---
 
-#### Security and Access Control
+### Security and Access Control
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/secrets.png)
 
 
@@ -86,12 +86,12 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 
 The Power BI semantic model integrates multiple business domains into a centralized analytical layer
 
-#### Semantic Model
+### Semantic Model
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Semantic_Model.png)
 
 ---
 
-#### Domain-Oriented Data Marts
+### Domain-Oriented Data Marts
 
 - **Sales Mart**
   
