@@ -8,12 +8,12 @@ Business Intelligence, Machine Learning, and Web Applications
 
 
 
-## 📌 Project Overview
+# 📌 Project Overview
 Smart Odoo is an enterprise analytics platform that integrates ERP operations, data engineering pipelines, business intelligence, machine learning, and web technologies into a unified decision-support system.
 
 The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights.
 
-## 🏢 Business Domains
+# 🏢 Business Domains
 
 The platform provides analytical and operational capabilities across the following business domains:
 
@@ -24,7 +24,7 @@ The platform provides analytical and operational capabilities across the followi
 - Human Resources
 - Customer Relationship Management (CRM)
   
-## 🧰 Tools & Technologies
+# 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
 [![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)]()
 [![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)]()
@@ -42,16 +42,16 @@ The platform provides analytical and operational capabilities across the followi
 [![ASP.NET MVC](https://img.shields.io/badge/ASP.NET_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)]()
 [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)]()
 
-## Overall System Architecture
+# Overall System Architecture
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/FullArchieture.png)
 
-## Data Engineering Architecture
+# Data Engineering Architecture
 The data engineering layer serves as the core foundation of Smart Odoo.
 
-### Medallion Architecture (Analytics Server)
+## Medallion Architecture (Analytics Server)
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/data_architeture.png)
 
-### Components
+## Components
 - Odoo ERP Data Sources
 - RPC API Integration
 - Databricks Workspaces
@@ -62,12 +62,12 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 
 ---
 
-### Galaxy Schema
+## Galaxy Schema
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/OLAP_Dark.png)
 
 ---
 
-### Pipeline Stages
+## Pipeline Stages
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Master_job.png)
 - Data Extraction
 - Data Validation
@@ -76,44 +76,44 @@ The data engineering layer serves as the core foundation of Smart Odoo.
   
 ---
 
-### Security and Access Control
+## Security and Access Control
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/secrets.png)
 
 
 
 
-## Business Intelligence
+# Business Intelligence
 
 The Power BI semantic model integrates multiple business domains into a centralized analytical layer
 
-### Semantic Model
+## Semantic Model
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Semantic_Model.png)
 
 ---
 
-### Domain-Oriented Data Marts
+## Domain-Oriented Data Marts
 
-- **Sales Mart**
+- ### **Sales Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Sales_Mart.png)
 
-- **Purchase Mart**
+- ### **Purchase Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Purchase_Mart.png)
 
-- **Inventory Mart**
+- ### **Inventory Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Inventory_Mart.png)
 
-- **Invoice Mart**
+- ### **Invoice Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Invoice_Mart.png)
 
-- **CRM Mart**
+- ### **CRM Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Crm_Mart.png)
 
-- **HR Mart**
+- ### **HR Mart**
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Hr_Mart.png)
 
