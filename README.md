@@ -30,23 +30,54 @@ Smart Odoo is an enterprise analytics platform that integrates ERP operations, d
 
 The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights.
 
-<h2 align="center">Project Highlights</h2>
-
-<p align="center">
-
-| Metric | Achievement |
-|:------:|:-----------:|
-| 📊 Dashboard Pages | **29+** |
-| 📈 Business KPIs | **250+** |
-| 🏢 Data Marts | **6** |
-| 🧠 Semantic Model | **1** |
-| ☁️ Data Platform | Databricks |
-| 🏗️ Architecture | Medallion |
-| 🔗 ERP Integration | Odoo ERP |
-| ⚙️ ETL Pipelines | Multiple |
-| 🤖 ML Models | **5** |
-| 🌐 Web Application | ASP.NET MVC |
-</p>
+# ✅ Project Highlights
+ 
+<table align="center">
+  <tr>
+    <th>Metric</th>
+    <th>Achievement</th>
+  </tr>
+  <tr>
+    <td>📊 Dashboard Pages</td>
+    <td>29+</td>
+  </tr>
+  <tr>
+    <td>📈 Business KPIs</td>
+    <td>250+</td>
+  </tr>
+  <tr>
+    <td>🏢 Data Marts</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>🧠 Semantic Model</td>
+    <td>1 Enterprise Model</td>
+  </tr>
+  <tr>
+    <td>⚙️ ETL Pipelines</td>
+    <td>Multiple Automated Pipelines</td>
+  </tr>
+  <tr>
+    <td>🤖 ML Models</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>🌐 Web Application</td>
+    <td>ASP.NET MVC</td>
+  </tr>
+  <tr>
+    <td>🔗 ERP Integration</td>
+    <td>Odoo ERP</td>
+  </tr>
+  <tr>
+    <td>🏗️ Architecture</td>
+    <td>Medallion Architecture</td>
+  </tr>
+  <tr>
+    <td>☁️ Data Platform</td>
+    <td>Databricks</td>
+  </tr>
+</table>
 
 # 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
