@@ -101,9 +101,8 @@ The data engineering layer was designed to:
 - Deliver business-ready datasets.
 
 ## Data Engineering Architecture
-The data engineering layer serves as the core foundation of Smart Odoo.
-
-## Medallion Architecture (Analytics Server)
+- Medallion Architecture (Analytics Server)
+  
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/data_architeture.png)
 
 ## Components
