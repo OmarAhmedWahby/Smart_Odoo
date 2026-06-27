@@ -53,6 +53,18 @@ The platform extracts operational data from Odoo ERP, processes and transforms t
     <td>🧠 Semantic Model</td>
     <td>1 Enterprise Model</td>
   </tr>
+    <tr>
+    <td>🔗 ERP Integration</td>
+    <td>Odoo ERP</td>
+  </tr>
+  <tr>
+    <td>🏗️ Architecture</td>
+    <td>Medallion Architecture</td>
+  </tr>
+  <tr>
+    <td>☁️ Data Platform</td>
+    <td>Databricks</td>
+  </tr>
   <tr>
     <td>⚙️ ETL Pipelines</td>
     <td>Multiple Automated Pipelines</td>
@@ -64,18 +76,6 @@ The platform extracts operational data from Odoo ERP, processes and transforms t
   <tr>
     <td>🌐 Web Application</td>
     <td>ASP.NET MVC</td>
-  </tr>
-  <tr>
-    <td>🔗 ERP Integration</td>
-    <td>Odoo ERP</td>
-  </tr>
-  <tr>
-    <td>🏗️ Architecture</td>
-    <td>Medallion Architecture</td>
-  </tr>
-  <tr>
-    <td>☁️ Data Platform</td>
-    <td>Databricks</td>
   </tr>
 </table>
 
