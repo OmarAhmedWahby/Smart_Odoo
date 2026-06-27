@@ -18,9 +18,11 @@ obj/
 *.suo
 *.userosscache
 *.sln.docstates
-
 # Logs
 *.log
+
+**/appsettings.json
+WebApp/Repository/MlRepository.cs
 
 # OS files
 .DS_Store
