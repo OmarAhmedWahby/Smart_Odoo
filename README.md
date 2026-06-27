@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/logo.png" width="350">
+  <img src="https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/logo.png" width="500">
 </p>
 
-<h1 align="center">Smart Odoo</h1>
+<p align="center">
+  <span style="font-size:40px;"><b>Smart Odoo</b></span>
+</p>
 
 <h2 align="center">
 Enterprise Data Platform integrating ERP, Data Engineering,
