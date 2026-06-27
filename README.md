@@ -13,9 +13,11 @@ Business Intelligence, Machine Learning, and Web Applications
     <img src="https://img.shields.io/badge/Documentation-PDF-red?style=for-the-badge">
   </a>
   <a href="https://drive.google.com/file/d/1tx8S1vpoSdApP3Uz4a4DvJTjNwxp9atx/view?usp=drive_link">
-    <img src="https://img.shields.io/badge/Demo-Video-blue?style=for-the-badge">
+    <img src="https://img.shields.io/badge/PowerBI Demo-Video-blue?style=for-the-badge">
   </a>
-
+  <a href="https://drive.google.com/file/d/1UvYhmTyrxZ_p64RGMrCy3_lF6Ia5J_yZ/view?usp=drive_link">
+    <img src="https://img.shields.io/badge/Website Demo-Video-blue?style=for-the-badge">
+  </a>
 </p>
 
 
