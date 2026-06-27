@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <span style="font-size:40px;"><b>Smart Odoo</b></span>
+  <span style="font-size:100px;"><b>Smart Odoo</b></span>
 </p>
 
 <h2 align="center">
