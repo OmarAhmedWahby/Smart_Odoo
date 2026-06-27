@@ -287,6 +287,43 @@ Technologies:
 
 ---
 
+# Repository Structure
+
+```text
+Smart_Odoo
+│
+├── analytics
+│   ├── dashboards
+│   ├── Data_Marts
+│   └── PowerBI_Screens
+│
+├── data_engineering
+│   ├── notebooks
+│   ├── jobs
+│   ├── simulation_data
+│   └── databricks.yml
+│
+├── machine_learning
+│
+├── WebApp
+│
+├── docs
+│   ├── Screenshots
+│   └── Document.pdf
+│
+└── README.md
+```
+---
+
+# Future Enhancements
+
+- Real-time Data Streaming
+- AI-Powered Recommendations
+- Cloud Deployment
+- Automated Decision Support
+  
+---
+
 # 👨‍💻Team Members
 
 - ### Omar Ahmed Wahby  
