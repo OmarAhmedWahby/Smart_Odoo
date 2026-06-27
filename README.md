@@ -363,3 +363,16 @@ Data Engineering • Business Intelligence • Power BI • Analytics
 
 - [LinkedIn](https://www.linkedin.com/in/omarwahby)  
 - [GitHub](https://github.com/OmarAhmedWahby)
+
+
+
+<p align="center">
+Copyright (c) 2026 Omar Ahmed Wahby
+
+All rights reserved.
+
+This repository is provided for academic and portfolio purposes only.
+
+No part of this project may be copied, modified, distributed,
+or used commercially without explicit permission from the author.
+</p>
