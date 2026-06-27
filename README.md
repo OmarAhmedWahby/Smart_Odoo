@@ -130,7 +130,7 @@ The Power BI semantic model integrates multiple business domains into a centrali
 - Opportunity Analysis
 - Growth Monitoring
 
-- ### *Customer Analytics*
+### *Customer Analytics*
 
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Revenue_Customer.png)
 
@@ -139,7 +139,7 @@ The Power BI semantic model integrates multiple business domains into a centrali
 - Average Order Value
 - Product Contribution
 
-- ### *Procurement Analytics*
+### *Procurement Analytics*
 
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Purchase.png)
 
@@ -151,7 +151,7 @@ The Power BI semantic model integrates multiple business domains into a centrali
 - Purchase Orders
 - Spend Analysis
 
-- ### *Inventory Analytics*
+### *Inventory Analytics*
 
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Inventory.png)
 
@@ -163,7 +163,7 @@ The Power BI semantic model integrates multiple business domains into a centrali
 - Inventory Valuation
 - Warehouse Analysis
 
-- ### *HR Analytics*
+### *HR Analytics*
 
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/HR.png)
 
