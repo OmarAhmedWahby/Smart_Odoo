@@ -79,7 +79,7 @@ The data engineering layer serves as the core foundation of Smart Odoo.
 ## Security and Access Control
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/secrets.png)
 
-
+---
 
 
 # Business Intelligence
@@ -93,27 +93,117 @@ The Power BI semantic model integrates multiple business domains into a centrali
 
 ## Domain-Oriented Data Marts
 
-- ### **Sales Mart**
+- ### *Sales Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Sales_Mart.png)
 
-- ### **Purchase Mart**
+- ### *Purchase Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Purchase_Mart.png)
 
-- ### **Inventory Mart**
+- ### *Inventory Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Inventory_Mart.png)
 
-- ### **Invoice Mart**
+- ### *Invoice Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Invoice_Mart.png)
 
-- ### **CRM Mart**
+- ### *CRM Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Crm_Mart.png)
 
-- ### **HR Mart**
+- ### *HR Mart*
   
 ![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/Data_Marts/Hr_Mart.png)
 
+---
+
+## Dashboards
+
+- ### *Revenue Analytics*
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Revenue.png)
+
+- Revenue Tracking
+- Conversion Analysis
+- Opportunity Analysis
+- Growth Monitoring
+
+- ### *Customer Analytics*
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Revenue_Customer.png)
+
+- Customer Behavior
+- Repeat Customers
+- Average Order Value
+- Product Contribution
+
+- ### *Procurement Analytics*
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Purchase.png)
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Purchase_Product.png)
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Purchase_Supplier.png)
+
+- Supplier Performance
+- Purchase Orders
+- Spend Analysis
+
+- ### *Inventory Analytics*
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Inventory.png)
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Inventory_Movement.png)
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/Warehouse.png)
+
+- Stock Monitoring
+- Inventory Valuation
+- Warehouse Analysis
+
+- ### *HR Analytics*
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/analytics/PowerBI_Screens/HR.png)
+
+---
+
+- ## Key Performance Indicators
+
+We have created more than 250 metrics (key performance indicators) across all six domains
+
+![](https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Screenshots/Measure_Tables.png)
+
+---
+
+- # Machine Learning
+  
+The machine learning layer supports predictive analytics
+
+Features:
+- Predictive Models
+- Forecasting
+- Pattern Detection
+- Business Recommendations 
+
+---
+
+- # Web Application
+
+The web application layer provides operational access.
+
+Technologies:
+- ASP.NET MVC
+- C#
+- Odoo Integration
+- Authentication
+- Role Management
+
+---
+
+## 👨‍💻Team Members
+
+- ### Omar Ahmed Wahby  
+- [LinkedIn](https://www.linkedin.com/in/omarwahby)  
+- [GitHub](https://github.com/OmarAhmedWahby)
