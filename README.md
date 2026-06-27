@@ -32,25 +32,18 @@ The platform extracts operational data from Odoo ERP, processes and transforms t
 
 ## ✅ Project Highlights
 
-✅ 29+ Dashboard Pages
-
-✅ 250+ Business KPIs
-
-✅ 6 Domain-Oriented Data Marts
-
-✅ 1 Enterprise Semantic Model
-
-✅ Multiple Automated ETL Pipelines
-
-✅ 5 Machine Learning Models
-
-✅ ASP.NET MVC Web Application
-
-✅ Odoo ERP Integration
-
-✅ Medallion Architecture
-
-✅ Databricks Data Platform
+| Feature | Value |
+|---------|--------|
+| Dashboard Pages | 29+ |
+| Business KPIs | 250+ |
+| Data Marts | 6 |
+| Semantic Models | 1 Enterprise Model |
+| ETL Pipelines | Multiple Automated Pipelines |
+| Machine Learning Models | 5 |
+| Web Application | ASP.NET MVC |
+| ERP Integration | Odoo ERP |
+| Data Architecture | Medallion Architecture |
+| Data Platform | Databricks |
 
 # 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
