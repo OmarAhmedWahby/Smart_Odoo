@@ -31,6 +31,7 @@ Smart Odoo is an enterprise analytics platform that integrates ERP operations, d
 The platform extracts operational data from Odoo ERP, processes and transforms the data through Databricks and Delta Lake pipelines, builds analytical data marts, and delivers interactive dashboards and predictive insights.
 
 ## ✅ Project Highlights
+<p align="center">
 
 | Feature | Value |
 |---------|--------|
@@ -44,6 +45,8 @@ The platform extracts operational data from Odoo ERP, processes and transforms t
 | ERP Integration | Odoo ERP |
 | Data Architecture | Medallion Architecture |
 | Data Platform | Databricks |
+
+</p>
 
 # 🧰 Tools & Technologies
 [![Odoo](https://img.shields.io/badge/Odoo-714B67?style=for-the-badge&logo=odoo&logoColor=white)]()
