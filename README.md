@@ -12,8 +12,8 @@ Business Intelligence, Machine Learning, and Web Applications
   <a href="https://app.powerbi.com/view?r=eyJrIjoiNjA2NTFhYTgtNmI2Zi00ZTlkLTkwYjQtYTI4MzE5MDBjNDNjIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9">
     <img src="https://img.shields.io/badge/Live_Dashboard-Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black">
   </a>
-  <a href="https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Document.pdf">
-    <img src="https://img.shields.io/badge/Documentation-PDF-red?style=for-the-badge">
+  <a href="https://github.com/OmarAhmedWahby/Smart_Odoo/blob/main/docs/Document.docx">
+    <img src="https://img.shields.io/badge/Documentation-docx-red?style=for-the-badge">
   </a>
   <a href="https://drive.google.com/file/d/1tx8S1vpoSdApP3Uz4a4DvJTjNwxp9atx/view?usp=drive_link">
     <img src="https://img.shields.io/badge/PowerBI Demo-Video-blue?style=for-the-badge">
